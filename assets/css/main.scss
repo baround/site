@@ -1,0 +1,195 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline; }
+  
+  /* HTML5 display-role reset for older browsers */
+  
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block; }
+  
+  body {
+    line-height: 1; }
+  
+  ol, ul {
+    list-style: none; }
+  
+  blockquote, q {
+    quotes: none; }
+  
+  blockquote {
+    &:before, &:after {
+      content: '';
+      content: none; } }
+  
+  q {
+    &:before, &:after {
+      content: '';
+      content: none; } }
+  
+  table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+
+
+
+////MAIN    
+html, body{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+*{
+    box-sizing: border-box;
+}
+// font-family: 'Playfair Display', serif;
+main{
+  padding-top: 74px;
+}
+.intro{
+  p{
+    padding-bottom: 30px;
+    line-height: 1.5em;
+    &:first-child{
+      &:first-letter {     
+        font-family: 'Playfair Display', serif;
+        font-size: 100px;
+        font-weight: normal;
+        line-height: 0.7em;
+        letter-spacing: 5.56px;
+        color: #222831;
+        float:left;
+      }
+    }
+  }
+}
+.locale, .attivita, .itinerario{
+  p{
+    line-height: 1.5em;
+    padding-bottom: 30px;
+  }
+  ul{
+    list-style: disc;
+    line-height: 1.5em;
+    padding-bottom: 30px;
+    li{
+      margin: 20px 0;
+    }
+  }
+  h2{
+    font-size: 46px;
+    font-weight: bold;
+    line-height: 1.13;
+    letter-spacing: 3.29px;
+    color: #222831;
+    margin-bottom: 50px;
+  }
+  h3{
+    font-size: 32px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.31;
+    letter-spacing: 1.78px;
+    color: #222831;
+    margin-bottom: 30px;
+  }
+  iframe{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+.gm-style .gm-style-iw-c {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -100%);
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: 0 3px 34px 0 rgba(0, 0, 0, 0.31);
+}
+.gm-style .gm-style-iw-d {
+  box-sizing: border-box;
+  overflow: hidden!important;
+  background-color: white;
+  button{
+    top: 30px!important;
+    right: 30px!important;
+  }
+}
+.gm-style .gm-style-iw-t::after{
+  display: none;
+}
+.gm-style .gm-style-iw-c {
+  transform: translate(-50%, -120%);
+}
+.singleLocale{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  position: relative;
+  figure{
+    width: 118px;
+    height: 137px;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center;
+    flex-grow: 1;
+    flex-shrink: 0;
+    img{
+      width: 100%;
+      opacity: 0;
+    }
+  }
+  &__content{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    h2{
+      font-size: 15.6px;
+      font-weight: bold;
+      letter-spacing: 1.11px;
+      color: #222831;
+      margin: 6px 0;
+      a{
+        text-decoration: none;
+        color: #222831;
+      }
+    }
+    .price{
+      font-size: 16px;
+      letter-spacing: 1.33px;
+      color: #222831;
+      font-weight: bold;
+      margin: 6px 0;
+    }
+    .address{
+      margin: 6px 0;
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.3;
+      letter-spacing: 1.3px;
+      color: #222831;
+    }
+  }
+}

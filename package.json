@@ -1,0 +1,25 @@
+{
+  "name": "baround",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "nuxt": "^2.14.0",
+    "swiper": "^6.2.0",
+    "vue-awesome-swiper": "^4.1.1",
+    "vue-vimeo-player": "^0.1.0",
+    "vue2-google-maps": "^0.10.7"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^10.0.2"
+  }
+}

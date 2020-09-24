@@ -1,0 +1,38 @@
+{
+  "Header": {
+    "description": "Auto imported from components/Header.vue"
+  },
+  "LazyHeader": {
+    "description": "Auto imported from components/Header.vue"
+  },
+  "Home": {
+    "description": "Auto imported from components/Home.vue"
+  },
+  "LazyHome": {
+    "description": "Auto imported from components/Home.vue"
+  },
+  "Logo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "LazyLogo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "Map": {
+    "description": "Auto imported from components/Map.vue"
+  },
+  "LazyMap": {
+    "description": "Auto imported from components/Map.vue"
+  },
+  "Navigation": {
+    "description": "Auto imported from components/Navigation.vue"
+  },
+  "LazyNavigation": {
+    "description": "Auto imported from components/Navigation.vue"
+  },
+  "Quiz": {
+    "description": "Auto imported from components/Quiz.vue"
+  },
+  "LazyQuiz": {
+    "description": "Auto imported from components/Quiz.vue"
+  }
+}
