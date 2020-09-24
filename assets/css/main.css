@@ -94,7 +94,7 @@ main {
   line-height: 1.13;
   letter-spacing: 3.29px;
   color: #222831;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .locale h3, .attivita h3, .itinerario h3 {
@@ -106,6 +106,17 @@ main {
   letter-spacing: 1.78px;
   color: #222831;
   margin-bottom: 30px;
+}
+
+.locale h4, .attivita h4, .itinerario h4 {
+  font-size: 22px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.31;
+  letter-spacing: 1.78px;
+  color: #222831;
+  margin-bottom: 15px;
 }
 
 .locale iframe, .attivita iframe, .itinerario iframe {

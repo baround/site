@@ -127,7 +127,7 @@
     <div v-else>
         Wait 
     </div>
-
+    <Footer />
 </main>
 </template>
 
@@ -472,6 +472,16 @@ export default {
                 opacity: 0;
             }
         }
+        &:before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 4;
+            background-image: linear-gradient(180deg, #75757540, #000000a1);
+        }
         &__details{
             position: absolute;
             top: 0;
@@ -482,6 +492,7 @@ export default {
             flex-flow: column;
             justify-content: center;
             align-items: center;
+            z-index: 5;
             h1{
                 font-size: 46px;
                 font-weight: bold;
@@ -548,7 +559,7 @@ export default {
                 margin-bottom: 0px;
             }
             &--testo{
-                max-width: 654px;
+                max-width: 674px;
                 background: white;
                 padding: 0 75px 0 75px;
                 position: relative;

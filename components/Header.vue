@@ -1,7 +1,7 @@
 <template>
   <header>
       <div class="logo">
-        <a href="/"><img src="../assets/images/logo-baround-blue.png" /></a>
+        <a href="/"><img src="../assets/images/logo-baround-white.png" /></a>
       </div>
       <Navigation />
   </header>
@@ -11,7 +11,7 @@
 header{
   width: 100%;
   position: fixed;
-  background: white;
+  background: #222831;
   height: 74px;
   top: 0;
   display: flex;

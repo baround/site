@@ -278,18 +278,11 @@ export default {
 
 
   computed: {
-    itinerari() {
-      return this.$store.state.content.itinerari;
-    },
     locali() {
       return this.$store.state.content.locali;
     },
-    attivita() {
-      return this.$store.state.content.attivita;
-    }
  },
   created() {
-    this.$store.dispatch("attivita");
     this.$store.dispatch("locali");
   },
   methods: {
@@ -353,9 +346,6 @@ export default {
   },
   beforeUpdate(){
     this.coords = this.listaLong();
-
-    this.$store.dispatch("attivita");
-    this.$store.dispatch("locali");
   }
 }
 </script>
@@ -363,16 +353,17 @@ export default {
 <style scoped defer lang="scss">
 .vue-map-container {
   height: 100vh;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 120px);
   width: 100%;
   max-height: 100vh;
 }
 .finder{
   width: 100%;
-  height: calc(100vh - 140px);
+  height: calc(100vh - 120px);
   position: relative;
   display: flex;
   justify-content: space-between;
+  background: #222831;
   &__listing{
     width: 50%;
     height: 100%;
@@ -384,7 +375,7 @@ export default {
       font-size: 12px;
       font-weight: 300;
       letter-spacing: 0.86px;
-      color: #222831;
+      color: white;
       padding-top: 10px;
       padding: 0 30px 0 30px;
     }
@@ -393,7 +384,7 @@ export default {
       font-weight: normal;
       line-height: normal;
       letter-spacing: 2.67px;
-      color: #222831;
+      color: white;
       padding: 0 30px 50px 30px;
     }
     &__locali{
@@ -412,7 +403,7 @@ export default {
         align-items: flex-start;
         padding-bottom: 25px;
         margin-bottom: 25px;
-        border-bottom: solid 1px rgba(34, 40, 49, 0.15);;
+        border-bottom: solid 1px rgba(255, 255, 255, 0.55);;
         figure{
           width: 241px;
           height: 163px;
@@ -433,7 +424,7 @@ export default {
             font-size: 16px;
             font-weight: bold;
             letter-spacing: 1.33px;
-            color: #222831;
+            color: white;
             margin: 5px 0;
           }
           .address{
@@ -441,7 +432,7 @@ export default {
               font-weight: 300;
               line-height: 1.5;
               letter-spacing: 1px;
-              color: #222831;
+              color: white;
             margin: 5px 0;
           }
           .tipologia{
@@ -449,7 +440,7 @@ export default {
             font-size: 13px;
             font-weight: 600;
             letter-spacing: 1.18px;
-            color: #222831;
+            color: white;
             text-transform: uppercase;
             span{
                 padding: 0 5px 0 0;
@@ -467,10 +458,10 @@ export default {
             font-size: 16px;
             font-weight: bold;
             letter-spacing: 1.14px;
-            color: #222831;
+            color: white;
             margin: 5px 0;
             a{
-              color: #222831;
+              color: white;
               text-decoration: none;
             }
           }
@@ -480,6 +471,7 @@ export default {
   }
   &__maps{
     height: 100%;
+    height: calc(100vh - 70px);
     overflow: hidden;
     width: 50%;
     display: flex;

@@ -2,6 +2,7 @@
   <main>
     <Header />
     <Map />
+    <Footer />
   </main>
 </template>
 
@@ -67,5 +68,9 @@ computed: {
 
 .links {
   padding-top: 15px;
+}
+footer{
+  position: fixed;
+  bottom: 0;
 }
 </style>

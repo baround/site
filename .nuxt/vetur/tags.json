@@ -1,4 +1,10 @@
 {
+  "Footer": {
+    "description": "Auto imported from components/Footer.vue"
+  },
+  "LazyFooter": {
+    "description": "Auto imported from components/Footer.vue"
+  },
   "Header": {
     "description": "Auto imported from components/Header.vue"
   },
@@ -10,6 +16,12 @@
   },
   "LazyHome": {
     "description": "Auto imported from components/Home.vue"
+  },
+  "Itinerariomap": {
+    "description": "Auto imported from components/Itinerariomap.vue"
+  },
+  "LazyItinerariomap": {
+    "description": "Auto imported from components/Itinerariomap.vue"
   },
   "Logo": {
     "description": "Auto imported from components/Logo.vue"

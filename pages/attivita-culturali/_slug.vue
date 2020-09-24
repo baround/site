@@ -65,47 +65,6 @@
                 </swiper>
             </div>
         </section>
-        <!-- 
-        <section class="attivita__fascia" v-if='correlatiLocali'>
-            <div class="attivita__fascia__contenuto attivita__fascia__contenuto--bgBlue attivita__fascia__contenuto--correlati" :startLocaliSwiper="startLocaliSwiper()">
-                <h3>I locali nelle vicinanze...</h3>
-                <swiper class="correlati" ref="localiCorrelati" :options="swiperLocaliOptions">
-                    <swiper-slide class="correlati__single" v-for="(nearlocale, index) in correlatiLocali" :key="index">
-                        <div class="correlati__card">
-
-                            <figure v-if='nearlocale.acf.immagine_di_copertina' v-bind:style="{ 'background-image': 'url(' + nearlocale.acf.immagine_di_copertina + ')' }">
-                                <a :href="`/locali/${nearlocale.slug}`"><img v-bind:src="nearlocale.acf.immagine_di_copertina" /></a>
-                            </figure>
-                            <figure v-else>
-                                <a :href="`/locali/${nearlocale.slug}`"><img src="~/assets/images/placeholder.jpg" /></a>
-                            </figure>
-                            <div class="correlati__card__content">
-                                <span class="price">
-                                    <span v-if="nearlocale.acf.fascia_di_prezzo === 'basso'">
-                                    &euro;
-                                    </span>
-                                    <span v-else-if="nearlocale.acf.fascia_di_prezzo === 'medio'">
-                                    &euro;&euro;
-                                    </span>
-                                    <span v-else-if="nearlocale.acf.fascia_di_prezzo === 'alto'">
-                                    &euro;&euro;&euro;
-                                    </span>
-                                    <span v-else>
-                                        -
-                                    </span>
-                                </span>
-                                <h4><a :href="`/locali/${nearlocale.slug}`" v-html="nearlocale.title.rendered"></a></h4>
-                                <div class="tipologia">
-                                    <span v-for="(type, index) in locale.acf.tipologia" :key="index">{{type.name}}</span>      
-                                </div>
-                                <span class="address">{{nearlocale.acf.indirizzo.address}}</span>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <div class="swiper-pagination" slot="pagination"></div>
-                </swiper>
-            </div>
-        </section> -->
     </div>
     <div v-else>
         Wait 
@@ -450,6 +409,16 @@ export default {
                 opacity: 0;
             }
         }
+        &:before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 4;
+            background-image: linear-gradient(180deg, #75757540, #000000a1);
+        }
         &__details{
             position: absolute;
             top: 0;
@@ -460,6 +429,7 @@ export default {
             flex-flow: column;
             justify-content: center;
             align-items: center;
+            z-index: 5;
             h1{
                 font-size: 46px;
                 font-weight: bold;
@@ -526,7 +496,7 @@ export default {
                 margin-bottom: 0px;
             }
             &--testo{
-                max-width: 654px;
+                max-width: 674px;
                 background: white;
                 padding: 0 75px 0 75px;
                 position: relative;
