@@ -76,6 +76,10 @@ main{
   p{
     line-height: 1.5em;
     padding-bottom: 30px;
+
+    @media all and (max-width: 768px) {  
+      padding: 10px 0;
+    }
   }
   ul{
     list-style: disc;
@@ -92,6 +96,9 @@ main{
     letter-spacing: 3.29px;
     color: #222831;
     margin-bottom: 25px;
+    @media all and (max-width: 768px) {  
+      font-size: 22px;
+    }
   }
   h3{
     font-size: 32px;
@@ -102,6 +109,9 @@ main{
     letter-spacing: 1.78px;
     color: #222831;
     margin-bottom: 30px;
+    @media all and (max-width: 768px) {  
+      font-size: 18px;
+    }
   }
   h4{
     font-size: 22px;
@@ -112,6 +122,9 @@ main{
     letter-spacing: 1.78px;
     color: #222831;
     margin-bottom: 15px;
+    @media all and (max-width: 768px) {  
+      font-size: 14px;
+    }
   }
   iframe{
     width: 100vw;

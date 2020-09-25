@@ -580,6 +580,14 @@ export default {
                 text-align: center;
                 color: #ffffff;
                 margin-bottom: 20px;
+                @media all and (max-width: 728px) {  
+                    font-size: 28px;
+                    font-weight: bold;
+                    line-height: 1.21;
+                    letter-spacing: 2px;
+                    text-align: center;
+                    color: #ffffff;
+                }
             }
             .autore{
                 font-size: 16px;
@@ -587,6 +595,9 @@ export default {
                 letter-spacing: 1.14px;
                 color: #ffffff;
                 margin: 0 0 25px 0;
+                @media all and (max-width: 728px) {  
+                    font-size: 14px;
+                }
             }
             .zona{
                 font-size: 14px;
@@ -595,6 +606,9 @@ export default {
                 letter-spacing: 1px;
                 color: #ffffff;
                 margin: 5px 0;
+                @media all and (max-width: 728px) {  
+                    font-size: 14px;
+                }
             }
         }
     }
@@ -610,6 +624,9 @@ export default {
             flex-flow: column;
             justify-content: center;
             margin: 50px 0;
+            @media all and (max-width: 768px) {  
+                margin: 25px 0;
+            }
             &--intro{
                 max-width: 654px;
                 background: white;
@@ -618,12 +635,19 @@ export default {
                 position: relative;
                 margin-bottom: 0px;
                 z-index: 10;
+                @media all and (max-width: 728px) {  
+                    padding: 0 20px 0 20px;
+                    margin-top: 0;
+                }
             }
             &--testo{
                 max-width: 674px;
                 background: white;
                 padding: 0 75px 0 75px;
                 position: relative;
+                @media all and (max-width: 728px) {  
+                    padding: 0 20px 0 20px;
+                }
             }
             &--image{
                 width: 100%;
@@ -660,6 +684,9 @@ export default {
                     background: white;
                     padding: 0 75px 0 75px;
                     position: relative;
+                    @media all and (max-width: 728px) {  
+                        padding: 0 20px 0 20px;
+                    }
                     .indirizzo{
                         font-size: 14px;
                         font-weight: 300;
