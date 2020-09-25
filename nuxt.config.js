@@ -46,6 +46,7 @@ export default {
   plugins: [
     { src: '~/plugins/gmaps'},
     { src: '~/plugins/VueAwesomeSwiper.js' }, 
+    { src: '~/plugins/mobile.js' }, 
   ],
 
   components: true,

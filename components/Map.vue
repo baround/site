@@ -3,11 +3,24 @@
 <div>
   <div class="finder" v-if="locali">
     <div class="finder__listing">
-      <span class="counter">
-        {{locali.length}} bar a Milano
-      </span>
-      <h1>Ecco i bar che fanno per te!</h1>
-      <div class="finder__listing__locali">
+      <div class="finder__listing__cappello">
+        <span class="counter">
+          {{locali.length}} bar a Milano
+        </span>
+        <span class="benvenuto">Benvenuto!</span>
+        <h1>Ecco i bar che fanno per te!</h1>
+        <div class="filters">
+          <div class="finder__listing__cappello__tab">
+            <div class="tab" @click="isSelect('lista')">
+              Lista
+            </div>
+            <div class="tab" @click="isSelect('mappa')">
+              Mappa
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="finder__listing__locali" v-show="isActive != 'mappa'">
         <div class="finder__listing__locali__locale" v-for="(locale, key) in locali" :key="key">
           <figure v-bind:style="{ 'background-image': 'url(' + locale.acf.immagine_di_copertina + ')' }">
               <img v-bind:src="locale.acf.immagine_di_copertina" />
@@ -37,7 +50,7 @@
         </div>
       </div>
     </div>
-    <div class="finder__maps">
+    <div class="finder__maps"  v-show="isActive != 'lista'">
       <gmap-map :options="{styles: styles}" ref="mymap" :center="startLocation" :zoom="14" v-if="coords">
           <gmap-info-window :options="infoOptions" :position="infoPosition" :opened="infoOpened" @closeclick="infoOpened=false"><div v-html="infoContent"></div></gmap-info-window>
           <gmap-marker 
@@ -63,6 +76,7 @@ const mapMarker = require('../assets/images/icon-pinner-locali.png');
 export default {
   data() {
     return {
+    isActive: '',
     markerOptions: {
       url: mapMarker,
       size: {width: 60, height: 102, f: 'px', b: 'px',},
@@ -278,14 +292,30 @@ export default {
 
 
   computed: {
-    locali() {
-      return this.$store.state.content.locali;
-    },
- },
+      locali() {
+        return this.$store.state.content.locali;
+      },
+  },
   created() {
     this.$store.dispatch("locali");
+    // console.log(this.$isMobile())
   },
   methods: {
+    isSelect: function (num) {
+      this.isActive = num;
+    },
+    test: function(param){
+      console.log(param)
+      console.log(this.locali)
+      var idPosts = [];
+        var i;
+        for (i = 0; i < this.locali.length; i++) {
+            console.log(this.locali);
+        }
+        // var filtered = this.$store.state.content.locali.filter((item) => idPosts.includes(item.id));
+        var filtered = 'ciap';
+        this.locali = filtered;
+    },
     getPosition: function(item) {
         return {
           lat: parseFloat(item.lat),
@@ -325,7 +355,6 @@ export default {
       },
     listaLong: function(allLocals){
       var allLocals = this.locali;
-      console.log(allLocals);
       var coords = [];
       var i;
       for (i = 0; i < allLocals.length; i++) {
@@ -346,6 +375,7 @@ export default {
   },
   beforeUpdate(){
     this.coords = this.listaLong();
+    console.log(this.locali)
   }
 }
 </script>
@@ -363,30 +393,83 @@ export default {
   position: relative;
   display: flex;
   justify-content: space-between;
-  background: #222831;
+  background: #3d4858;
+  @media all and (max-width: 768px) {  
+    flex-flow: column;
+  }
   &__listing{
     width: 50%;
     height: 100%;
     overflow: hidden;
     display: flex;
     flex-flow: column;
-    padding: 0 20px 0 0px;
-    .counter{
-      font-size: 12px;
-      font-weight: 300;
-      letter-spacing: 0.86px;
-      color: white;
-      padding-top: 10px;
-      padding: 0 30px 0 30px;
+    padding: 20px 20px 0 0px;
+    @media all and (max-width: 768px) {  
+      width: 100%;
+      padding: 20px 0;
     }
-    h1{
-      font-size: 32px;
-      font-weight: normal;
-      line-height: normal;
-      letter-spacing: 2.67px;
-      color: white;
-      padding: 0 30px 50px 30px;
+    &__cappello{
+      display: flex;
+      flex-flow: column;
+      width: 100%;
+      &__tab{
+        color: white;
+        display: none;
+        justify-content: space-between;
+        @media all and (max-width: 768px) {  
+          display: flex;
+        }
+        .tab{
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 3px;
+        }
+      }
+      .counter{
+        font-size: 12px;
+        font-weight: 300;
+        letter-spacing: 0.86px;
+        color: white;
+        padding-top: 10px;
+        padding: 0 30px 0 30px;
+        @media all and (max-width: 768px) {  
+          display: none;
+        }
+      }
+      .benvenuto{
+        display: none;
+        @media all and (max-width: 768px) {  
+            display: flex;
+            font-size: 31px;
+            font-weight: 300;
+            letter-spacing: 2.58px;
+            color: #ffffff;
+            padding: 0 30px 0px 30px;
+            text-align: center;
+            width: 100%;
+            justify-content: center;
+        }
+      }
+
+      h1{
+        font-size: 32px;
+        font-weight: normal;
+        line-height: normal;
+        letter-spacing: 2.67px;
+        color: white;
+        padding: 0 30px 50px 30px;
+        @media all and (max-width: 768px) {  
+          font-size: 14px;
+          font-weight: 300;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+      }
     }
+
     &__locali{
       height: 100%;
       overflow: scroll;
@@ -476,6 +559,9 @@ export default {
     width: 50%;
     display: flex;
     flex-flow: column;
+    @media all and (max-width: 768px) {  
+      width: 100%;
+    }
   }
 }
 

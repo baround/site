@@ -173,6 +173,11 @@ export default {
             correlatiAttivita: {
 
             },
+            markerOptions: {
+                url: mapMarker,
+                size: {width: 60, height: 102, f: 'px', b: 'px',},
+                scaledSize: {width: 20, height: 34, f: 'px', b: 'px',},
+            },
             startLocation: {
                 lat: 45.4627124,
                 lng: 9.1076929
@@ -557,6 +562,7 @@ export default {
                 margin-top: -150px;
                 position: relative;
                 margin-bottom: 0px;
+                z-index: 10;
             }
             &--testo{
                 max-width: 674px;

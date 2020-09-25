@@ -563,6 +563,7 @@ export default {
                 margin-top: -150px;
                 position: relative;
                 margin-bottom: 0px;
+                z-index: 10;
             }
             &--testo{
                 max-width: 674px;
