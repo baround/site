@@ -162,10 +162,58 @@ export default {
         return {
             slug: this.$route.params.slug,
             swiperLocaliOptions: {
-                
+                slidesPerView: 4,
+                spaceBetween: 30,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 40
+                    },
+                    768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                    },
+                    640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                    },
+                    320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                    }
+                }
             },
             swiperAttivitaOptions: {
-                
+                slidesPerView: 4,
+                spaceBetween: 30,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 40
+                    },
+                    768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                    },
+                    640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                    },
+                    320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                    }
+                }
             },
             correlatiLocali: {
 
@@ -410,6 +458,24 @@ export default {
                     el: '.swiper-pagination',
                     clickable: true,
                 },
+                breakpoints: {
+                    1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 40
+                    },
+                    768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                    },
+                    640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                    },
+                    320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                    }
+                }
             }
         },
         funAttivitaOption: function(){
@@ -418,9 +484,27 @@ export default {
                 spaceBetween: 30,
                 loop: true,
                 pagination: {
-                    el: '.swiper-pagination-attivita',
+                    el: '.swiper-pagination',
                     clickable: true,
                 },
+                breakpoints: {
+                    1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 40
+                    },
+                    768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                    },
+                    640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                    },
+                    320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                    }
+                }
             }
         },
         startLocaliSwiper: function(){

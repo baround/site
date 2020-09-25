@@ -157,6 +157,24 @@ export default {
                     el: '.swiper-pagination',
                     clickable: true,
                 },
+                breakpoints: {
+                    1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 40
+                    },
+                    768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                    },
+                    640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                    },
+                    320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                    }
+                }
             },
             swiperAttivitaOptions: {
                 
@@ -374,6 +392,24 @@ export default {
                     el: '.swiper-pagination',
                     clickable: true,
                 },
+                breakpoints: {
+                    1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 40
+                    },
+                    768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                    },
+                    640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                    },
+                    320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                    }
+                }
             }
         },
         funAttivitaOption: function(){
@@ -385,6 +421,24 @@ export default {
                     el: '.swiper-pagination-attivita',
                     clickable: true,
                 },
+                breakpoints: {
+                    1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 40
+                    },
+                    768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                    },
+                    640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                    },
+                    320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                    }
+                }
             }
         },
         startLocaliSwiper: function(){
@@ -662,6 +716,9 @@ export default {
                     .swiper-slide{
                         width: 25%;
                         overflow: hidden;
+                        @media all and (max-width: 768px) {  
+                            width: 100%;
+                        }
                     }
                     &__card{
                         width: 100%;
