@@ -19,6 +19,9 @@ footer{
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
+  @media all and (max-width: 768px) {  
+      padding: 7px 20px;
+  }
   .social{
     display: flex;
     flex-flow: row;
@@ -45,6 +48,9 @@ footer{
     font-weight: 300;
     letter-spacing: 1.08px;
     color: white;
+    @media all and (max-width: 768px) {  
+        font-size: 11px;
+    }
     a{
       text-decoration: none;
       color: white;
