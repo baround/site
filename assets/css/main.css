@@ -56,6 +56,13 @@ html, body {
 
 main {
   padding-top: 74px;
+  overflow-x: hidden;
+}
+
+@media all and (max-width: 768px) {
+  main {
+    padding-top: 40px;
+  }
 }
 
 .intro p {
@@ -139,7 +146,7 @@ main {
 
 @media all and (max-width: 768px) {
   .locale h4, .attivita h4, .itinerario h4 {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -189,6 +196,12 @@ main {
   position: relative;
 }
 
+@media all and (max-width: 768px) {
+  .singleLocale {
+    flex-flow: column;
+  }
+}
+
 .singleLocale figure {
   width: 118px;
   height: 137px;
@@ -197,6 +210,12 @@ main {
   background-position: center;
   flex-grow: 1;
   flex-shrink: 0;
+}
+
+@media all and (max-width: 768px) {
+  .singleLocale figure {
+    width: 100%;
+  }
 }
 
 .singleLocale figure img {

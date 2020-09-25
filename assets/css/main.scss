@@ -54,6 +54,10 @@ html, body{
 // font-family: 'Playfair Display', serif;
 main{
   padding-top: 74px;
+  overflow-x: hidden;
+  @media all and (max-width: 768px) {  
+    padding-top: 40px;
+  }
 }
 .intro{
   p{
@@ -76,7 +80,6 @@ main{
   p{
     line-height: 1.5em;
     padding-bottom: 30px;
-
     @media all and (max-width: 768px) {  
       padding: 10px 0;
     }
@@ -123,7 +126,7 @@ main{
     color: #222831;
     margin-bottom: 15px;
     @media all and (max-width: 768px) {  
-      font-size: 14px;
+      font-size: 16px;
     }
   }
   iframe{
@@ -166,6 +169,9 @@ main{
   justify-content: space-between;
   background: white;
   position: relative;
+  @media all and (max-width: 768px) {  
+    flex-flow: column;
+  }
   figure{
     width: 118px;
     height: 137px;
@@ -174,6 +180,9 @@ main{
     background-position: center;
     flex-grow: 1;
     flex-shrink: 0;
+    @media all and (max-width: 768px) {  
+      width: 100%;
+    }
     img{
       width: 100%;
       opacity: 0;

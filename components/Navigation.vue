@@ -26,6 +26,11 @@ nav{
     flex-flow: column;
     align-items: center;
     justify-content: space-between;
+    @media all and (max-width: 768px) {  
+      width: 14px;
+      height: 14px;
+      padding: 0px;
+    }
     &__line{
       width: 100%;
       height: 1px;

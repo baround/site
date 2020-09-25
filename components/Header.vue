@@ -20,8 +20,18 @@ header{
   animation: 1s appear;
   padding: 30px;
   z-index: 30;
+  @media all and (max-width: 768px) {  
+      padding: 10px 20px;
+      height: 40px;
+  }
   .logo{
     width: 157px;
+    @media all and (max-width: 768px) {  
+      width: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     img{
       width: 100%;
     }
