@@ -47,7 +47,7 @@ export const actions = {
     async locali({ state, commit }) {
       if (state.content.locali.length) return
       try {
-        let locali = await fetch( `http://baround.it/be/wp-json/wp/v2/locali?page=1&per_page=100`
+        let locali = await fetch( `https://baround.it/be/wp-json/wp/v2/locali?page=1&per_page=100`
         ).then(res => res.json())
         locali = locali
           .filter(el => el.status === "publish")
@@ -65,7 +65,7 @@ export const actions = {
     async attivita({ state, commit }) {
       if (state.content.attivita.length) return
       try {
-        let attivita = await fetch( `http://baround.it/be/wp-json/wp/v2/attivita_culturali?page=1&per_page=100`
+        let attivita = await fetch( `https://baround.it/be/wp-json/wp/v2/attivita_culturali?page=1&per_page=100`
         ).then(res => res.json())
         attivita = attivita
           .filter(el => el.status === "publish")
