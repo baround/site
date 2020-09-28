@@ -3,7 +3,7 @@
     <Header />
     <div class="itinerari" v-if='itinerari'>
         <section class="itinerari__header">
-            <figure v-bind:style="{ 'background-image': 'url(/_nuxt/assets/images/bg-itinerari.jpg)' }">
+            <figure v-bind:style="{ 'background-image': 'url(/_nuxt/img/bg-itinerari.jpg)' }">
                 <!-- <img v-bind:src="" /> -->
                 <img src="~/assets/images/bg-itinerari.jpg" />
             </figure>
