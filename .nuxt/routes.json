@@ -1,5 +1,12 @@
 [
   {
+    "name": "chi-siamo",
+    "path": "/chi-siamo",
+    "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/chi-siamo/index.vue",
+    "chunkName": "pages/chi-siamo/index",
+    "_name": "_2981a5a6"
+  },
+  {
     "name": "home",
     "path": "/home",
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/home/index.vue",

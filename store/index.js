@@ -51,16 +51,8 @@ export const actions = {
     async chisiamo({ state, commit }) {
       if (state.content.itinerari.length) return
       try {
-        let chisiamo = await fetch( `https://baround.it/be/wp-json/wp/v2/pages/255`
+        let chisiamo = await fetch( `https://baround.it/be/wp-json/wp/v2/pages/253`
         ).then(res => res.json())
-        // chisiamo = chisiamo
-        //   .filter(el => el.status === "publish")
-        //   .map(({ id, slug, title, acf }) => ({
-        //     id,
-        //     slug,
-        //     title,
-        //     acf
-        //   }))
         commit("updateChisiamo", chisiamo)
       } catch (err) {
         console.log(err)

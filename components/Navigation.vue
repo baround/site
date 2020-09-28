@@ -8,28 +8,30 @@
     <div class="burger burger--close" v-on:click="isHidden = !isHidden" v-else>
     </div>
     <div class="menu" v-bind:class="{ visible: !isHidden }">
-      <div class="menu__wrap">
-        <div class="menu__row">
-          <span class="line"></span>
-          <span class="logo"></span>
-          <span class="line"></span>
-        </div>
-        <div class="menu__row">
-          <ul>
-              <li><a href="/chi-siamo">Chi siamo</a></li>
-              <li><a href="/locali">Locali</a></li>
-              <li><a href="/itinerari">Itinerari</a></li>
-              <!-- <li><a href="/brands">Brands</a></li> -->
-              <li><a href="/contatti">Contatti</a></li>
-          </ul>
-        </div>
-        <div class="menu__row">
-          <span class="line"></span>
-          <div class="social">
-            <a href=""><span class="icon icon__fb"></span></a>
-            <a href=""><span class="icon icon__ig"></span></a>
+      <div class="menu__col">
+        <div class="menu__wrap">
+          <div class="menu__row">
+            <span class="line"></span>
+            <span class="logo"></span>
+            <span class="line"></span>
           </div>
-          <span class="line"></span>
+          <div class="menu__row">
+            <ul>
+                <li><a href="/chi-siamo">Chi siamo</a></li>
+                <li><a href="/locali">Locali</a></li>
+                <li><a href="/itinerari">Itinerari</a></li>
+                <!-- <li><a href="/brands">Brands</a></li> -->
+                <li><a href="/contatti">Contatti</a></li>
+            </ul>
+          </div>
+          <div class="menu__row">
+            <span class="line"></span>
+            <div class="social">
+              <a href=""><span class="icon icon__fb"></span></a>
+              <a href=""><span class="icon icon__ig"></span></a>
+            </div>
+            <span class="line"></span>
+          </div>
         </div>
       </div>
 
@@ -90,7 +92,6 @@ nav{
     background-image: url('../assets/images/bg-menu.jpg');
     background-position: center;
     background-size: cover;
-    padding: 120px;
     &.visible{
       display: flex;
       flex-flow: column;
@@ -101,9 +102,16 @@ nav{
       left: 0;
       animation: mymove 5s;
     }
+    &__col{
+      width: 50%;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+    }
     &__wrap{
       width: 100%;
-      max-width: 250px;
+      max-width: 400px;
       display: flex;
       flex-flow: column;
       justify-content: center;
@@ -115,7 +123,7 @@ nav{
       justify-content: space-between;
       align-items: center;
       .line{
-        width: 52px;
+        width: 100px;
         height: 1px;
         background-color: white;
       }
@@ -137,7 +145,7 @@ nav{
         li{
           a{
             text-decoration: none;
-            font-size: 24px;
+            font-size: 34px;
             font-weight: 300;
             line-height: 2.75;
             letter-spacing: 4.5px;

@@ -80,28 +80,28 @@ main {
   float: left;
 }
 
-.locale p, .attivita p, .itinerario p {
+.locale p, .attivita p, .itinerario p, .page p {
   line-height: 1.5em;
   padding-bottom: 30px;
 }
 
 @media all and (max-width: 768px) {
-  .locale p, .attivita p, .itinerario p {
+  .locale p, .attivita p, .itinerario p, .page p {
     padding: 10px 0;
   }
 }
 
-.locale ul, .attivita ul, .itinerario ul {
+.locale ul, .attivita ul, .itinerario ul, .page ul {
   list-style: disc;
   line-height: 1.5em;
   padding-bottom: 30px;
 }
 
-.locale ul li, .attivita ul li, .itinerario ul li {
+.locale ul li, .attivita ul li, .itinerario ul li, .page ul li {
   margin: 20px 0;
 }
 
-.locale h2, .attivita h2, .itinerario h2 {
+.locale h2, .attivita h2, .itinerario h2, .page h2 {
   font-size: 46px;
   font-weight: bold;
   line-height: 1.13;
@@ -111,12 +111,12 @@ main {
 }
 
 @media all and (max-width: 768px) {
-  .locale h2, .attivita h2, .itinerario h2 {
+  .locale h2, .attivita h2, .itinerario h2, .page h2 {
     font-size: 22px;
   }
 }
 
-.locale h3, .attivita h3, .itinerario h3 {
+.locale h3, .attivita h3, .itinerario h3, .page h3 {
   font-size: 32px;
   font-weight: bold;
   font-stretch: normal;
@@ -128,12 +128,12 @@ main {
 }
 
 @media all and (max-width: 768px) {
-  .locale h3, .attivita h3, .itinerario h3 {
+  .locale h3, .attivita h3, .itinerario h3, .page h3 {
     font-size: 18px;
   }
 }
 
-.locale h4, .attivita h4, .itinerario h4 {
+.locale h4, .attivita h4, .itinerario h4, .page h4 {
   font-size: 22px;
   font-weight: bold;
   font-stretch: normal;
@@ -145,12 +145,12 @@ main {
 }
 
 @media all and (max-width: 768px) {
-  .locale h4, .attivita h4, .itinerario h4 {
+  .locale h4, .attivita h4, .itinerario h4, .page h4 {
     font-size: 16px;
   }
 }
 
-.locale iframe, .attivita iframe, .itinerario iframe {
+.locale iframe, .attivita iframe, .itinerario iframe, .page iframe {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
