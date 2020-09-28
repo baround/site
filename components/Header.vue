@@ -20,8 +20,11 @@ header{
   animation: 1s appear;
   padding: 30px;
   z-index: 30;
+  overflow-x: hidden;
   .logo{
     width: 157px;
+    position: relative;
+    z-index: 10;
     @media all and (max-width: 768px) {  
       width: 120px;
       display: flex;

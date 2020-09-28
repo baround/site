@@ -23,6 +23,16 @@
 
                 </div>
             </div>
+            <div class="itinerario__fascia__contenuto itinerario__fascia__contenuto--gallery" v-if="field.acf_fc_layout === 'galleria_immagini'">
+                <swiper class="gallery" ref="gallery" :options="swiperGalleryOptions">
+                    <swiper-slide class="gallery__single" v-for="(foto, index) in field.gallery" :key="index">
+                        <figure v-bind:style="{ 'background-image': 'url(' + foto.immagine + ')' }">
+                            <img v-bind:src="foto.immagine" />
+                        </figure>
+                    </swiper-slide>
+                    <div class="swiper-pagination-gallery" slot="pagination"></div>
+                </swiper>  
+            </div>
             <div class="itinerario__fascia__contenuto itinerario__fascia__contenuto--image" v-else-if="field.acf_fc_layout === 'immagine'">
                 <figure v-bind:style="{ 'background-image': 'url(' + field.immagine + ')' }" v-if="field.dimensione_immagine === 'normale'" class="medium">
                     <img v-bind:src="field.immagine" />
@@ -49,17 +59,10 @@
                 </div>
             </div>
         </section>
-        <section class="itinerario__fascia" v-if='itinerario.acf.indirizzo'>
+
+
+        <section class="itinerario__fascia" v-if="coords">
             <div class="itinerario__fascia__contenuto itinerario__fascia__contenuto--mappa">
-                <gmap-map :options="{styles: styles}" ref="mymap" :center="getPosition()" :zoom="14">
-                    <gmap-marker v-for="(item, key) in coordinates" :key="key" :position="getPosition()" :clickable="true" @click="toggleInfo(item, key)" />
-                </gmap-map>
-            </div>
-        </section>
-
-
-        <section class="locale__fascia" v-if="coords">
-            <div class="locale__fascia__contenuto locale__fascia__contenuto--mappa">
                 <gmap-map :options="{styles: styles}" ref="mymap" :center="startLocation" :zoom="14">
                     <gmap-info-window :options="infoOptions" :position="infoPosition" :opened="infoOpened" @closeclick="infoOpened=false"><div v-html="infoContent"></div></gmap-info-window>
                     <gmap-marker 
@@ -74,7 +77,7 @@
             </div>
         </section>
         
-        <section class="itinerario__fascia" v-if='listalocali'>
+        <section class="itinerario__fascia" v-if='listalocali.length'>
             <div class="itinerario__fascia__contenuto itinerario__fascia__contenuto--bgBlue itinerario__fascia__contenuto--correlati" >
                 <h3>Locali nelle vicinanze</h3>
                 <swiper class="correlati" ref="localiCorrelati" :options="swiperLocaliOptions">
@@ -109,12 +112,12 @@
                             </div>
                         </div>
                     </swiper-slide>
-                    <div class="swiper-pagination" slot="pagination"></div>
+                    <div class="swiper-pagination-locali" slot="pagination"></div>
                 </swiper>
             </div>
         </section>
     </div>
-    <div v-else>
+    <div class="loader" v-else>
         Wait 
     </div>
     <Footer />
@@ -125,9 +128,10 @@
 
 
 <script>
+const mapMarker = require('../../assets/images/icon-pinner-locali.png');
 
-const mapMarker = require('../../assets/images/icon-pinner-itinerari.png');
 export default {
+transition: "slide-right",
     computed: {
         attivita() {
             return this.$store.state.content.attivita;
@@ -143,6 +147,7 @@ export default {
         },
         swiper() {
             this.$refs.localiCorrelati.$swiper;
+            this.$refs.gallery.$swiper;
         }
     },
     data() {
@@ -154,7 +159,7 @@ export default {
                 spaceBetween: 30,
                 loop: true,
                 pagination: {
-                    el: '.swiper-pagination',
+                    el: '.swiper-pagination-locali',
                     clickable: true,
                 },
                 breakpoints: {
@@ -176,8 +181,32 @@ export default {
                     }
                 }
             },
-            swiperAttivitaOptions: {
-                
+            swiperGalleryOptions: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                loop: false,
+                pagination: {
+                    el: '.swiper-pagination-gallery',
+                    clickable: true,
+                },
+                breakpoints: {
+                    1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 40
+                    },
+                    768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                    },
+                    640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                    },
+                    320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                    }
+                }
             },
             correlatiLocali: {
 
@@ -412,22 +441,22 @@ export default {
                 }
             }
         },
-        funAttivitaOption: function(){
+        funGalleryOption: function(){
             return {
-                slidesPerView: 4,
+                slidesPerView: 2,
                 spaceBetween: 30,
-                loop: true,
+                loop: false,
                 pagination: {
-                    el: '.swiper-pagination-attivita',
+                    el: '.swiper-pagination-gallery',
                     clickable: true,
                 },
                 breakpoints: {
                     1024: {
-                    slidesPerView: 4,
+                    slidesPerView: 2,
                     spaceBetween: 40
                     },
                     768: {
-                    slidesPerView: 3,
+                    slidesPerView: 2,
                     spaceBetween: 30
                     },
                     640: {
@@ -444,8 +473,8 @@ export default {
         startLocaliSwiper: function(){
             this.swiperLocaliOptions = this.funLocaliOption();
         },
-        startAttivitaSwiper: function(){
-            this.swiperAttivitaOptions = this.funAttivitaOption();
+        startGallerySwiper: function(){
+            this.swiperGalleryOptions = this.funGalleryOption();
         },
 
         // MAPPA
@@ -475,33 +504,33 @@ export default {
             var fascia = `<span>€</span>`;
         };
         return (
-            `<div class="singleLocale">
+            `<div class="singleItinerario">
                 <figure style="background-image: url(${marker.foto});">
                     <img src="${marker.foto}">
                 </figure>
-                <div class="singleLocale__content">
+                <div class="singleItinerario__content">
                     <h2>${marker.full_name}</h2>
                     <div class="address">${marker.indirizzo}</div>
                 </div>
                 </div>`);
         },
         listaLong: function(itiner){
-        var itiner = this.itinerario;
-        var coords = [];
-        var i;
-        for (i = 0; i < itiner.acf.contenuto.length; i++) {
-            if(itiner.acf.contenuto[i].acf_fc_layout === 'attivita'){
-                var obj = {
-                    foto: itiner.acf.contenuto[i].immagine,
-                    indirizzo: itiner.acf.contenuto[i].indirizzo.address,
-                    full_name: itiner.acf.contenuto[i].titolo,
-                    lat: itiner.acf.contenuto[i].indirizzo.lat,
-                    lng: itiner.acf.contenuto[i].indirizzo.lng
+            var itiner = this.itinerario;
+            var coords = [];
+            var i;
+            for (i = 0; i < itiner.acf.contenuto.length; i++) {
+                if(itiner.acf.contenuto[i].acf_fc_layout === 'attivita'){
+                    var obj = {
+                        foto: itiner.acf.contenuto[i].immagine,
+                        indirizzo: itiner.acf.contenuto[i].indirizzo.address,
+                        full_name: itiner.acf.contenuto[i].titolo,
+                        lat: itiner.acf.contenuto[i].indirizzo.lat,
+                        lng: itiner.acf.contenuto[i].indirizzo.lng
+                    }
+                    coords.push(obj);
                 }
-                coords.push(obj);
             }
-        }
-        return coords;
+            return coords;
         }
     },
     created() {
@@ -509,23 +538,17 @@ export default {
         this.$store.dispatch("itinerari");
     },
     beforeUpdate(){
-        var idPosts = [];
-        var i;
-        for (i = 0; i < this.itinerario.acf.locali_vicini.length; i++) {
-            idPosts.push(this.itinerario.acf.locali_vicini[i].ID);
+        if(this.itinerario.acf.locali_vicini){
+            var idPosts = [];
+            var i;
+            for (i = 0; i < this.itinerario.acf.locali_vicini.length; i++) {
+                idPosts.push(this.itinerario.acf.locali_vicini[i].ID);
+            }
+            var filtered = this.listalocali.filter((item) => idPosts.includes(item.id));
+            this.correlatiLocali = filtered;
+
+            this.coords = this.listaLong();
         }
-        var filtered = this.listalocali.filter((item) => idPosts.includes(item.id));
-        this.correlatiLocali = filtered;
-
-        this.coords = this.listaLong();
-
-        console.log('beforeupdate')
-    },
-    updated(){
-        console.log('updated')
-    },
-    mounted(){
-        console.log('mounted')
     }
 };
 </script>

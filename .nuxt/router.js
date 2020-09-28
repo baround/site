@@ -3,11 +3,9 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _feeeacd4 = () => interopDefault(import('../pages/attivita-culturali/index.vue' /* webpackChunkName: "pages/attivita-culturali/index" */))
 const _31354a93 = () => interopDefault(import('../pages/home/index.vue' /* webpackChunkName: "pages/home/index" */))
 const _2848309d = () => interopDefault(import('../pages/itinerari/index.vue' /* webpackChunkName: "pages/itinerari/index" */))
 const _31fadf12 = () => interopDefault(import('../pages/locali/index.vue' /* webpackChunkName: "pages/locali/index" */))
-const _7ed2084e = () => interopDefault(import('../pages/attivita-culturali/_slug.vue' /* webpackChunkName: "pages/attivita-culturali/_slug" */))
 const _26918f55 = () => interopDefault(import('../pages/itinerari/_slug.vue' /* webpackChunkName: "pages/itinerari/_slug" */))
 const _30443dca = () => interopDefault(import('../pages/locali/_slug.vue' /* webpackChunkName: "pages/locali/_slug" */))
 const _5a4e3571 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
@@ -29,10 +27,6 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
-    path: "/attivita-culturali",
-    component: _feeeacd4,
-    name: "attivita-culturali"
-  }, {
     path: "/home",
     component: _31354a93,
     name: "home"
@@ -44,10 +38,6 @@ export const routerOptions = {
     path: "/locali",
     component: _31fadf12,
     name: "locali"
-  }, {
-    path: "/attivita-culturali/:slug?",
-    component: _7ed2084e,
-    name: "attivita-culturali-slug"
   }, {
     path: "/itinerari/:slug",
     component: _26918f55,

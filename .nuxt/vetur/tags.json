@@ -11,24 +11,6 @@
   "LazyHeader": {
     "description": "Auto imported from components/Header.vue"
   },
-  "Home": {
-    "description": "Auto imported from components/Home.vue"
-  },
-  "LazyHome": {
-    "description": "Auto imported from components/Home.vue"
-  },
-  "Itinerariomap": {
-    "description": "Auto imported from components/Itinerariomap.vue"
-  },
-  "LazyItinerariomap": {
-    "description": "Auto imported from components/Itinerariomap.vue"
-  },
-  "Logo": {
-    "description": "Auto imported from components/Logo.vue"
-  },
-  "LazyLogo": {
-    "description": "Auto imported from components/Logo.vue"
-  },
   "Map": {
     "description": "Auto imported from components/Map.vue"
   },

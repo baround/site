@@ -39,6 +39,16 @@
 
                 </div>
             </div>
+            <div class="locale__fascia__contenuto locale__fascia__contenuto--gallery" v-if="field.acf_fc_layout === 'galleria_immagini'">
+                <swiper class="gallery" ref="gallery" :options="swiperGalleryOptions">
+                    <swiper-slide class="gallery__single" v-for="(foto, index) in field.gallery" :key="index">
+                        <figure v-bind:style="{ 'background-image': 'url(' + foto.immagine + ')' }">
+                            <img v-bind:src="foto.immagine" />
+                        </figure>
+                    </swiper-slide>
+                    <div class="swiper-pagination-gallery" slot="pagination"></div>
+                </swiper>  
+            </div>
             <div class="locale__fascia__contenuto locale__fascia__contenuto--image" v-else-if="field.acf_fc_layout === 'immagine'">
                 <figure v-bind:style="{ 'background-image': 'url(' + field.immagine + ')' }" v-if="field.dimensione_immagine === 'normale'" class="medium">
                     <img v-bind:src="field.immagine" />
@@ -60,7 +70,7 @@
                 </gmap-map>
             </div>
         </section>
-        <section class="locale__fascia" v-if='correlatiLocali'>
+        <section class="locale__fascia" v-if='correlatiLocali.length'>
             <div class="locale__fascia__contenuto locale__fascia__contenuto--correlati" :startLocaliSwiper="startLocaliSwiper()">
                 <h3>Bar simili a questo..</h3>
                 <swiper class="correlati" ref="localiCorrelati" :options="swiperLocaliOptions">
@@ -96,35 +106,34 @@
                             </div>
                         </div>
                     </swiper-slide>
-                    <div class="swiper-pagination" slot="pagination"></div>
+                    <div class="swiper-pagination-locali" slot="pagination"></div>
                 </swiper>
             </div>
         </section>
-        <section class="locale__fascia" v-if='correlatiAttivita'>
-            <div class="locale__fascia__contenuto locale__fascia__contenuto--bgBlue locale__fascia__contenuto--correlati" :startAttivitaSwiper="startAttivitaSwiper()">
-                <h3>Attività nei dintorni:</h3>
-                <swiper class="correlati" ref="attivitaCorrelate" :options="swiperAttivitaOptions">
-                    <swiper-slide class="correlati__single" v-for="(attivita, index) in correlatiAttivita" :key="index">
+        <section class="locale__fascia" v-if='correlatiItinerari.length'>
+            <div class="locale__fascia__contenuto locale__fascia__contenuto--bgBlue locale__fascia__contenuto--correlati" :startItinerariSwiper="startItinerariSwiper()">
+                <h3>Itinerari nei dintorni:</h3>
+                <swiper class="correlati" ref="attivitaCorrelate" :options="swiperItinerariOptions">
+                    <swiper-slide class="correlati__single" v-for="(itinerario, index) in correlatiItinerari" :key="index">
                         <div class="correlati__card">
 
-                            <figure v-if='attivita.acf.immagine_di_copertina' v-bind:style="{ 'background-image': 'url(' + attivita.acf.immagine_di_copertina + ')' }">
-                                <a :href="`/attivita-culturali/${attivita.slug}`"><img v-bind:src="attivita.acf.immagine_di_copertina" /></a>
+                            <figure v-if='itinerario.acf.immagine_di_copertina' v-bind:style="{ 'background-image': 'url(' + itinerario.acf.immagine_di_copertina + ')' }">
+                                <a :href="`/itinerari/${itinerario.slug}`"><img v-bind:src="itinerario.acf.immagine_di_copertina" /></a>
                             </figure>
                             <figure v-else>
-                                <a :href="`/attivita-culturali/${attivita.slug}`"><img src="~/assets/images/placeholder.jpg" /></a>
+                                <a :href="`/itinerari/${itinerario.slug}`"><img src="~/assets/images/placeholder.jpg" /></a>
                             </figure>
                             <div class="correlati__card__content">
-                                <h4><a :href="`/attivita-culturali/${attivita.slug}`" v-html="attivita.title.rendered"></a></h4>
-                                <span class="address">{{attivita.acf.indirizzo.address}}</span>
+                                <h4><a :href="`/itinerari/${itinerario.slug}`" v-html="itinerario.title.rendered"></a></h4>
                             </div>
                         </div>
                     </swiper-slide>
-                    <div class="swiper-pagination-attivita" slot="pagination"></div>
+                    <div class="swiper-pagination-itinerari" slot="pagination"></div>
                 </swiper>
             </div>
         </section>
     </div>
-    <div v-else>
+    <div class="loader" v-else>
         Wait 
     </div>
     <Footer />
@@ -138,6 +147,7 @@
 
 const mapMarker = require('../../assets/images/icon-pinner-locali.png');
 export default {
+transition: "slide-right",
     markerOptions: {
       url: mapMarker,
       size: {width: 60, height: 102, f: 'px', b: 'px',},
@@ -147,8 +157,8 @@ export default {
         locali() {
             return this.$store.state.content.locali;
         },
-        attivita() {
-            return this.$store.state.content.attivita;
+        itinerari() {
+            return this.$store.state.content.itinerari;
         },
         locale() {
             return this.$store.state.content.locali.find(el => el.slug === this.slug);
@@ -156,6 +166,7 @@ export default {
         swiper() {
             this.$refs.localiCorrelati.$swiper;
             this.$refs.attivitaCorrelate.$swiper;
+            this.$refs.gallery.$swiper;
         }
     },
     data() {
@@ -166,7 +177,7 @@ export default {
                 spaceBetween: 30,
                 loop: true,
                 pagination: {
-                    el: '.swiper-pagination',
+                    el: '.swiper-pagination-locali',
                     clickable: true,
                 },
                 breakpoints: {
@@ -188,12 +199,39 @@ export default {
                     }
                 }
             },
-            swiperAttivitaOptions: {
+            swiperGalleryOptions: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                loop: false,
+                pagination: {
+                    el: '.swiper-pagination-gallery',
+                    clickable: true,
+                },
+                breakpoints: {
+                    1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 40
+                    },
+                    768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                    },
+                    640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                    },
+                    320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                    }
+                }
+            },
+            swiperItinerariOptions: {
                 slidesPerView: 4,
                 spaceBetween: 30,
                 loop: true,
                 pagination: {
-                    el: '.swiper-pagination',
+                    el: '.swiper-pagination-itinerari',
                     clickable: true,
                 },
                 breakpoints: {
@@ -218,7 +256,7 @@ export default {
             correlatiLocali: {
 
             },
-            correlatiAttivita: {
+            correlatiItinerari: {
 
             },
             markerOptions: {
@@ -455,7 +493,7 @@ export default {
                 spaceBetween: 30,
                 loop: true,
                 pagination: {
-                    el: '.swiper-pagination',
+                    el: '.swiper-pagination-locali',
                     clickable: true,
                 },
                 breakpoints: {
@@ -478,13 +516,42 @@ export default {
                 }
             }
         },
-        funAttivitaOption: function(){
+        funGalleryOption: function(){
+            return {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                loop: false,
+                pagination: {
+                    el: '.swiper-pagination-gallery',
+                    clickable: true,
+                },
+                breakpoints: {
+                    1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 40
+                    },
+                    768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                    },
+                    640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                    },
+                    320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                    }
+                }
+            }
+        },
+        funItinerariOption: function(){
             return {
                 slidesPerView: 4,
                 spaceBetween: 30,
                 loop: true,
                 pagination: {
-                    el: '.swiper-pagination',
+                    el: '.swiper-pagination-itinerari',
                     clickable: true,
                 },
                 breakpoints: {
@@ -510,32 +577,37 @@ export default {
         startLocaliSwiper: function(){
             this.swiperLocaliOptions = this.funLocaliOption();
         },
-        startAttivitaSwiper: function(){
-            this.swiperAttivitaOptions = this.funAttivitaOption();
+        startItinerariSwiper: function(){
+            this.swiperItinerariOptions = this.funItinerariOption();
+        },
+        startGallerySwiper: function(){
+            this.swiperGalleryOptions = this.funGalleryOption();
         }
     },
     created() {
         this.$store.dispatch("locali");
-        this.$store.dispatch("attivita");
+        this.$store.dispatch("itinerari");
     },
     beforeUpdate(){
-        // FOR LOCALI
-        var idPosts = [];
-        var i;
-        for (i = 0; i < this.locale.acf.locali_simili.length; i++) {
-            idPosts.push(this.locale.acf.locali_simili[i].ID);
+        if(this.locale.acf.locali_simili){
+            var idPosts = [];
+            var i;
+            for (i = 0; i < this.locale.acf.locali_simili.length; i++) {
+                idPosts.push(this.locale.acf.locali_simili[i].ID);
+            }
+            var filtered = this.locali.filter((item) => idPosts.includes(item.id));
+            this.correlatiLocali = filtered;
         }
-        var filtered = this.locali.filter((item) => idPosts.includes(item.id));
-        this.correlatiLocali = filtered;
-        // FOR ATTIVITA
-        var relPosts = [];
-        var i;
-        for (i = 0; i < this.locale.acf.attivita_vicine.length; i++) {
-            relPosts.push(this.locale.acf.attivita_vicine[i].ID);
+        if(this.locale.acf.itinerari_vicini){
+            console.log('ok')
+            var relPosts = [];
+            var i;
+            for (i = 0; i < this.locale.acf.itinerari_vicini.length; i++) {
+                relPosts.push(this.locale.acf.itinerari_vicini[i].ID);
+            }
+            var filtroitinerari = this.itinerari.filter((item) => relPosts.includes(item.id));
+            this.correlatiItinerari = filtroitinerari;
         }
-        var filtroattivita = this.attivita.filter((item) => relPosts.includes(item.id));
-        this.correlatiAttivita = filtroattivita;
-        // console.log(correlatiAttivita);
     }
 };
 </script>

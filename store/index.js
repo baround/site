@@ -2,7 +2,8 @@ export const state = () => ({
     content: {
       itinerari: [],
       locali: [],
-      attivita: []
+      attivita: [],
+      chisiamo: []
     }
     
 })
@@ -19,6 +20,9 @@ export const mutations = {
     },
     updateLocali: (state, locali) => {
         state.content.locali = locali
+    },
+    updateChisiamo: (state, chisiamo) => {
+        state.content.chisiamo = chisiamo
     },
     updateAttivita: (state, attivita) => {
         state.content.attivita = attivita
@@ -40,6 +44,24 @@ export const actions = {
             acf
           }))
         commit("updatePosts", itinerari)
+      } catch (err) {
+        console.log(err)
+      }
+   },
+    async chisiamo({ state, commit }) {
+      if (state.content.itinerari.length) return
+      try {
+        let chisiamo = await fetch( `https://baround.it/be/wp-json/wp/v2/pages/255`
+        ).then(res => res.json())
+        // chisiamo = chisiamo
+        //   .filter(el => el.status === "publish")
+        //   .map(({ id, slug, title, acf }) => ({
+        //     id,
+        //     slug,
+        //     title,
+        //     acf
+        //   }))
+        commit("updateChisiamo", chisiamo)
       } catch (err) {
         console.log(err)
       }

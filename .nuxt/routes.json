@@ -1,12 +1,5 @@
 [
   {
-    "name": "attivita-culturali",
-    "path": "/attivita-culturali",
-    "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/attivita-culturali/index.vue",
-    "chunkName": "pages/attivita-culturali/index",
-    "_name": "_feeeacd4"
-  },
-  {
     "name": "home",
     "path": "/home",
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/home/index.vue",
@@ -26,13 +19,6 @@
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/locali/index.vue",
     "chunkName": "pages/locali/index",
     "_name": "_31fadf12"
-  },
-  {
-    "name": "attivita-culturali-slug",
-    "path": "/attivita-culturali/:slug?",
-    "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/attivita-culturali/_slug.vue",
-    "chunkName": "pages/attivita-culturali/_slug",
-    "_name": "_7ed2084e"
   },
   {
     "name": "itinerari-slug",
