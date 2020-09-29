@@ -66,7 +66,7 @@ nav{
     align-items: center;
     justify-content: space-between;
     position: relative;
-    z-index: 10;
+    z-index: 20;
     cursor: pointer;
     @media all and (max-width: 768px) {  
       width: 14px;
