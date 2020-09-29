@@ -105,7 +105,7 @@ nav{
       left: 0;
       animation: mymove 5s;
       z-index: 10;
-      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
     &__col{
       width: 50%;

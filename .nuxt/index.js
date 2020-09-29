@@ -14,9 +14,10 @@ import { createStore } from './store.js'
 /* Plugins */
 
 import nuxt_plugin_plugin_ece61312 from 'nuxt_plugin_plugin_ece61312' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_plugin_c09b62f8 from 'nuxt_plugin_plugin_c09b62f8' // Source: ./storage/plugin.js (mode: 'all')
+import nuxt_plugin_device_833744e6 from 'nuxt_plugin_device_833744e6' // Source: ./arshen/device.js (mode: 'all')
 import nuxt_plugin_gmaps_34c7cc70 from 'nuxt_plugin_gmaps_34c7cc70' // Source: ../plugins/gmaps (mode: 'all')
 import nuxt_plugin_VueAwesomeSwiper_72dcfbac from 'nuxt_plugin_VueAwesomeSwiper_72dcfbac' // Source: ../plugins/VueAwesomeSwiper.js (mode: 'all')
-import nuxt_plugin_mobile_d5f19142 from 'nuxt_plugin_mobile_d5f19142' // Source: ../plugins/mobile.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -202,16 +203,20 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_plugin_ece61312(app.context, inject)
   }
 
+  if (typeof nuxt_plugin_plugin_c09b62f8 === 'function') {
+    await nuxt_plugin_plugin_c09b62f8(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_device_833744e6 === 'function') {
+    await nuxt_plugin_device_833744e6(app.context, inject)
+  }
+
   if (typeof nuxt_plugin_gmaps_34c7cc70 === 'function') {
     await nuxt_plugin_gmaps_34c7cc70(app.context, inject)
   }
 
   if (typeof nuxt_plugin_VueAwesomeSwiper_72dcfbac === 'function') {
     await nuxt_plugin_VueAwesomeSwiper_72dcfbac(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_mobile_d5f19142 === 'function') {
-    await nuxt_plugin_mobile_d5f19142(app.context, inject)
   }
 
   // Lock enablePreview in context

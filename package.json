@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
+    "mobile-device-detect": "^0.4.3",
     "nuxt": "^2.14.0",
+    "nuxtjs-device": "^0.1.0",
     "swiper": "^6.2.0",
     "vue-awesome-swiper": "^4.1.1",
+    "vue-device-detector": "^1.1.5",
     "vue-mobile-detection": "^1.0.0",
     "vue-vimeo-player": "^0.1.0",
     "vue2-google-maps": "^0.10.7"

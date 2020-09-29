@@ -1,7 +1,63 @@
 
 <template>
 <div>
-  <div class="finder" v-if="locali">
+  <div class="finder" v-if="locali.length">
+    <!-- <div class="finder__filters finder__filters--desktop" v-if="window.width > 1024 && !list && !hideFilters">
+        <form class="finder__filters__form">
+          <div class="finder__filters__form__row">
+            <label for="city">Città</label>
+            <select disabled name="city">
+              <option value="milano"></option>
+            </select>
+          </div>
+          <div class="finder__filters__form__row">
+            <label for="occasione">Occasione</label>
+            <select name="occasione" v-model="filterList.occasione">
+              <option value="4-chiacchiere">4 chiacchiere</option>
+              <option value="aperitivo">Aperitivo</option>
+              <option value="appuntamento">Appuntamento</option>
+              <option value="meeting">Meeting</option>
+            </select>
+          </div>
+          <div class="finder__filters__form__row">
+            <label for="tipologia">Tipologia</label>
+            <select name="tipologia" v-model="filterList.tipologia">
+              <option value="culturale">Culturale</option>
+              <option value="easy">Easy</option>
+              <option value="pettinato">Pettinato</option>
+              <option value="vintage">Vintage</option>
+            </select>
+          </div>
+          <div class="finder__filters__form__row">
+            <label for="location">Coperto/fuori</label>
+            <select name="location" v-model="filterList.location">
+              <option value="aperto">All'aperto</option>
+              <option value="coperto">Coperto</option>
+            </select>
+          </div>
+          <div class="finder__filters__form__row">
+            <label for="prezzo">Fascia di prezzo</label>
+            <div class="groupRadio">
+              <div class="boxRadio">
+                <input type="radio" name="prezzo" value="basso" v-model="filterList.prezzo">
+                <span>€</span>
+              </div>
+              <div class="boxRadio">
+                <input type="radio" name="prezzo" value="medio" v-model="filterList.prezzo">
+                <span>€€</span>
+              </div>
+              <div class="boxRadio">
+                <input type="radio" name="prezzo" value="alto" v-model="filterList.prezzo">
+                <span>€€€</span>
+              </div>
+            </div>
+          </div>
+          <div class="finder__filters__form__row">
+            <button v-on:click="generateList($event)">CERCA</button>
+          </div>
+        </form>
+    </div> -->
+
     <div class="finder__listing" v-bind:class="{ hidden: !list }">
       <span class="close" v-on:click="list = !list" v-if="list"> 
       </span>
@@ -10,7 +66,7 @@
           {{locali.length}} bar a Milano
         </span>
         <span class="benvenuto">Benvenuto!</span>
-        <h1>Ecco i bar che fanno per te!</h1>
+        <h1>Ecco i bar che fanno per te! </h1>
       </div>
       <div class="finder__listing__locali">
         <div class="finder__listing__locali__locale" v-for="(locale, key) in locali" :key="key">
@@ -43,10 +99,7 @@
       </div>
     </div>
     <div class="finder__maps" v-bind:class="{ full: !list }" v-if="coords.length">
-      <div class="showList" v-on:click="list = !list" v-if="!list">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
+      <div class="showList" v-on:click="list = !list; hideFilters = true" v-if="!list">
       </div>
       <gmap-map :options="{styles: styles, disableDefaultUI: true }" ref="mymap" :center="startLocation" :zoom="14">
           <gmap-info-window :options="infoOptions" :position="infoPosition" :opened="infoOpened" @closeclick="infoOpened=false"><div v-html="infoContent"></div></gmap-info-window>
@@ -60,14 +113,17 @@
           /> 
       </gmap-map>
     </div>
-    <div v-else>
-      WAIT
+    <div class="loader" v-else>
+      <span class="loading">
+        <img v-bind:src="loader">
+      </span>
     </div>
-    
   </div>
-  <div class="loader" v-else>
-      Wait 
-  </div>
+  <!-- <div class="loader" v-else>
+      <span class="loading">
+        <img v-bind:src="loader">
+      </span>
+  </div> -->
 
 </div>
 
@@ -75,43 +131,56 @@
 
 <script> 
 const mapMarker = require('../assets/images/icon-pinner-locali.png');
+const loader = require('../assets/images/loader.gif');
+import { isMobile } from 'mobile-device-detect';
 export default {
-  transition: "slide-right",
   data() {
     return {
-    list: false,
-    markerOptions: {
-      url: mapMarker,
-      size: {width: 60, height: 102, f: 'px', b: 'px',},
-      scaledSize: {width: 20, height: 34, f: 'px', b: 'px',},
-    },
-    coords: [],
-    startLocation: {
-        lat: 45.4670831,
-        lng: 9.185246
-    },
-    coordinates: {
-        0: {
-            full_name: 'Erich  Kunze',
-            lat: '10.31',
-            lng: '123.89'
-        },
-        1: {
-            full_name: 'Delmer Olson',
-            lat: '10.32',
-            lng: '123.89'
-        }
-    },
-    infoPosition: null,
-    infoContent: null,
-    infoOpened: false,
-    infoCurrentKey: null,
-    infoOptions: {
-        pixelOffset: {
-            width: 0,
-            height: -35
-        }
-    },
+      window: {
+        width: 0,
+        height: 0
+      },
+      list: false,
+      hideFilters: false,
+      filterList: {
+        occasione: '',
+        tipologia: '',
+        location: '',
+        prezzo: ''
+      },
+      loader: loader,
+      markerOptions: {
+        url: mapMarker,
+        size: {width: 60, height: 102, f: 'px', b: 'px',},
+        scaledSize: {width: 20, height: 34, f: 'px', b: 'px',},
+      },
+      coords: [],
+      startLocation: {
+          lat: 45.4670831,
+          lng: 9.185246
+      },
+      coordinates: {
+          0: {
+              full_name: 'Erich  Kunze',
+              lat: '10.31',
+              lng: '123.89'
+          },
+          1: {
+              full_name: 'Delmer Olson',
+              lat: '10.32',
+              lng: '123.89'
+          }
+      },
+      infoPosition: null,
+      infoContent: null,
+      infoOpened: false,
+      infoCurrentKey: null,
+      infoOptions: {
+          pixelOffset: {
+              width: 0,
+              height: -35
+          }
+      },
       styles: [ 
         {
             "featureType": "water",
@@ -294,17 +363,26 @@ export default {
     
 
   },
-
-
   computed: {
       locali() {
         return this.$store.state.content.locali;
       },
+      device(){
+        return this.$device;
+      }
   },
   created() {
     this.$store.dispatch("locali");
   },
   methods: {
+    generateList(event){
+      event.preventDefault();
+      console.log(event);
+    },
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+    },
     getPosition: function(item) {
         return {
           lat: parseFloat(item.lat),
@@ -342,7 +420,7 @@ export default {
           </div>
         </div>`);
       },
-    listaLong: function(allLocals){
+    listaLong: function(){
       var allLocals = this.locali;
       var coords = [];
       var i;
@@ -363,6 +441,10 @@ export default {
   },
   beforeUpdate(){
     this.coords = this.listaLong();
+  },
+  mounted(){
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
   }
 }
 </script>
@@ -379,7 +461,7 @@ export default {
 }
 .finder{
   width: 100%;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 74px);
   padding-bottom: 50px;
   position: relative;
   display: flex;
@@ -387,6 +469,120 @@ export default {
   @media all and (max-width: 768px) {  
     flex-flow: column;
     padding-bottom: 0;
+  }
+  &__filters{
+    &--desktop{
+      position: absolute;
+      width: 30%;
+      height: calc(100% - 50px);
+      top: 0;
+      left: 0;
+      background-image: url('../assets/images/bg-maps.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: 3;
+      box-shadow: 10px 0px 50px #222831;
+      &::before{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background: #040506;
+        opacity: 0.4;
+        z-index: 4;
+      }
+    }
+    
+    &__form{
+      display: flex;
+      flex-flow: column;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 5;
+      padding: 30px;
+      &__row{
+        display: flex;
+        width: 100%;
+        flex-flow: column;
+        margin-bottom: 50px;
+        label{
+          font-size: 12px;
+          font-weight: 300;
+          letter-spacing: 1px;
+          color: #FFFFFF;
+        }
+        select{
+          -webkit-appearance: none;
+          border: 0;
+          border-radius: 0;
+          background: transparent;
+          font-size: 20px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: 1.67px;
+          color: white;
+          background-image: url('../assets/images/icon-select.svg');
+          background-position: right center;
+          background-repeat: no-repeat;
+          background-size: 10px auto;
+          border-bottom: 1px solid #ffffff;
+          padding: 15px 0;
+          &:focus{
+            outline: none;
+          }
+        }
+        button{
+          width: 100%;
+          font-size: 13px;
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: 8px;
+          color: #222831;
+          text-transform: uppercase;
+          height: 45px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .groupRadio{
+          display: flex;
+          flex-flow: row;
+          justify-content: flex-start;
+          align-items: flex-start;
+          .boxRadio{
+            position: relative;
+            padding: 15px 3px 10px 3px;
+            margin-right: 15px;
+            border-bottom: 1px solid white;
+            input[type="radio"]{
+              position: absolute;
+              top: 0;
+              left: 0;
+              opacity: 0;
+              width: 100%;
+              height: 100%;
+            }
+            span{
+              color: white;
+              object-fit: contain;
+              font-family: Nunito;
+              font-size: 16px;
+              font-weight: bold;
+              letter-spacing: 1.33px;
+            }
+          }
+        }
+      }
+    }
   }
   &__listing{
     width: 50%;
@@ -628,20 +824,23 @@ export default {
       width: 44px;
       height: 44px;
       top: 20px;
-      right: 25px;
-      box-shadow: 0px 0px 20px #222831;
+      left: 25px;
+      box-shadow: 0px 0px 10px #22283187;
       background-color: #222831;
-      display: flex;
-      flex-flow: column;
-      justify-content: space-between;
-      align-items: center;
+      background-image: url('../assets/images/icon-lista.svg');
+      background-position: center;
+      background-size: 18px auto;
+      background-color: #222831;
+      background-repeat: no-repeat;
       cursor: pointer;
-      padding: 15px 0;
       z-index: 10;
-      .line{
-        width: 14px;
-        height: 1px;
+      @media all and (max-width: 768px) {  
+        right: 10px;
+        background-image: url('../assets/images/icon-lista.svg');
+        background-position: center;
+        background-size: 18px auto;
         background-color: white;
+        background-repeat: no-repeat;
       }
     }
   }

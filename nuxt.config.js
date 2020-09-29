@@ -11,12 +11,7 @@ let myRoutes = function(){
       return '/locali/' + locale.slug
     })
   })
-  let attivita = axios.get('https://baround.it/be/wp-json/wp/v2/attivita_culturali?page=1&per_page=100').then((res) => {
-    return res.data.map((attivita) => {
-      return '/attivita-culturali/' + attivita.slug
-    })
-  })
-  return (Promise.all([itinerari, locali, attivita]).then(values => {
+  return (Promise.all([itinerari, locali]).then(values => {
       return values.join().split(',');
     })
   )
@@ -46,7 +41,7 @@ export default {
   plugins: [
     { src: '~/plugins/gmaps'},
     { src: '~/plugins/VueAwesomeSwiper.js' }, 
-    { src: '~/plugins/mobile.js' }, 
+    // { src: '~/plugins/mobile.js' }, 
   ],
 
   components: true,
@@ -60,8 +55,7 @@ export default {
   /*
   ** Nuxt.js modules
   */
-  modules: [
-  ],
+  modules: ['nuxtjs-device'],
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/

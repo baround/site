@@ -2,7 +2,6 @@ export const state = () => ({
     content: {
       itinerari: [],
       locali: [],
-      attivita: [],
       chisiamo: [],
       contatti: []
     }
@@ -28,9 +27,6 @@ export const mutations = {
     updateContatti: (state, contatti) => {
         state.content.contatti = contatti
     },
-    updateAttivita: (state, attivita) => {
-        state.content.attivita = attivita
-    }
 }
 
 export const actions = {
@@ -86,24 +82,6 @@ export const actions = {
             acf
           }))
         commit("updateLocali", locali)
-      } catch (err) {
-        console.log(err)
-      }
-   },
-    async attivita({ state, commit }) {
-      if (state.content.attivita.length) return
-      try {
-        let attivita = await fetch( `https://baround.it/be/wp-json/wp/v2/attivita_culturali?page=1&per_page=100`
-        ).then(res => res.json())
-        attivita = attivita
-          .filter(el => el.status === "publish")
-          .map(({ id, slug, title, acf }) => ({
-            id,
-            slug,
-            title,
-            acf
-          }))
-        commit("updateAttivita", attivita)
       } catch (err) {
         console.log(err)
       }
