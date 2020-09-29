@@ -2,7 +2,9 @@
 <template>
 <div>
   <div class="finder" v-if="locali">
-    <div class="finder__listing">
+    <div class="finder__listing" v-bind:class="{ hidden: !list }">
+      <span class="close" v-on:click="list = !list" v-if="list"> 
+      </span>
       <div class="finder__listing__cappello">
         <span class="counter">
           {{locali.length}} bar a Milano
@@ -20,7 +22,7 @@
           </div>
         </div>
       </div>
-      <div class="finder__listing__locali" v-show="isActive != 'mappa'">
+      <div class="finder__listing__locali">
         <div class="finder__listing__locali__locale" v-for="(locale, key) in locali" :key="key">
           <figure v-bind:style="{ 'background-image': 'url(' + locale.acf.immagine_di_copertina + ')' }">
               <img v-bind:src="locale.acf.immagine_di_copertina" />
@@ -50,8 +52,13 @@
         </div>
       </div>
     </div>
-    <div class="finder__maps"  v-show="isActive != 'lista'">
-      <gmap-map :options="{styles: styles, disableDefaultUI: true }" ref="mymap" :center="startLocation" :zoom="14" v-if="coords">
+    <div class="finder__maps" v-bind:class="{ full: !list }" v-if="coords.length">
+      <div class="showList" v-on:click="list = !list" v-if="!list">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+      <gmap-map :options="{styles: styles, disableDefaultUI: true }" ref="mymap" :center="startLocation" :zoom="14">
           <gmap-info-window :options="infoOptions" :position="infoPosition" :opened="infoOpened" @closeclick="infoOpened=false"><div v-html="infoContent"></div></gmap-info-window>
           <gmap-marker 
             v-for="(item, key) in coords" 
@@ -62,6 +69,9 @@
             :icon="markerOptions" 
           /> 
       </gmap-map>
+    </div>
+    <div v-else>
+      WAIT
     </div>
     
   </div>
@@ -79,7 +89,7 @@ export default {
   transition: "slide-right",
   data() {
     return {
-    isActive: '',
+    list: false,
     markerOptions: {
       url: mapMarker,
       size: {width: 60, height: 102, f: 'px', b: 'px',},
@@ -303,24 +313,8 @@ export default {
   },
   created() {
     this.$store.dispatch("locali");
-    // console.log(this.$isMobile())
   },
   methods: {
-    isSelect: function (num) {
-      this.isActive = num;
-    },
-    test: function(param){
-      console.log(param)
-      console.log(this.locali)
-      var idPosts = [];
-        var i;
-        for (i = 0; i < this.locali.length; i++) {
-            console.log(this.locali);
-        }
-        // var filtered = this.$store.state.content.locali.filter((item) => idPosts.includes(item.id));
-        var filtered = 'ciap';
-        this.locali = filtered;
-    },
     getPosition: function(item) {
         return {
           lat: parseFloat(item.lat),
@@ -363,7 +357,6 @@ export default {
       var coords = [];
       var i;
       for (i = 0; i < allLocals.length; i++) {
-        
         var obj = {
           foto: allLocals[i].acf.immagine_di_copertina,
           indirizzo: allLocals[i].acf.indirizzo.address,
@@ -380,7 +373,6 @@ export default {
   },
   beforeUpdate(){
     this.coords = this.listaLong();
-    console.log(this.locali)
   }
 }
 </script>
@@ -391,6 +383,9 @@ export default {
   height: calc(100vh - 100px);
   width: 100%;
   max-height: 100vh;
+  @media all and (max-width: 768px) {  
+    height: calc(100vh - 54px);
+  }
 }
 .finder{
   width: 100%;
@@ -399,15 +394,13 @@ export default {
   position: relative;
   display: flex;
   justify-content: space-between;
-  background: #222831;
   @media all and (max-width: 768px) {  
     flex-flow: column;
+    padding-bottom: 0;
   }
   &__listing{
-    // width: 30%;
     width: 50%;
     height: calc(100% - 50px);
-    overflow: hidden;
     display: flex;
     flex-flow: column;
     padding: 20px 20px 0 0px;
@@ -434,6 +427,24 @@ export default {
     @media all and (max-width: 768px) {  
       width: 100%;
       padding: 20px 0;
+    }
+    .close{
+      position: absolute;
+      border-radius: 100%;
+      width: 44px;
+      height: 44px;
+      top: 20px;
+      right: -70px;
+      box-shadow: 0px 0px 20px #222831;
+      background-image: url('../assets/images/icon-close-menu.svg');
+      background-position: center;
+      background-size: 14px auto;
+      background-color: #222831;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+    &.hidden{
+      display: none;
     }
     &__cappello{
       display: flex;
@@ -585,7 +596,6 @@ export default {
     }
   }
   &__maps{
-    height: 100%;
     height: calc(100vh - 100px);
     overflow: hidden;
     width: 70%;
@@ -594,8 +604,38 @@ export default {
     position: absolute;
     right: 0;
     top: 0;
+    transition: all .5s;
+    &.full{
+      width: 100%;
+    }
     @media all and (max-width: 768px) {  
       width: 100%;
+      height: calc(100vh - 54px);
+      height: 100%;
+      position: relative;
+      top: auto;
+    }
+    .showList{
+      position: absolute;
+      border-radius: 100%;
+      width: 44px;
+      height: 44px;
+      top: 20px;
+      right: 25px;
+      box-shadow: 0px 0px 20px #222831;
+      background-color: #222831;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      padding: 15px 0;
+      z-index: 10;
+      .line{
+        width: 14px;
+        height: 1px;
+        background-color: white;
+      }
     }
   }
 }

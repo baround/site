@@ -56,14 +56,14 @@
 export default {
     computed: {
         page() {
-            return this.$store.state.content.chisiamo;
+            return this.$store.state.content.contatti;
         },
         swiper() {
             this.$refs.gallery.$swiper;
         },
     },
     created() {
-        this.$store.dispatch("chisiamo");
+        this.$store.dispatch("contatti");
     },
     data() {
         return {

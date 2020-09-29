@@ -1,7 +1,7 @@
 <template>
   <header>
       <div class="logo">
-        <a href="/"><img src="../assets/images/logo-baround-white.png" /></a>
+        <a href="/home"><img src="../assets/images/logo-baround-white.png" /></a>
       </div>
       <Navigation />
   </header>
@@ -21,6 +21,10 @@ header{
   padding: 30px;
   z-index: 30;
   overflow-x: hidden;
+  @media all and (max-width: 768px) {  
+    height: 54px;
+    padding: 20px;
+  }
   .logo{
     width: 157px;
     position: relative;

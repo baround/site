@@ -1,7 +1,7 @@
 <template>
 <main class="listing">
     <Header />
-    <div class="itinerari" v-if='itinerari'>
+    <div class="itinerari contenitore" v-if='itinerari'>
         <section class="itinerari__header">
             <figure v-bind:style="{ 'background-image': 'url(/_nuxt/img/bg-itinerari.jpg)' }">
                 <!-- <img v-bind:src="" /> -->
@@ -56,6 +56,10 @@ computed: {
             max-height: 620px;
             overflow: hidden;
             background-size: cover;
+            @media all and (max-width: 768px) {  
+                min-height: 50vh;
+                max-height: 100vh;
+            }
             img{
                 width: 100%;
                 opacity: 0;
@@ -82,6 +86,9 @@ computed: {
             justify-content: center;
             align-items: center;
             z-index: 5;
+            @media all and (max-width: 768px) { 
+                padding: 20px;
+            }
             h1{
                 font-size: 46px;
                 font-weight: bold;
@@ -90,6 +97,14 @@ computed: {
                 text-align: center;
                 color: #ffffff;
                 margin-bottom: 20px;
+                @media all and (max-width: 768px) {  
+                    font-size: 28px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.21;
+                    letter-spacing: 2px;
+                }
             }
             .price{
                 font-size: 16px;
@@ -140,16 +155,27 @@ computed: {
             flex-flow: column;
             justify-content: space-around;
             margin: 50px 0;
+            @media all and (max-width: 768px) {  
+                margin: 12px 0;
+            }
             &--listing{
                 flex-flow: row;
                 width: 100%;
                 position: relative;
                 margin-bottom: 0px;
                 z-index: 10;
+                @media all and (max-width: 768px) {  
+                    flex-flow: column;
+                    padding: 20px;
+                }
             }
             &__card{
                 width: 29%;
                 max-width: 100%;
+                @media all and (max-width: 768px) {  
+                    width: 100%;
+                    margin-bottom: 50px;
+                }
                 figure{
                     width: 100%;
                     height: 407px;
@@ -157,6 +183,10 @@ computed: {
                     background-size: cover;
                     background-position: center;
                     margin: 0 0 50px 0;
+                    @media all and (max-width: 768px) {  
+                        margin: 0 0 25px 0;
+                        height: 250px;
+                    }
                     img{
                         width: 100%;
                         opacity: 0;
@@ -173,6 +203,10 @@ computed: {
                     -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
+                    @media all and (max-width: 768px) {  
+                        font-size: 22px;
+                        margin-bottom: 10px;
+                    }
                     a{
                         text-decoration: none;
                         color: #222831;
@@ -191,20 +225,39 @@ computed: {
                     -webkit-line-clamp: 6;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
+                    @media all and (max-width: 768px) {  
+                        font-size: 14px;
+                        -webkit-line-clamp: 3;
+                        margin-bottom: 0px;
+                    }
                 }
             }
+            
             &--correlati{
                 width: 100%;
                 padding: 0 35px;
+                @media all and (max-width: 768px) {  
+                    padding: 20px 0 20px 20px;
+                }
                 h3{
                     text-align: center;
                     margin-bottom: 35px;
+                    @media all and (max-width: 768px) {  
+                        font-size: 22px!important;
+                        font-weight: bold;
+                        letter-spacing: 1.29px;
+                        text-align: left;
+                    }
                 }
                 .correlati{
                     width: 100%;
+                    padding-right: 50px;;
                     .swiper-slide{
                         width: 25%;
                         overflow: hidden;
+                        @media all and (max-width: 768px) {  
+                            width: 100%;
+                        }
                     }
                     &__card{
                         width: 100%;
@@ -215,6 +268,10 @@ computed: {
                             background-size: cover;
                             background-position: center;
                             margin: 0 0 8px 0;
+                            @media all and (max-width: 768px) {  
+                                height: 150px;
+                                min-height: 150px;
+                            }
                             img{
                                 width: 100%;
                                 opacity: 0;
@@ -233,6 +290,11 @@ computed: {
                                 white-space: nowrap;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
+                                @media all and (max-width: 768px) {  
+                                    font-size: 14px;
+                                    letter-spacing: 1px;
+                                    margin: 3px 0;
+                                }
                                 a{
                                     color: #222831;
                                     text-decoration: none;
@@ -244,6 +306,10 @@ computed: {
                                 font-weight: bold;
                                 letter-spacing: 1.67px;
                                 color: #222831;
+                                @media all and (max-width: 768px) {  
+                                    font-size: 16px;
+                                    margin: 3px 0;
+                                }
                             }
                             .tipologia{
                                 font-size: 14px;
@@ -255,6 +321,9 @@ computed: {
                                 white-space: nowrap;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
+                                @media all and (max-width: 768px) {  
+                                    margin: 3px 0;
+                                }
                                 span{
                                     padding: 0 5px 0 0;
                                     &:after{
@@ -274,6 +343,9 @@ computed: {
                                 line-height: 1.64;
                                 letter-spacing: 1px;
                                 color: #222831;
+                                @media all and (max-width: 768px) {  
+                                    margin: 3px 0;
+                                }
                             }
                         }
                     }
@@ -282,6 +354,10 @@ computed: {
             &--bgBlue{
                 background-color: #f0f6fd;
                 padding: 60px 35px;
+                margin: 0;
+                @media all and (max-width: 768px) {  
+                    padding: 20px 0 20px 20px;
+                }
             }
         }
 

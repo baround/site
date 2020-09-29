@@ -67,6 +67,7 @@ nav{
     justify-content: space-between;
     position: relative;
     z-index: 10;
+    cursor: pointer;
     @media all and (max-width: 768px) {  
       width: 14px;
       height: 14px;
@@ -76,7 +77,6 @@ nav{
       width: 100%;
       height: 1px;
       background-color: white;
-      cursor: pointer;
     }
     &--close{
       background-image: url('../assets/images/icon-close-menu.svg');
@@ -92,6 +92,9 @@ nav{
     background-image: url('../assets/images/bg-menu.jpg');
     background-position: center;
     background-size: cover;
+    @media all and (max-width: 768px) {  
+      padding: 90px 30px;
+    }
     &.visible{
       display: flex;
       flex-flow: column;
@@ -108,6 +111,9 @@ nav{
       flex-flow: column;
       justify-content: center;
       align-items: center;
+      @media all and (max-width: 768px) {  
+        width: 100%;
+      }
     }
     &__wrap{
       width: 100%;
@@ -116,6 +122,9 @@ nav{
       flex-flow: column;
       justify-content: center;
       align-items: center;
+      @media all and (max-width: 768px) {  
+        max-width: 100%;
+      }
     }
     &__row{
       width: 100%;
@@ -126,6 +135,9 @@ nav{
         width: 100px;
         height: 1px;
         background-color: white;
+        @media all and (max-width: 768px) {  
+          width: 50px;
+        }
       }
       .logo{
         width: 28px;
@@ -142,6 +154,9 @@ nav{
         justify-content: center;
         align-items: center;
         padding: 50px 0;
+        @media all and (max-width: 768px) {  
+          padding: 30px 0;
+        }
         li{
           a{
             text-decoration: none;
@@ -152,6 +167,9 @@ nav{
             text-align: center;
             color: #ffffff;
             transition: all .2;
+            @media all and (max-width: 768px) {  
+              font-size: 24px;
+            }
             &:hover{
               font-weight: bold;
             }
@@ -188,8 +206,8 @@ nav{
   }
 }
 
-  @keyframes mymove {
-    from {right: -100vw;}
-    to {right: 0;}
-  }
+@keyframes mymove {
+  from {right: -100vw;}
+  to {right: 0;}
+}
 </style>

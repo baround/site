@@ -41,7 +41,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 
 
-////MAIN    
 html, body{
     width: 100%;
     height: auto;
@@ -56,7 +55,7 @@ main{
   padding-top: 74px;
   overflow-x: hidden;
   @media all and (max-width: 768px) {  
-    padding-top: 40px;
+    padding-top: 54px;
   }
 }
 .intro{
@@ -80,8 +79,11 @@ main{
   p{
     line-height: 1.5em;
     padding-bottom: 30px;
+    font-size: 16px;
     @media all and (max-width: 768px) {  
       padding: 10px 0;
+      font-size: 14px;
+      line-height: 1.64;
     }
   }
   ul{
@@ -90,6 +92,11 @@ main{
     padding-bottom: 30px;
     li{
       margin: 20px 0;
+    }
+    @media all and (max-width: 768px) {  
+      font-size: 14px;
+      line-height: 1.64;
+      margin-left: 20px;
     }
   }
   h2{
@@ -133,8 +140,12 @@ main{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    @media all and (max-width: 768px) {  
+      height: 35vh;
+    }
   }
 }
+
 
 .gm-style .gm-style-iw-c {
   position: absolute;
@@ -226,6 +237,8 @@ main{
   }
 }
 .swiper-container{
+  position: relative;
+  display: flex;
   &.gallery{
     width: 100%;
 
@@ -233,9 +246,13 @@ main{
   .gallery{
     &__single{
       width: 48%;
-      min-height: 50vh;
+      height: 100%;
+      min-height: 100%;
       max-height: 100vh;
       overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-grow: 1;
       figure{
         width: 100%;
         background-size: cover;
@@ -247,7 +264,12 @@ main{
     }
   }
 }
-
+.contenitore{
+  min-height: calc(100vh - 120px);
+  @media all and (max-width: 768px) {  
+    min-height: calc(100vh - 88px);
+  }
+}
 
 .page-enter-active, .page-leave-active {
   transition: opacity .5s
