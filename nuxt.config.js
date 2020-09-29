@@ -41,7 +41,6 @@ export default {
   plugins: [
     { src: '~/plugins/gmaps'},
     { src: '~/plugins/VueAwesomeSwiper.js' }, 
-    // { src: '~/plugins/mobile.js' }, 
   ],
 
   components: true,
@@ -55,7 +54,7 @@ export default {
   /*
   ** Nuxt.js modules
   */
-  modules: ['nuxtjs-device'],
+  modules: [],
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
