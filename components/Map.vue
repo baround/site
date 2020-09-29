@@ -618,6 +618,12 @@ export default {
     background-repeat: no-repeat;
     z-index: 3;
     box-shadow: 10px 0px 50px #222831;
+    @media all and (max-width: 768px) {  
+      position: relative;
+      height: auto;
+      width: 100%;
+      padding: 20px 0;
+    }
     &::before{
       position: absolute;
       top: 0;
@@ -629,12 +635,7 @@ export default {
       opacity: 0.4;
       z-index: 4;
     }
-    @media all and (max-width: 768px) {  
-      width: 100%;
-      padding: 20px 0;
-      height: calc(100vh - 34px);
-      overflow: scroll;
-    }
+
     .close{
       position: absolute;
       border-radius: 100%;
@@ -649,6 +650,7 @@ export default {
       background-color: #222831;
       background-repeat: no-repeat;
       cursor: pointer;
+      z-index: 10;
       @media all and (max-width: 768px) {  
         right: 10px;
         background-image: url('../assets/images/icon-close.svg');
@@ -705,7 +707,6 @@ export default {
             justify-content: center;
         }
       }
-
       h1{
         font-size: 32px;
         font-weight: normal;
@@ -724,7 +725,6 @@ export default {
         }
       }
     }
-
     &__locali{
       height: 100%;
       overflow-x: hidden;
@@ -739,6 +739,7 @@ export default {
       @media all and (max-width: 768px) {  
         height: auto;
         overflow: visible;
+        padding: 0 20px;
       }
       &__locale{
         width: 100%;
@@ -758,6 +759,9 @@ export default {
           background-size: cover;
           background-position: center;
           overflow: hidden;
+          @media all and (max-width: 768px) {  
+            width: 100%;
+          }
           img{
             width: 100%;
             opacity: 0;
@@ -768,6 +772,10 @@ export default {
           flex-flow:column;
           width: calc(100% - 241px);
           padding: 10px 25px;
+          @media all and (max-width: 768px) {  
+            padding: 10px 0;
+            width: 100%;
+          }
           .price{
             font-size: 16px;
             font-weight: bold;
