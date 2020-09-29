@@ -124,8 +124,6 @@
         <img v-bind:src="loader">
       </span>
   </div>
-  eccomi
-  {{mammt}}
 </div>
 
 </template>
