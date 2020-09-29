@@ -3,9 +3,9 @@
     <Header />
     <div class="itinerari contenitore" v-if='itinerari'>
         <section class="itinerari__header">
-            <figure v-bind:style="{ 'background-image': 'url(/_nuxt/img/bg-itinerari.jpg)' }">
+            <figure v-bind:style="{ 'background-image': 'url(' + bgTop + ')' }">
                 <!-- <img v-bind:src="" /> -->
-                <img src="~/assets/images/bg-itinerari.jpg" />
+                <img v-bind:src="bgTop" />
             </figure>
             <div class="itinerari__header__details">
                 <h1>Scopri gli itinerari del gusto</h1>
@@ -34,11 +34,13 @@
 
 <script>
 const loader = require('../../assets/images/loader.gif');
+const bgTop = require('../../assets/images/bg-itinerari.jpg');
 export default {
 transition: "slide-right",
 data(){
     return{
-        oader: loader,
+        loader: loader,
+        bgTop: bgTop,
     }
 },
 computed: {
