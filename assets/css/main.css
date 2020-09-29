@@ -246,10 +246,11 @@ main {
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 20px;
+  padding: 15px 20px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-wrap: wrap;
+  width: 300px;
 }
 
 .singleLocale__content h2, .singleItinerario__content h2 {

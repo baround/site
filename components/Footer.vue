@@ -1,8 +1,8 @@
 <template>
   <footer>
     <div class="social">
-      <a href=""><span class="icon icon__fb"></span></a>
-      <a href=""><span class="icon icon__ig"></span></a>
+      <a href="https://www.facebook.com/baroundit" target="_blank"><span class="icon icon__fb"></span></a>
+      <a href="https://www.instagram.com/baround_/" target="_blank"><span class="icon icon__ig"></span></a>
     </div>
     <div class="credits">
       <p><a href="/credits">Credits</a> | <a href="Privacy">Privacy</a> | &copy;Baround</p>

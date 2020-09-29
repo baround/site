@@ -24,15 +24,23 @@
         </section>
     </div>
     <div class="loader" v-else>
-        Wait 
+        <span class="loading">
+            <img v-bind:src="loader">
+        </span>
     </div>
     <Footer />
 </main>
 </template>
 
 <script>
+const loader = require('../../assets/images/loader.gif');
 export default {
 transition: "slide-right",
+data(){
+    return{
+        oader: loader,
+    }
+},
 computed: {
   itinerari() {
     return this.$store.state.content.itinerari;

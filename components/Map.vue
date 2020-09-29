@@ -119,12 +119,13 @@
       </span>
     </div>
   </div>
-  <!-- <div class="loader" v-else>
+  <div class="loader" v-else>
       <span class="loading">
         <img v-bind:src="loader">
       </span>
-  </div> -->
-
+  </div>
+  eccomi
+  {{mammt}}
 </div>
 
 </template>
@@ -136,6 +137,7 @@ import { isMobile } from 'mobile-device-detect';
 export default {
   data() {
     return {
+      mammt: {},
       window: {
         width: 0,
         height: 0
@@ -420,6 +422,24 @@ export default {
           </div>
         </div>`);
       },
+    listaFiltrata: function(){
+      var allLocals = this.locali;
+      var coords = [];
+      var i;
+      for (i = 0; i < allLocals.length; i++) {
+        var obj = {
+          foto: allLocals[i].acf.immagine_di_copertina,
+          indirizzo: allLocals[i].acf.indirizzo.address,
+          fascia: allLocals[i].acf.fascia_di_prezzo,
+          slug: allLocals[i].slug,
+          full_name: allLocals[i].title.rendered,
+          lat: allLocals[i].acf.indirizzo.lat,
+          lng: allLocals[i].acf.indirizzo.lng
+        }
+        coords.push(obj);
+      }
+      return coords;
+    },
     listaLong: function(){
       var allLocals = this.locali;
       var coords = [];
@@ -445,6 +465,7 @@ export default {
   mounted(){
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
+    this.mammt = this.locali;
   }
 }
 </script>
@@ -481,7 +502,7 @@ export default {
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      z-index: 3;
+      z-index: 30;
       box-shadow: 10px 0px 50px #222831;
       &::before{
         position: absolute;
@@ -824,7 +845,7 @@ export default {
       width: 44px;
       height: 44px;
       top: 20px;
-      left: 25px;
+      right: 25px;
       box-shadow: 0px 0px 10px #22283187;
       background-color: #222831;
       background-image: url('../assets/images/icon-lista.svg');

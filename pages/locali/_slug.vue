@@ -134,7 +134,9 @@
         </section>
     </div>
     <div class="loader" v-else>
-        Wait 
+        <span class="loading">
+            <img v-bind:src="loader">
+        </span>
     </div>
     <Footer />
 </main>
@@ -145,6 +147,7 @@
 
 <script>
 
+const loader = require('../../assets/images/loader.gif');
 const mapMarker = require('../../assets/images/icon-pinner-locali.png');
 export default {
 transition: "slide-right",
@@ -171,6 +174,7 @@ transition: "slide-right",
     },
     data() {
         return {
+            loader: loader,
             slug: this.$route.params.slug,
             swiperLocaliOptions: {
                 slidesPerView: 4,
@@ -809,7 +813,9 @@ transition: "slide-right",
                 }
                 .correlati{
                     width: 100%;
-                    padding-right: 50px;;
+                    @media all and (max-width: 768px) {  
+                        padding-right: 50px;
+                    }
                     .swiper-slide{
                         width: 25%;
                         overflow: hidden;

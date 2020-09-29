@@ -46,13 +46,16 @@
         </section>
     </div>
     <div class="loader" v-else>
-        Wait 
+        <span class="loading">
+            <img v-bind:src="loader">
+        </span>
     </div>
     <Footer />
 </main>
 </template>
 
 <script>
+const loader = require('../../assets/images/loader.gif');
 export default {
     computed: {
         page() {
@@ -67,6 +70,7 @@ export default {
     },
     data() {
         return {
+            loader: loader,
             swiperGalleryOptions: {
                 slidesPerView: 2,
                 spaceBetween: 30,
