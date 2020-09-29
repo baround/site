@@ -11,16 +11,6 @@
         </span>
         <span class="benvenuto">Benvenuto!</span>
         <h1>Ecco i bar che fanno per te!</h1>
-        <div class="filters">
-          <div class="finder__listing__cappello__tab">
-            <div class="tab" @click="isSelect('lista')">
-              Lista
-            </div>
-            <div class="tab" @click="isSelect('mappa')">
-              Mappa
-            </div>
-          </div>
-        </div>
       </div>
       <div class="finder__listing__locali">
         <div class="finder__listing__locali__locale" v-for="(locale, key) in locali" :key="key">
@@ -427,6 +417,8 @@ export default {
     @media all and (max-width: 768px) {  
       width: 100%;
       padding: 20px 0;
+      height: calc(100vh - 34px);
+      overflow: scroll;
     }
     .close{
       position: absolute;
@@ -442,6 +434,14 @@ export default {
       background-color: #222831;
       background-repeat: no-repeat;
       cursor: pointer;
+      @media all and (max-width: 768px) {  
+        right: 10px;
+        background-image: url('../assets/images/icon-close.svg');
+        background-position: center;
+        background-size: 14px auto;
+        background-color: white;
+        background-repeat: no-repeat;
+      }
     }
     &.hidden{
       display: none;
@@ -521,6 +521,10 @@ export default {
       padding: 0 20px 0 30px;
       position: relative;
       z-index: 5;
+      @media all and (max-width: 768px) {  
+        height: auto;
+        overflow: visible;
+      }
       &__locale{
         width: 100%;
         display: flex;
@@ -530,6 +534,9 @@ export default {
         padding-bottom: 25px;
         margin-bottom: 25px;
         border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+        @media all and (max-width: 768px) {  
+          flex-flow: column;
+        }
         figure{
           width: 241px;
           height: 163px;

@@ -20,10 +20,10 @@ header{
   animation: 1s appear;
   padding: 30px;
   z-index: 30;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   @media all and (max-width: 768px) {  
     height: 54px;
-    padding: 20px;
+    padding: 10px 20px;
   }
   .logo{
     width: 157px;

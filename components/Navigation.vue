@@ -104,6 +104,8 @@ nav{
       top: 0;
       left: 0;
       animation: mymove 5s;
+      z-index: 10;
+      -webkit-transform: translateZ(0);
     }
     &__col{
       width: 50%;
