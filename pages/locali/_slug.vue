@@ -152,9 +152,8 @@ const mapMarker = require('../../assets/images/icon-pinner-locali.png');
 export default {
 transition: "slide-right",
     markerOptions: {
-      url: mapMarker,
-      size: {width: 60, height: 102, f: 'px', b: 'px',},
-      scaledSize: {width: 20, height: 34, f: 'px', b: 'px',},
+        url: mapMarker,
+        scaledSize: { height: 34, width: 20 },
     },
     computed: {
         locali() {
@@ -278,11 +277,6 @@ transition: "slide-right",
                     lat: '10.31',
                     lng: '123.89'
                 },
-                1: {
-                    full_name: 'Delmer Olson',
-                    lat: '10.32',
-                    lng: '123.89'
-                }
             },
             infoPosition: null,
             infoContent: null,

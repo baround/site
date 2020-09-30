@@ -215,10 +215,10 @@ transition: "slide-right",
 
             },
             // MAPPA
+            
             markerOptions: {
                 url: mapMarker,
-                size: {width: 60, height: 102, f: 'px', b: 'px',},
-                scaledSize: {width: 20, height: 34, f: 'px', b: 'px',},
+                scaledSize: { height: 34, width: 20 },
             },
             coords: [],
             startLocation: {
