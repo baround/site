@@ -497,6 +497,9 @@ export default {
   @media all and (max-width: 768px) {  
     flex-flow: column;
     padding-bottom: 0;
+    flex-wrap: wrap;
+    height: calc(100vh - 88px);
+    overflow: hidden;
   }
   &__filters{
     &--desktop{
@@ -632,6 +635,7 @@ export default {
       height: auto;
       width: 100%;
       padding: 20px 0;
+      overflow: scroll;
     }
     &::before{
       position: absolute;
@@ -643,6 +647,9 @@ export default {
       background: #040506;
       opacity: 0.4;
       z-index: 4;
+      @media all and (max-width: 768px) {  
+        position: fixed;
+      }
     }
 
     .close{
@@ -738,10 +745,6 @@ export default {
       height: 100%;
       overflow-x: hidden;
       overflow-y: scroll;
-      display: flex;
-      flex-flow: column;
-      justify-content: flex-start;
-      align-items: flex-start;
       padding: 0 20px 0 30px;
       position: relative;
       z-index: 5;
@@ -760,6 +763,7 @@ export default {
         margin-bottom: 25px;
         border-bottom: solid 1px rgba(255, 255, 255, 0.2);
         @media all and (max-width: 768px) {  
+          display: flex;
           flex-flow: column;
         }
         figure{
@@ -770,6 +774,8 @@ export default {
           overflow: hidden;
           @media all and (max-width: 768px) {  
             width: 100%;
+            height: auto;
+            overflow: visible;
           }
           img{
             width: 100%;
