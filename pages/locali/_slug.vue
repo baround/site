@@ -65,8 +65,13 @@
 
         <section class="locale__fascia">
             <div class="locale__fascia__contenuto locale__fascia__contenuto--mappa">
-                <gmap-map :options="{styles: styles}" ref="mymap" :center="getPosition()" :zoom="14">
+                <!-- <gmap-map :options="{styles: styles}" ref="mymap" :center="getPosition()" :zoom="14">
                     <gmap-marker v-for="(item, key) in coordinates" :key="key" :position="getPosition()" :clickable="true" @click="toggleInfo(item, key)" :icon="markerOptions" />
+                </gmap-map> -->
+
+
+                <gmap-map :options="{styles: styles }" ref="mymap" :center="getPosition()" :zoom="16">
+                    <gmap-marker  :position="getPosition()" :clickable="true"  :icon="markerOptions" />
                 </gmap-map>
             </div>
         </section>
@@ -151,10 +156,6 @@ const loader = require('../../assets/images/loader.gif');
 const mapMarker = require('../../assets/images/icon-pinner-locali.png');
 export default {
 transition: "slide-right",
-    markerOptions: {
-        url: mapMarker,
-        scaledSize: { height: 34, width: 20 },
-    },
     computed: {
         locali() {
             return this.$store.state.content.locali;
@@ -175,6 +176,10 @@ transition: "slide-right",
         return {
             loader: loader,
             slug: this.$route.params.slug,
+            markerOptions: {
+                url: mapMarker,
+                scaledSize: { height: 34, width: 20 },
+            },
             swiperLocaliOptions: {
                 slidesPerView: 4,
                 spaceBetween: 30,
@@ -261,11 +266,6 @@ transition: "slide-right",
             },
             correlatiItinerari: {
 
-            },
-            markerOptions: {
-                url: mapMarker,
-                size: {width: 60, height: 102, f: 'px', b: 'px',},
-                scaledSize: {width: 20, height: 34, f: 'px', b: 'px',},
             },
             startLocation: {
                 lat: 45.4627124,

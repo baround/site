@@ -102,25 +102,10 @@
       <div class="showList" v-on:click="list = !list; hideFilters = true" v-if="!list">
       </div>
       <gmap-map :options="{styles: styles, disableDefaultUI: true }" ref="mymap" :center="startLocation" :zoom="14">
-          <!-- <gmap-info-window :options="infoOptions" :position="infoPosition" :opened="infoOpened" @closeclick="infoOpened=false"><div v-html="infoContent"></div></gmap-info-window>
-          <gmap-marker 
-            v-for="(item, key) in coords" 
-            :key="key" 
-            :position="getPosition(item)" 
-            :clickable="true" 
-            @click="toggleInfo(item, key)"
-            :icon="markerOptions" 
-          />  -->
-
-          
-
-
           <gmap-info-window :options="infoOptions" :position="infoPosition" :opened="infoOpened" @closeclick="infoOpened=false">
             <div v-html="infoContent"></div>
           </gmap-info-window>
           <gmap-marker v-for="(item, key) in coords" :key="key" :position="getPosition(item)" :clickable="true" @click="toggleInfo(item, key)" :icon="markerOptions" />
-
-
       </gmap-map>
     </div>
     <div class="loader" v-else>
