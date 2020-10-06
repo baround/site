@@ -37,9 +37,14 @@ export default {
     ]
   },
   
-  css: ['~/assets/css/main.css'],
+  css: [
+    '~/node_modules/swiper/swiper-bundle.css',
+    '~/node_modules/swiper/components/effect-coverflow/effect-coverflow.scss',
+    '~/assets/css/main.css'
+  ],
   plugins: [
     { src: '~/plugins/gmaps'},
+    { src: '~/plugins/mailchimp.js' }, 
     { src: '~/plugins/VueAwesomeSwiper.js' }, 
   ],
 

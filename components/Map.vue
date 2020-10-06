@@ -90,7 +90,7 @@
             </div>
             <h2><a :href="`/locali/${locale.slug}`" v-html="locale.title.rendered"></a></h2>
             <div class="tipologia">
-              <span v-for="(type, index) in locale.acf.tipologia" :key="index">{{type.name}}</span>
+              <span v-for="(type, index) in locale.acf.tipo" :key="index">{{type}}</span>
             </div>
             <span class="address">{{locale.acf.indirizzo.address}}</span>
 

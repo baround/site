@@ -17,6 +17,12 @@
   "LazyMap": {
     "description": "Auto imported from components/Map.vue"
   },
+  "Mappa": {
+    "description": "Auto imported from components/Mappa.vue"
+  },
+  "LazyMappa": {
+    "description": "Auto imported from components/Mappa.vue"
+  },
   "Navigation": {
     "description": "Auto imported from components/Navigation.vue"
   },

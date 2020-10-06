@@ -16,6 +16,7 @@
     "swiper": "^6.2.0",
     "vue-awesome-swiper": "^4.1.1",
     "vue-device-detector": "^1.1.5",
+    "vue-mailchimp-subscribe": "^1.1.0",
     "vue-mobile-detection": "^1.0.0",
     "vue-vimeo-player": "^0.1.0",
     "vue2-google-maps": "^0.10.7"

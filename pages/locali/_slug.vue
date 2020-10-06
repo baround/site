@@ -23,7 +23,7 @@
                     </span>
                 </div>
                 <div class="tipologia">
-                    <span v-for="(type, index) in locale.acf.tipologia" :key="index">{{type.name}}</span>      
+                    <span v-for="(type, index) in locale.acf.tipo" :key="index">{{type}}</span>      
                 </div>
                 <span class="address">{{locale.acf.indirizzo.address}}</span>
             </div>
@@ -105,7 +105,7 @@
                                 </span>
                                 <h4><a :href="`/locali/${nearlocale.slug}`" v-html="nearlocale.title.rendered"></a></h4>
                                 <div class="tipologia">
-                                    <span v-for="(type, index) in locale.acf.tipologia" :key="index">{{type.name}}</span>      
+                                    <span v-for="(type, index) in locale.acf.tipo" :key="index">{{type}}</span>      
                                 </div>
                                 <span class="address">{{nearlocale.acf.indirizzo.address}}</span>
                             </div>
@@ -121,7 +121,6 @@
                 <swiper class="correlati" ref="attivitaCorrelate" :options="swiperItinerariOptions">
                     <swiper-slide class="correlati__single" v-for="(itinerario, index) in correlatiItinerari" :key="index">
                         <div class="correlati__card">
-
                             <figure v-if='itinerario.acf.immagine_di_copertina' v-bind:style="{ 'background-image': 'url(' + itinerario.acf.immagine_di_copertina + ')' }">
                                 <a :href="`/itinerari/${itinerario.slug}`"><img v-bind:src="itinerario.acf.immagine_di_copertina" /></a>
                             </figure>

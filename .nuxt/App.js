@@ -5,6 +5,10 @@ import { getMatchedComponentsInstances, getChildrenComponentInstancesUsingFetch,
 import NuxtLoading from './components/nuxt-loading.vue'
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
+import '../node_modules/swiper/swiper-bundle.css'
+
+import '../node_modules/swiper/components/effect-coverflow/effect-coverflow.scss'
+
 import '../assets/css/main.css'
 
 import _6f6c098b from '../layouts/default.vue'

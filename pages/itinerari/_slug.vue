@@ -106,7 +106,7 @@
                                 </span>
                                 <h4><a :href="`/locali/${nearlocale.slug}`" v-html="nearlocale.title.rendered"></a></h4>
                                 <div class="tipologia">
-                                    <span v-for="(type, index) in nearlocale.acf.tipologia" :key="index">{{type.name}}</span>      
+                                    <span v-for="(type, index) in nearlocale.acf.tipo" :key="index">{{type}}</span>      
                                 </div>
                                 <span class="address">{{nearlocale.acf.indirizzo.address}}</span>
                             </div>
