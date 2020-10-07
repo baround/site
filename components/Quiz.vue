@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="quiz" id="quiz" v-if="!quizStep.completed && !quizStep.skip">
+    <form class="quiz" id="quiz" v-if="!quizStep.completed && !quizStep.skip" v-on:submit.prevent>
       <!--header-->
       <div class="quiz__header">
         <div class="quiz__header__logo">
@@ -40,11 +40,15 @@
             <fieldset>
               <input id="birthday" v-model.number="quiz.birthday" inputmode="numeric" maxlength="4" pattern="[0-9]*" placeholder="1999">
             </fieldset>
-            <div v-if="quiz.birthday < year">
+
+            <div v-if="quiz.birthday && quiz.birthday < year && quiz.birthday > 1900">
               <button v-on:click.stop.prevent="quizStep.stepAge = true">Conferma</button>
             </div>
-            <div v-else>
+
+            <div v-else-if="quiz.birthday >= year">
               <p>Mi dispiace ma per consultare questo sito devi essere maggiorenne.</p>
+            </div>
+            <div v-else>
             </div>
           </div>
         </div>
@@ -79,9 +83,9 @@
                         <img src="../assets/images/city-milano.jpg" />
                       </figure>
                       <span class="name">
-                        Milano
+                        Roma
                       </span>
-                      <input type="radio" class="city__radio" id="citta" value="Milano" v-model="quiz.city">
+                      <input type="radio" class="city__radio" id="citta" value="Roma" v-model="quiz.city">
                     </div>
                 </swiper-slide>
                 <swiper-slide class="city__single">
@@ -90,9 +94,9 @@
                         <img src="../assets/images/city-milano.jpg" />
                       </figure>
                       <span class="name">
-                        Milano
+                        Firenze
                       </span>
-                      <input type="radio" class="city__radio" id="citta" value="Milano" v-model="quiz.city">
+                      <input type="radio" class="city__radio" id="citta" value="Firenze" v-model="quiz.city">
                     </div>
                 </swiper-slide>
                 <swiper-slide class="city__single">
@@ -101,9 +105,9 @@
                         <img src="../assets/images/city-milano.jpg" />
                       </figure>
                       <span class="name">
-                        Milano
+                        Napoli
                       </span>
-                      <input type="radio" class="city__radio" id="citta" value="Milano" v-model="quiz.city">
+                      <input type="radio" class="city__radio" id="citta" value="Napoli" v-model="quiz.city">
                     </div>
                 </swiper-slide>
             </swiper>
@@ -304,7 +308,7 @@
                   </div>
                   <div class="quiz__step__bg" v-bind:style="{ 'background-image': 'url(' + bg7 + ')' }"></div>
                 </div>
-                <div  v-else-if="!success && !quizStep.noNewsletter" class="quiz__step__full">
+                <div v-else-if="!success && !quizStep.noNewsletter" class="quiz__step__full">
                   <div class="quiz__step__content">
                     <img class="logo--small" src="../assets/images/logo-baround-small.png" />
                     <p>Stiamo cercando i bar che fanno per te, nel frattempo...</p>
@@ -383,6 +387,7 @@ export default {
       bg5: bg5,
       bg6: bg6,
       bg7: bg7,
+      sliderActive: '',
       swiperCittaOptions: {
         slidesPerView: 4,
         spaceBetween: 30,
@@ -409,7 +414,28 @@ export default {
             slidesPerView: 1,
             spaceBetween: 10
             }
-        }
+        },
+          on: {
+            init: (i) => {
+              if(i.activeIndex === 0){
+                this.quiz.city = 'Milano'
+              }
+            },
+            slideChange: (i) => {
+              if(i.activeIndex === 0){
+                this.quiz.city = 'Milano'
+              }
+              if(i.activeIndex === 1){
+                this.quiz.city = 'Roma'
+              }
+              if(i.activeIndex === 2){
+                this.quiz.city = 'Firenze'
+              }
+              if(i.activeIndex === 3){
+                this.quiz.city = 'Napoli'
+              }
+            }
+          }
       },
       quiz: {
         birthday: null,
@@ -464,11 +490,9 @@ export default {
   },
   methods: {
     onError() {
-      console.log('error')
     },
     onSuccess() {
-      console.log('success')
-    },
+    }, 
     city: function(){
       this.quizStep.stepCity = true;
       this.$store.commit("updateLocali", this.filterCity());
@@ -506,7 +530,6 @@ export default {
       var locali = [];
       var i;
       for (i = 0; i < this.locali.length; i++) {
-        console.log(tipologie.some(r=> this.locali[i].acf.tipo.includes(r)));  
         if(tipologie.some(r=> this.locali[i].acf.tipo.includes(r))){
           locali.push(this.locali[i]);
         }
@@ -542,7 +565,6 @@ export default {
     }
   },
   beforeUpdate(){
-    console.log(this.quiz)
   },
   mounted(){
   }
@@ -844,7 +866,8 @@ export default {
           }
         }
         &__occasione{
-          max-width: 400px;
+          width: 400px;
+          max-width: 90%;
           display: flex;
           flex-flow: column;
           justify-content: flex-start;
@@ -951,8 +974,10 @@ export default {
             flex-flow: column;
             justify-content: center;
             align-items: center;
+            width: 426px;
             @media all and (max-width: 768px) {  
                 padding: 15px;
+                width: 204px;
             }
             figure{
               min-width: 100%;
@@ -996,12 +1021,10 @@ export default {
             width: 72px;
             height: 72px;
             transition: all .2s;
+            cursor: pointer;
             @media all and (max-width: 768px) {  
               width: 48px;
               height: 48px;
-            }
-            &:hover{
-              transform: scale(1.2);
             }
             &--love{
               background-image: url('../assets/images/icon-love.svg');
@@ -1017,6 +1040,10 @@ export default {
                 width: 100%;
                 height: 100%;
                 -webkit-appearance: none;
+              }    
+              &:hover{
+                background-image: url('../assets/images/icon-love-sel.svg');
+                transform: rotate(360deg) scale(1.2);
               }
             }
             &--decline{
@@ -1024,6 +1051,10 @@ export default {
               background-size: 100%;
               background-position: center;
               background-repeat: no-repeat;
+              &:hover{
+                background-image: url('../assets/images/icon-decline-sel.svg');
+                transform: rotate(360deg) scale(1.2);
+              }
             }
           }
         }
