@@ -1257,15 +1257,15 @@ button,.button{
     }
     &__bg{
       position: absolute;
-      top: -10vh;
-      left: -10vw;
-      -webkit-filter: blur(2px);
-      -moz-filter: blur(2px);
-      -o-filter: blur(2px);
-      -ms-filter: blur(2px);
-      filter: blur(2px);
-      width: 120vw;
-      height: 120vh;
+      top: -15vh;
+      left: -15vw;
+      // -webkit-filter: blur(2px);
+      // -moz-filter: blur(2px);
+      // -o-filter: blur(2px);
+      // -ms-filter: blur(2px);
+      // filter: blur(2px);
+      width: 130vw;
+      height: 130vh;
       background-size: cover;
       background-position: center;
       z-index: 5;

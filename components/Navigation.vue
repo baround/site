@@ -8,6 +8,11 @@
     <div class="burger burger--close" v-on:click="isHidden = !isHidden" v-else>
     </div>
     <div class="menu" v-bind:class="{ visible: !isHidden }">
+      <div class="menu__header">
+        <div class="menu__header__logo">
+          <img src="../assets/images/logo-baround-white.png" />
+        </div>
+      </div>
       <div class="menu__col">
         <div class="menu__wrap">
           <div class="menu__row">
@@ -96,6 +101,37 @@ nav{
     animation: mymoveOut .2s;
     @media all and (max-width: 768px) {  
       padding: 90px 30px;
+    }
+    &__header{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      z-index: 5;
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      padding: 28px 30px;
+      &__logo{
+        width: 100%;
+        max-width: 140px;
+        @media all and (max-width: 768px) {  
+          max-width: 120px;
+        }
+        img{
+          width: 100%;
+        }
+      }
+      &__skip{
+        font-size: 13px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 1.3px;
+        color: #ffffff;
+        cursor: pointer;
+      }
     }
     &.visible{
       display: flex;
