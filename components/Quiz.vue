@@ -374,15 +374,15 @@
 </template>
 
 <script> 
-const loader = require('../assets/images/loader.gif');
 const bg0 = require('../assets/images/bg_quiz_0.jpg');
 const bg1 = require('../assets/images/bg_quiz_1.jpg');
 const bg2 = require('../assets/images/bg_quiz_2.jpg');
-const bg3 = require('../assets/images/bg_quiz_3_b.jpg');
+const bg3 = require('../assets/images/bg_quiz_3_b.jpg'); 
 const bg4 = require('../assets/images/bg_quiz_4.jpg');
 const bg5 = require('../assets/images/bg_quiz_5.jpg');
 const bg6 = require('../assets/images/bg_quiz_6.jpg');
 const bg7 = require('../assets/images/bg_quiz_7.jpg');
+const loader = require('../assets/images/loader.gif');
 import MailchimpSubscribe from '~/node_modules/vue-mailchimp-subscribe';
 export default {  
   components: {
