@@ -37,9 +37,7 @@
           </div>
           <div class="quiz__step__content">
             <label>In che anno sei nato?</label>
-            <fieldset>
-              <input id="birthday" v-model.number="quiz.birthday" inputmode="numeric" maxlength="4" pattern="[0-9]*" placeholder="1999">
-            </fieldset>
+            <input id="birthday" v-model.number="quiz.birthday" inputmode="numeric" maxlength="4" pattern="[0-9]*" placeholder="1999">
 
             <div v-if="quiz.birthday && quiz.birthday < year && quiz.birthday > 1900">
               <button v-on:click.stop.prevent="quizStep.stepAge = true">Conferma</button>
@@ -826,13 +824,16 @@ button,.button{
       letter-spacing: 1.3px;
       color: white;
       margin-bottom: 50px;
+
       @media all and (max-width: 768px) {  
         font-size: 72px;
         margin-bottom: 90px;
         letter-spacing: 12px;
+        max-width: 100%;
       }
-      &:focus{
+      &:focus,&:active{
         outline: none;
+        background: transparent;
       }
     }
     #birthday::-webkit-input-placeholder { /* Edge */
