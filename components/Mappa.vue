@@ -793,11 +793,10 @@ export default {
       top: 20px;
       right: 25px;
       box-shadow: 0px 0px 10px #22283187;
-      background-color: #222831;
       background-image: url('../assets/images/icon-lista.svg');
       background-position: center;
       background-size: 18px auto;
-      background-color: #222831;
+      background-color: white;
       background-repeat: no-repeat;
       cursor: pointer;
       z-index: 10;

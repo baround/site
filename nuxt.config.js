@@ -45,6 +45,7 @@ export default {
   plugins: [
     { src: '~/plugins/gmaps'},
     { src: '~/plugins/mailchimp.js' }, 
+    { src: '~/plugins/cookie.js' }, 
     { src: '~/plugins/VueAwesomeSwiper.js' }, 
   ],
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="quiz" id="quiz" v-if="!quizStep.completed && !quizStep.skip" v-on:submit.prevent>
+    <form class="quiz" id="quiz" v-if="!hasCookie && !quizStep.completed && !quizStep.skip" v-on:submit.prevent>
       <!--header-->
       <div class="quiz__header">
         <div class="quiz__header__logo">
@@ -137,7 +137,7 @@
                 </span>
                 <div class="type__box__image">
                   <figure>
-                    <img src="../assets/images/pic-vintage.jpg" />
+                    <img src="../assets/images/img-locale-culturale.jpg" />
                   </figure>
                   <span class="type__box__name">Culturale</span>
                 </div>
@@ -151,7 +151,7 @@
                 </span>
                 <div class="type__box__image">
                   <figure>
-                    <img src="../assets/images/pic-vintage.jpg" />
+                    <img src="../assets/images/img-locale-easy.jpg" />
                   </figure>
                   <span class="type__box__name">Easy</span>
                 </div>
@@ -165,7 +165,7 @@
                 </span>
                 <div class="type__box__image">
                   <figure>
-                    <img src="../assets/images/pic-vintage.jpg" />
+                    <img src="../assets/images/img-locale-pettinato.jpg" />
                   </figure>
                   <span class="type__box__name">Pettinato</span>
                 </div>
@@ -179,7 +179,7 @@
                 </span>
                 <div class="type__box__image">
                   <figure>
-                    <img src="../assets/images/pic-vintage.jpg" />
+                    <img src="../assets/images/img-locale-vintage.jpg" />
                   </figure>
                   <span class="type__box__name">Vintage</span>
                 </div>
@@ -303,7 +303,7 @@
                     <h3>Ben fatto!</h3>
                     <p>Ti abbiamo mandato un’email di conferma</p> 
                     <div>
-                      <button v-on:click.stop.prevent="quizStep.completed = true">risultati</button>
+                      <button v-on:click.stop.prevent="quizStep.completed = true; setCookie();">risultati</button>
                     </div>
                   </div>
                   <div class="quiz__step__bg" v-bind:style="{ 'background-image': 'url(' + bg7 + ')' }"></div>
@@ -331,7 +331,7 @@
                     <h3>Pronto a goderti lo spettacolo?</h3>
                     <p>Visualizza la lista dei risultati e trova il posto giusto per te!</p>   
                     <div>
-                      <button v-on:click.stop.prevent="quizStep.completed = true">risultati</button>
+                      <button v-on:click.stop.prevent="quizStep.completed = true;setCookie();">risultati</button>
                     </div>
                   </div>   
                   <div class="quiz__step__bg" v-bind:style="{ 'background-image': 'url(' + bg7 + ')' }"></div>
@@ -357,7 +357,20 @@
       <!--end footer-->
     </form>
     <div class="mappa" v-else>
-      <Mappa />
+      <div class="hasCookie" v-if="hasCookie && !removedCookie" >
+        <div class="hasCookie__content">
+          <img class="logo" src="../assets/images/logo-baround-white.png" />
+          <h2>Ciao! Bentornato.</h2>
+          <p>L'ultima volta che sei stato qui hai risposo al nostro quiz.</p>
+          <h3>Vuoi vedere i locali della scorsa ricerca?</h3>
+          <div class="hasCookie__content__row">
+            <span v-on:click="localiUpdate(); removedCookie = true" class="button">Si</span>
+            <span v-on:click="removeCookie()" class="button">No</span>
+          </div>
+        </div>
+        
+      </div>
+      <Map />
     </div>
   </div>
 </template>
@@ -437,6 +450,7 @@ export default {
             }
           }
       },
+      showMap: true,
       quiz: {
         birthday: null,
         city: null,
@@ -444,6 +458,8 @@ export default {
         occasione: [],
         location: null
       },
+      hasCookie: false,
+      removedCookie: false,
       type: {
         type_1: false,
         type_2: true,
@@ -491,6 +507,7 @@ export default {
   methods: {
     onError() {
     },
+
     onSuccess() {
     }, 
     city: function(){
@@ -505,6 +522,8 @@ export default {
           title,
           acf
       }))
+      console.log('city completed');
+      console.log(this.locali);
       return locals
     },
     location: function(){
@@ -519,6 +538,8 @@ export default {
           title,
           acf
       }))
+      console.log('location completed');
+      console.log(this.locali);
       return locals
     },
     tipologia: function(){
@@ -540,6 +561,8 @@ export default {
           title,
           acf
       }))
+      console.log('type completed');
+      console.log(this.locali);
       return locals
     },
     occasione: function(){
@@ -561,17 +584,189 @@ export default {
           title,
           acf
       }))
+      console.log('occasioni completed');
+      console.log(this.locali);
       return locals
+    },
+    setCookie: function(){
+      this.$cookies.set('completed',true,'10d');  
+      this.$cookies.set('quiz',this.quiz,'10d');  
+    },
+    removeCookie: function(){
+      this.$cookies.remove('quiz');  
+      this.$cookies.remove('completed');  
+      this.$cookies.remove('firstTime');  
+      this.removedCookie = true; 
+    },
+    localiUpdate: function(){
+      this.city();
+      this.location();
+      this.tipologia();
+      this.occasione();
+      this.showMap = true;
+      console.log('updated locals')
     }
   },
   beforeUpdate(){
   },
   mounted(){
+    if(this.$cookies.get("completed")){
+      this.hasCookie = true; 
+    }
+    if(this.$cookies.get("quiz")){
+      this.quiz = this.$cookies.get("quiz"); 
+    }
+    if(!this.$cookies.get("firstTime")){
+      this.$cookies.set('firstTime',true,'10d');  
+    }
+       
   }
 }
 </script>
 
 <style scoped defer lang="scss">
+h2{
+  font-size: 60px;
+  font-weight: 300;
+  line-height: 0.84;
+  letter-spacing: 4.14px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.87);
+  margin-bottom: 40px;
+  @media all and (max-width: 768px) {  
+    font-size: 32px;
+    font-weight: 200;
+    line-height: 1.09;
+    letter-spacing: 2.21px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
+h3{
+  font-size: 52px;
+  font-weight: normal;
+  line-height: 0.73;
+  letter-spacing: 1.63px;
+  text-align: center;
+  color: #ffffff;
+  margin: 15px;
+  @media all and (max-width: 768px) {  
+    font-size: 28px;
+    line-height: 1.36;
+    letter-spacing: 0.88px;
+    text-align: center;
+    color: #ffffff;
+    margin: 0 0;
+  }
+}
+p{
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.17;
+  letter-spacing: 1.29px;
+  text-align: center;
+  color: #ffffff;
+  margin: 15px;
+  @media all and (max-width: 768px) {  
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.64;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #ffffff;
+    margin: 7px 0;
+  }
+}
+label{
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.46;
+  letter-spacing: 2px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.87);
+  @media all and (max-width: 768px) {  
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.3;
+    letter-spacing: 1px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
+button,.button{
+  min-width: 246px;
+  padding: 15px 30px;
+  min-height: 45px;
+  border: solid 1px #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 8px;
+  color: #ffffff;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  transition: all .2s;
+  @media all and (max-width: 768px) {  
+    width: 238px;
+    height: 45px;
+  }
+  &:hover,&:active{
+    background-color: white;
+    color: black;
+  }
+}
+.button{
+  min-width: 100px;
+  width: auto;
+}
+.hasCookie{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../assets/images/bg-maps.jpg');
+  background-size: cover;
+  z-index: 1001;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  &__content{
+    width: 70%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    @media all and (max-width: 768px) {  
+      width: 90%;
+    }
+    h3{
+      margin-top: 0px;
+      font-size: 2em;
+      margin-bottom: 0;
+    }
+    &__row{
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+      align-items: center;
+      .button{
+        margin: 30px;
+      }
+    }
+    .logo{
+      max-width: 250px;
+      margin-bottom: 40px;
+    }
+  }
+}
 .quiz{
   position: fixed;
   z-index: 1000;
@@ -620,74 +815,6 @@ export default {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    h2{
-      font-size: 60px;
-      font-weight: 300;
-      line-height: 0.84;
-      letter-spacing: 4.14px;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.87);
-      margin-bottom: 40px;
-      @media all and (max-width: 768px) {  
-        font-size: 32px;
-        font-weight: 200;
-        line-height: 1.09;
-        letter-spacing: 2.21px;
-        text-align: center;
-        color: rgba(255, 255, 255, 0.87);
-      }
-    }
-    h3{
-      font-size: 52px;
-      font-weight: normal;
-      line-height: 0.73;
-      letter-spacing: 1.63px;
-      text-align: center;
-      color: #ffffff;
-      margin: 15px;
-      @media all and (max-width: 768px) {  
-        font-size: 28px;
-        line-height: 1.36;
-        letter-spacing: 0.88px;
-        text-align: center;
-        color: #ffffff;
-        margin: 0 0;
-      }
-    }
-    p{
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 1.17;
-      letter-spacing: 1.29px;
-      text-align: center;
-      color: #ffffff;
-      margin: 15px;
-      @media all and (max-width: 768px) {  
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 1.64;
-        letter-spacing: 1px;
-        text-align: center;
-        color: #ffffff;
-        margin: 7px 0;
-      }
-    }
-    label{
-      font-size: 36px;
-      font-weight: bold;
-      line-height: 1.46;
-      letter-spacing: 2px;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.87);
-      @media all and (max-width: 768px) {  
-        font-size: 18px;
-        font-weight: bold;
-        line-height: 1.3;
-        letter-spacing: 1px;
-        text-align: center;
-        color: rgba(255, 255, 255, 0.87);
-      }
-    }
     #birthday{
       -webkit-appearance: none;
       background: transparent;
@@ -742,34 +869,6 @@ export default {
       @media all and (max-width: 768px) {  
         font-size: 72px;
         letter-spacing: 12px;
-      }
-    }
-    button{
-      min-width: 246px;
-      padding: 15px 30px;
-      min-height: 45px;
-      border: solid 1px #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 13px;
-      font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: 8px;
-      color: #ffffff;
-      text-transform: uppercase;
-      background: transparent;
-      cursor: pointer;
-      transition: all .2s;
-      @media all and (max-width: 768px) {  
-        width: 238px;
-        height: 45px;
-      }
-      &:hover{
-        background-color: white;
-        color: black;
       }
     }
     &__wrapper{
@@ -1041,7 +1140,7 @@ export default {
                 height: 100%;
                 -webkit-appearance: none;
               }    
-              &:hover{
+              &:hover,&:active{
                 background-image: url('../assets/images/icon-love-sel.svg');
                 transform: rotate(360deg) scale(1.2);
               }
@@ -1051,7 +1150,7 @@ export default {
               background-size: 100%;
               background-position: center;
               background-repeat: no-repeat;
-              &:hover{
+              &:hover,&:active{
                 background-image: url('../assets/images/icon-decline-sel.svg');
                 transform: rotate(360deg) scale(1.2);
               }

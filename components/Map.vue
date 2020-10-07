@@ -93,7 +93,6 @@
               <span v-for="(type, index) in locale.acf.tipo" :key="index">{{type}}</span>
             </div>
             <span class="address">{{locale.acf.indirizzo.address}}</span>
-
           </div>
         </div>
       </div>
@@ -130,7 +129,6 @@ import { isMobile } from 'mobile-device-detect';
 export default {
   data() {
     return {
-      mammt: {},
       window: {
         width: 0,
         height: 0
@@ -152,18 +150,6 @@ export default {
       startLocation: {
           lat: 45.4670831,
           lng: 9.185246
-      },
-      coordinates: {
-          0: {
-              full_name: 'Erich  Kunze',
-              lat: '10.31',
-              lng: '123.89'
-          },
-          1: {
-              full_name: 'Delmer Olson',
-              lat: '10.32',
-              lng: '123.89'
-          }
       },
       infoPosition: null,
       infoContent: null,
@@ -351,11 +337,7 @@ export default {
             ]
         }
     ]
-
-
     }
-    
-
   },
   computed: {
       locali() {
@@ -414,24 +396,6 @@ export default {
           </div>
         </div>`);
       },
-    listaFiltrata: function(){
-      var allLocals = this.locali;
-      var coords = [];
-      var i;
-      for (i = 0; i < allLocals.length; i++) {
-        var obj = {
-          foto: allLocals[i].acf.immagine_di_copertina,
-          indirizzo: allLocals[i].acf.indirizzo.address,
-          fascia: allLocals[i].acf.fascia_di_prezzo,
-          slug: allLocals[i].slug,
-          full_name: allLocals[i].title.rendered,
-          lat: allLocals[i].acf.indirizzo.lat,
-          lng: allLocals[i].acf.indirizzo.lng
-        }
-        coords.push(obj);
-      }
-      return coords;
-    },
     listaLong: function(){
       var allLocals = this.locali;
       var coords = [];
@@ -457,7 +421,9 @@ export default {
   mounted(){
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
-    this.mammt = this.locali;
+    this.coords = this.listaLong();
+    console.log("this.listaLong()")
+    console.log(this.listaLong())
   }
 }
 </script>
@@ -759,8 +725,8 @@ export default {
           overflow: hidden;
           @media all and (max-width: 768px) {  
             width: 100%;
-            height: auto;
-            overflow: visible;
+            height: 180px;
+            overflow: hidden;
           }
           img{
             width: 100%;
@@ -853,11 +819,10 @@ export default {
       top: 20px;
       right: 25px;
       box-shadow: 0px 0px 10px #22283187;
-      background-color: #222831;
       background-image: url('../assets/images/icon-lista.svg');
       background-position: center;
       background-size: 18px auto;
-      background-color: #222831;
+      background-color: white;
       background-repeat: no-repeat;
       cursor: pointer;
       z-index: 10;

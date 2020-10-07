@@ -92,6 +92,8 @@ nav{
     background-image: url('../assets/images/bg-menu.jpg');
     background-position: center;
     background-size: cover;
+    right: -100vw;
+    animation: mymoveOut .2s;
     @media all and (max-width: 768px) {  
       padding: 90px 30px;
     }
@@ -102,10 +104,9 @@ nav{
       align-items: flex-end;
       position: fixed;
       top: 0;
-      left: 0;
-      animation: mymove 5s;
+      right: 0;
+      animation: mymove .2s;
       z-index: 10;
-      transform: translateZ(0);
     }
     &__col{
       width: 50%;
@@ -172,7 +173,7 @@ nav{
             @media all and (max-width: 768px) {  
               font-size: 24px;
             }
-            &:hover{
+            &:hover,&:active{
               font-weight: bold;
             }
           }
@@ -209,7 +210,11 @@ nav{
 }
 
 @keyframes mymove {
-  from {right: -100vw;}
-  to {right: 0;}
+  from {right: -100vw; opacity: 0;}
+  to {right: 0; opacity: 1;}
+}
+@keyframes mymoveOut {
+  from {right: 0;}
+  to {right: -100vw;}
 }
 </style>

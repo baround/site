@@ -210,12 +210,19 @@ main{
     flex-shrink: 1;
     flex-wrap: wrap;
     width: 300px;
+    @media all and (max-width: 768px) {  
+      width: 100%;
+      padding: 10px 15px;
+    }
     h2{
       font-size: 15.6px;
       font-weight: bold;
       letter-spacing: 1.11px;
       color: #222831;
       margin: 6px 0;
+      @media all and (max-width: 768px) {  
+        font-size: 13px;
+      }
       a{
         text-decoration: none;
         color: #222831;
@@ -227,6 +234,9 @@ main{
       color: #222831;
       font-weight: bold;
       margin: 6px 0;
+      @media all and (max-width: 768px) {  
+        font-size: 14px;
+      }
     }
     .address{
       margin: 6px 0;
@@ -235,6 +245,9 @@ main{
       line-height: 1.3;
       letter-spacing: 1.3px;
       color: #222831;
+      @media all and (max-width: 768px) {  
+        font-size: 11px;
+      }
     }
   }
 }

@@ -748,7 +748,7 @@ transition: "slide-right",
                                 width: 100%;
                             }
                         }
-                        &:hover{
+                        &:hover,&:active{
                             .boxAttivita__img{
                                 display: flex;
                             }
