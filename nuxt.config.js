@@ -46,6 +46,7 @@ export default {
     { src: '~/plugins/gmaps'},
     { src: '~/plugins/mailchimp.js' }, 
     { src: '~/plugins/cookie.js' }, 
+    { src: '~/plugins/countdown.js' }, 
     { src: '~/plugins/VueAwesomeSwiper.js' }, 
   ],
 

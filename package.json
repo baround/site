@@ -9,11 +9,13 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@chenfengyuan/vue-countdown": "^1.1.5",
     "axios": "^0.20.0",
     "mobile-device-detect": "^0.4.3",
     "nuxt": "^2.14.0",
     "nuxtjs-device": "^0.1.0",
     "swiper": "^6.2.0",
+    "vue": "^2.6.12",
     "vue-awesome-swiper": "^4.1.1",
     "vue-cookies": "^1.7.4",
     "vue-device-detector": "^1.1.5",
