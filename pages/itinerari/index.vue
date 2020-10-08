@@ -174,6 +174,7 @@ computed: {
                 position: relative;
                 margin-bottom: 0px;
                 z-index: 10;
+                flex-wrap: wrap;
                 @media all and (max-width: 768px) {  
                     flex-flow: column;
                     padding: 20px;
@@ -188,7 +189,7 @@ computed: {
                 }
                 figure{
                     width: 100%;
-                    height: 407px;
+                    height: 250px;
                     background-image: url('../../assets/images/placeholder.jpg');
                     background-size: cover;
                     background-position: center;
@@ -203,18 +204,18 @@ computed: {
                     }
                 }
                 h2{
-                    font-size: 30px;
+                    font-size: 25px;
                     font-weight: bold;
                     line-height: 1.24;
-                    letter-spacing: 3px;
+                    letter-spacing: 1px;
                     color: #222831;
                     margin-bottom: 30px;
                     display: -webkit-box;
-                    -webkit-line-clamp: 2;
+                    -webkit-line-clamp: 1;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
                     @media all and (max-width: 768px) {  
-                        font-size: 22px;
+                        font-size: 20px;
                         margin-bottom: 10px;
                     }
                     a{
@@ -223,16 +224,16 @@ computed: {
                     }
                 }
                 .txt{
-                    font-size: 18px;
+                    font-size: 16px;
                     font-weight: 300;
                     font-stretch: normal;
                     font-style: normal;
-                    line-height: 1.71;
+                    line-height: 1.51;
                     letter-spacing: 1.29px;
                     color: #222831;
-                    margin-bottom: 30px;
+                    margin-bottom: 10px;
                     display: -webkit-box;
-                    -webkit-line-clamp: 6;
+                    -webkit-line-clamp: 3;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
                     @media all and (max-width: 768px) {  

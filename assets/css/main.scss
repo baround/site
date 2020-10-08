@@ -89,6 +89,9 @@ main{
     strong{
       font-weight: bold;
     }
+    a{
+      color: #222831;
+    }
   }
   ul{
     list-style: disc;
@@ -96,6 +99,10 @@ main{
     padding-bottom: 30px;
     li{
       margin: 25px 0;
+
+      a{
+        color: #222831;
+      }
       strong{
         font-weight: bold;
       }

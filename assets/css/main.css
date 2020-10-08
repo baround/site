@@ -99,6 +99,10 @@ main {
   font-weight: bold;
 }
 
+.locale p a, .attivita p a, .itinerario p a, .page p a {
+  color: #222831;
+}
+
 .locale ul, .attivita ul, .itinerario ul, .page ul {
   list-style: disc;
   line-height: 1.7em;
@@ -107,6 +111,10 @@ main {
 
 .locale ul li, .attivita ul li, .itinerario ul li, .page ul li {
   margin: 25px 0;
+}
+
+.locale ul li a, .attivita ul li a, .itinerario ul li a, .page ul li a {
+  color: #222831;
 }
 
 .locale ul li strong, .attivita ul li strong, .itinerario ul li strong, .page ul li strong {

@@ -14,6 +14,11 @@
             <div class="page__fascia__contenuto page__fascia__contenuto--intro intro" v-if="field.acf_fc_layout === 'introduzione'">
                 <div class="txt" v-html="field.contenuto">
 
+                </div>                
+                <h3>Seguici anche su:</h3>
+                <div class="social">
+                    <a href="https://www.facebook.com/baroundit" target="_blank"><span class="icon icon__fb"></span></a>
+                    <a href="https://www.instagram.com/baround_/" target="_blank"><span class="icon icon__ig"></span></a>
                 </div>
             </div>
             <div class="page__fascia__contenuto page__fascia__contenuto--testo" v-if="field.acf_fc_layout === 'testo'">
@@ -56,7 +61,11 @@
 
 <script>
 const loader = require('../../assets/images/loader.gif');
-export default {
+import InstagramEmbed from '~/node_modules/vue-instagram-embed';
+export default {  
+    components: {
+        InstagramEmbed,
+    },
     computed: {
         page() {
             return this.$store.state.content.contatti;
@@ -255,11 +264,43 @@ export default {
                 padding: 75px 75px 0px 75px;
                 margin-top: -150px;
                 position: relative;
-                margin-bottom: 0px;
+                margin-bottom: 50px;
                 z-index: 10;
+                align-items: center;
+                p{
+                    text-align: center;
+                }
+                h3{
+                    text-align: center;
+                }
+                a{
+                    color: black;
+                }
                 @media all and (max-width: 768px) {  
                     padding: 30px 20px;
                     margin-top: 0;
+                }
+                .social{
+                    display: flex;
+                    flex-flow: row;
+                    justify-content: center;
+                    a{
+                        margin: 0 20px;
+                        display: flex;
+                        .icon{
+                            width: 30px;
+                            height: 30px;
+                            background-size: auto 30px;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            &__fb{
+                            background-image: url('../../assets/images/icon-facebook-blue.svg');
+                            }
+                            &__ig{
+                            background-image: url('../../assets/images/icon-instagram-blue.svg');
+                            }
+                        }
+                    }
                 }
             }
             &--testo{
