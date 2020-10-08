@@ -33,7 +33,7 @@ export const actions = {
     async itinerari({ state, commit }) {
       if (state.content.itinerari.length) return
       try {
-        let itinerari = await fetch( `https://baround.it/be/wp-json/wp/v2/itinerari?page=1&per_page=100`
+        let itinerari = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/itinerari?page=1&per_page=100`
         ).then(res => res.json())
         itinerari = itinerari
           .filter(el => el.status === "publish")
@@ -51,7 +51,7 @@ export const actions = {
     async chisiamo({ state, commit }) {
       if (state.content.chisiamo.length) return
       try {
-        let chisiamo = await fetch( `https://baround.it/be/wp-json/wp/v2/pages/253`
+        let chisiamo = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/253`
         ).then(res => res.json())
         commit("updateChisiamo", chisiamo)
       } catch (err) {
@@ -61,7 +61,7 @@ export const actions = {
     async contatti({ state, commit }) {
       if (state.content.contatti.length) return
       try {
-        let contatti = await fetch( `https://baround.it/be/wp-json/wp/v2/pages/255`
+        let contatti = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/255`
         ).then(res => res.json())
         commit("updateContatti", contatti)
       } catch (err) {
@@ -71,7 +71,7 @@ export const actions = {
     async locali({ state, commit }) {
       if (state.content.locali.length) return
       try {
-        let locali = await fetch( `https://baround.it/be/wp-json/wp/v2/locali?page=1&per_page=100`
+        let locali = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/locali?page=1&per_page=100`
         ).then(res => res.json())
         locali = locali
           .filter(el => el.status === "publish")
