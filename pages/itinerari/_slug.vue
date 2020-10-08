@@ -186,7 +186,7 @@ transition: "slide-right",
             },
             swiperGalleryOptions: {
                 slidesPerView: 2,
-                spaceBetween: 30,
+                spaceBetween: 10,
                 loop: false,
                 pagination: {
                     el: '.swiper-pagination-gallery',
@@ -195,7 +195,7 @@ transition: "slide-right",
                 breakpoints: {
                     1024: {
                     slidesPerView: 2,
-                    spaceBetween: 40
+                    spaceBetween: 10
                     },
                     768: {
                     slidesPerView: 2,
@@ -447,8 +447,8 @@ transition: "slide-right",
         funGalleryOption: function(){
             return {
                 slidesPerView: 2,
-                spaceBetween: 30,
-                loop: false,
+                spaceBetween: 10,
+                loop: true,
                 pagination: {
                     el: '.swiper-pagination-gallery',
                     clickable: true,
@@ -456,7 +456,7 @@ transition: "slide-right",
                 breakpoints: {
                     1024: {
                     slidesPerView: 2,
-                    spaceBetween: 40
+                    spaceBetween: 10
                     },
                     768: {
                     slidesPerView: 2,
@@ -569,9 +569,12 @@ transition: "slide-right",
         position: relative;
         figure{
             width: 100%;
-            max-height: 620px;
+            // max-height: 620px;
+            height: 100vh;
+            max-height: 100vh;
             overflow: hidden;
             background-size: cover;
+            background-position: center;
             @media all and (max-width: 768px) {  
                 min-height: 50vh;
                 max-height: 100vh;
@@ -659,6 +662,13 @@ transition: "slide-right",
             margin: 50px 0;
             @media all and (max-width: 768px) {  
                 margin: 12px 0;
+            }
+            &--gallery{
+                .gallery{
+                    @media all and (max-width: 768px) {  
+                        padding-right: 50px;
+                    }
+                }
             }
             &--mappa{
                 margin: 50px 0 0 0;

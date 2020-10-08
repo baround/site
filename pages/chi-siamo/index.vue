@@ -6,9 +6,9 @@
             <figure v-bind:style="{ 'background-image': 'url(' + page.acf.immagine_di_copertina + ')' }">
                 <img v-bind:src="page.acf.immagine_di_copertina" />
             </figure>
-            <div class="page__header__details">
+            <!-- <div class="page__header__details">
                 <h1 v-html="page.title.rendered"></h1>
-            </div>
+            </div> -->
         </section>
         <section class="page__fascia" v-for="(field, index) in page.acf.contenuto" :key="index">
             <div class="page__fascia__contenuto page__fascia__contenuto--intro intro" v-if="field.acf_fc_layout === 'introduzione'">
@@ -73,8 +73,8 @@ export default {
             loader: loader,
             swiperGalleryOptions: {
                 slidesPerView: 2,
-                spaceBetween: 30,
-                loop: false,
+                spaceBetween: 10,
+                loop: true,
                 pagination: {
                     el: '.swiper-pagination-gallery',
                     clickable: true,
@@ -82,7 +82,7 @@ export default {
                 breakpoints: {
                     1024: {
                     slidesPerView: 2,
-                    spaceBetween: 40
+                    spaceBetween: 10
                     },
                     768: {
                     slidesPerView: 2,
@@ -104,8 +104,8 @@ export default {
         funGalleryOption: function(){
             return {
                 slidesPerView: 2,
-                spaceBetween: 30,
-                loop: false,
+                spaceBetween: 10,
+                loop: true,
                 pagination: {
                     el: '.swiper-pagination-gallery',
                     clickable: true,
@@ -113,7 +113,7 @@ export default {
                 breakpoints: {
                     1024: {
                     slidesPerView: 2,
-                    spaceBetween: 40
+                    spaceBetween: 10
                     },
                     768: {
                     slidesPerView: 2,
@@ -145,9 +145,11 @@ export default {
         position: relative;
         figure{
             width: 100%;
-            max-height: 620px;
+            // max-height: 620px;
+            height: 100vh;
             overflow: hidden;
             background-size: cover;
+            background-position: center;
             @media all and (max-width: 768px) {  
                 min-height: 50vh;
                 max-height: 100vh;
@@ -248,6 +250,13 @@ export default {
             margin: 50px 0;
             @media all and (max-width: 768px) {  
                 margin: 12px 0;
+            }
+            &--gallery{
+                .gallery{
+                    @media all and (max-width: 768px) {  
+                        padding-right: 50px;
+                    }
+                }
             }
             &--intro{
                 max-width: 654px;
