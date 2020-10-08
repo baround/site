@@ -19,6 +19,7 @@ let myRoutes = function(){
 
 
 export default {
+  
   mode: 'universal',
   target: 'server',
   head: {
