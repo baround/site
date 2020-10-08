@@ -147,6 +147,17 @@ export default {
 </script>
 
 <style scoped defer lang="scss">
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+.page{
+    animation: appear 0.5s;
+}
 .page{
     width: 100%;
     &__header{

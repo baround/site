@@ -623,6 +623,17 @@ export default {
 </script>
 
 <style scoped defer lang="scss">
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+.quiz__step{
+    animation: appear 0.5s;
+}
 h2{
   font-size: 60px;
   font-weight: 300;
@@ -1125,6 +1136,7 @@ button,.button{
             @media all and (max-width: 768px) {  
               width: 48px;
               height: 48px;
+              transition: all .4s;
             }
             &--love{
               background-image: url('../assets/images/icon-love.svg');
@@ -1144,6 +1156,9 @@ button,.button{
               &:hover,&:active{
                 background-image: url('../assets/images/icon-love-sel.svg');
                 transform: rotate(360deg) scale(1.2);
+                @media all and (max-width: 768px) {  
+                  transform: rotate(360deg) scale(1.5);
+                }
               }
             }
             &--decline{

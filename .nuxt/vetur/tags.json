@@ -29,6 +29,12 @@
   "LazyNavigation": {
     "description": "Auto imported from components/Navigation.vue"
   },
+  "Newsletter": {
+    "description": "Auto imported from components/Newsletter.vue"
+  },
+  "LazyNewsletter": {
+    "description": "Auto imported from components/Newsletter.vue"
+  },
   "Quiz": {
     "description": "Auto imported from components/Quiz.vue"
   },

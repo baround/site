@@ -610,6 +610,17 @@ transition: "slide-right",
 </script>
 
 <style scoped defer lang="scss">
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+.post{
+    animation: appear 0.5s;
+}
 .vue-map-container {
   height: 560px;
   width: 100%;

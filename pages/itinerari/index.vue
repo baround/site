@@ -55,6 +55,17 @@ computed: {
 </script>
 
 <style scoped defer lang="scss">
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+.contenitore{
+    animation: appear 0.5s;
+}
 .itinerari{
     width: 100%;
     margin-bottom: 50px;
