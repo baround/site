@@ -44,6 +44,7 @@ export default {
   ],
   plugins: [
     { src: '~/plugins/gmaps'},
+    { src: '~/plugins/ga.js', mode: 'client' },
     { src: '~/plugins/mailchimp.js' }, 
     { src: '~/plugins/cookie.js' }, 
     { src: '~/plugins/countdown.js' }, 

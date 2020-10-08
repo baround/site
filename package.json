@@ -16,6 +16,7 @@
     "nuxtjs-device": "^0.1.0",
     "swiper": "^6.2.0",
     "vue": "^2.6.12",
+    "vue-analytics": "^5.22.1",
     "vue-awesome-swiper": "^4.1.1",
     "vue-cookies": "^1.7.4",
     "vue-device-detector": "^1.1.5",

@@ -125,7 +125,7 @@ export default {
   data() {
     return {
       now: Math.trunc(new Date().getTime() / 1000),
-      modifiedDate: Math.trunc(Date.parse("Oct 08, 2020 17:00") / 1000),
+      modifiedDate: Math.trunc(Date.parse("Oct 08, 2020 20:00") / 1000),
       // modifiedDate: Math.trunc(Date.parse("Oct 07, 2020 18:10") / 1000),
       expired: false,
       countdown: false,

@@ -5,7 +5,6 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _2981a5a6 = () => interopDefault(import('../pages/chi-siamo/index.vue' /* webpackChunkName: "pages/chi-siamo/index" */))
 const _5a2f138e = () => interopDefault(import('../pages/contatti/index.vue' /* webpackChunkName: "pages/contatti/index" */))
-const _31354a93 = () => interopDefault(import('../pages/home/index.vue' /* webpackChunkName: "pages/home/index" */))
 const _2848309d = () => interopDefault(import('../pages/itinerari/index.vue' /* webpackChunkName: "pages/itinerari/index" */))
 const _31fadf12 = () => interopDefault(import('../pages/locali/index.vue' /* webpackChunkName: "pages/locali/index" */))
 const _5de0c6ee = () => interopDefault(import('../pages/quiz/index.vue' /* webpackChunkName: "pages/quiz/index" */))
@@ -37,10 +36,6 @@ export const routerOptions = {
     path: "/contatti",
     component: _5a2f138e,
     name: "contatti"
-  }, {
-    path: "/home",
-    component: _31354a93,
-    name: "home"
   }, {
     path: "/itinerari",
     component: _2848309d,

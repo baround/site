@@ -660,6 +660,9 @@ transition: "slide-right",
             @media all and (max-width: 768px) {  
                 margin: 12px 0;
             }
+            &--mappa{
+                margin: 50px 0 0 0;
+            }
             &--intro{
                 max-width: 654px;
                 background: white;
@@ -674,7 +677,7 @@ transition: "slide-right",
                 }
             }
             &--testo{
-                max-width: 674px;
+                max-width: 654px;
                 background: white;
                 padding: 0 75px 0 75px;
                 position: relative;
@@ -712,7 +715,7 @@ transition: "slide-right",
                 align-items: center;
                 margin: 15px 0;
                 .boxAttivita{
-                    max-width: 674px;
+                    max-width: 654px;
                     width: 100%;
                     background: white;
                     padding: 0 75px 0 75px;

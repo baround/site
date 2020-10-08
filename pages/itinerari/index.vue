@@ -203,7 +203,7 @@ computed: {
                     }
                 }
                 h2{
-                    font-size: 42px;
+                    font-size: 30px;
                     font-weight: bold;
                     line-height: 1.24;
                     letter-spacing: 3px;

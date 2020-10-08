@@ -82,7 +82,7 @@ main {
 }
 
 .locale p, .attivita p, .itinerario p, .page p {
-  line-height: 1.5em;
+  line-height: 1.7em;
   padding-bottom: 30px;
   font-size: 16px;
 }
@@ -95,14 +95,22 @@ main {
   }
 }
 
+.locale p strong, .attivita p strong, .itinerario p strong, .page p strong {
+  font-weight: bold;
+}
+
 .locale ul, .attivita ul, .itinerario ul, .page ul {
   list-style: disc;
-  line-height: 1.5em;
+  line-height: 1.7em;
   padding-bottom: 30px;
 }
 
 .locale ul li, .attivita ul li, .itinerario ul li, .page ul li {
-  margin: 20px 0;
+  margin: 25px 0;
+}
+
+.locale ul li strong, .attivita ul li strong, .itinerario ul li strong, .page ul li strong {
+  font-weight: bold;
 }
 
 @media all and (max-width: 768px) {

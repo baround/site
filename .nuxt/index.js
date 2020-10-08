@@ -15,6 +15,7 @@ import { createStore } from './store.js'
 
 import nuxt_plugin_plugin_ece61312 from 'nuxt_plugin_plugin_ece61312' // Source: ./components/plugin.js (mode: 'all')
 import nuxt_plugin_gmaps_34c7cc70 from 'nuxt_plugin_gmaps_34c7cc70' // Source: ../plugins/gmaps (mode: 'all')
+import nuxt_plugin_ga_34d435b2 from 'nuxt_plugin_ga_34d435b2' // Source: ../plugins/ga.js (mode: 'client')
 import nuxt_plugin_mailchimp_35b1e47d from 'nuxt_plugin_mailchimp_35b1e47d' // Source: ../plugins/mailchimp.js (mode: 'all')
 import nuxt_plugin_cookie_7d4b4e5d from 'nuxt_plugin_cookie_7d4b4e5d' // Source: ../plugins/cookie.js (mode: 'all')
 import nuxt_plugin_countdown_733cf6c8 from 'nuxt_plugin_countdown_733cf6c8' // Source: ../plugins/countdown.js (mode: 'all')
@@ -206,6 +207,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_gmaps_34c7cc70 === 'function') {
     await nuxt_plugin_gmaps_34c7cc70(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_ga_34d435b2 === 'function') {
+    await nuxt_plugin_ga_34d435b2(app.context, inject)
   }
 
   if (typeof nuxt_plugin_mailchimp_35b1e47d === 'function') {
