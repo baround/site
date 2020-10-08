@@ -1,12 +1,12 @@
 
 import axios from "axios";
 let myRoutes = function(){
-  let itinerari = axios.get('https://be.baround.it/wp-json/wp/v2/itinerari?page=1&per_page=100').then((res) => {
+  let itinerari = axios.get('https://be.baround.it/index.php/wp-json/wp/v2/itinerari?page=1&per_page=100').then((res) => {
     return res.data.map((itinerario) => {
       return '/itinerari/' + itinerario.slug
     })
   })
-  let locali = axios.get('https://be.baround.it/wp-json/wp/v2/locali?page=1&per_page=100').then((res) => {
+  let locali = axios.get('https://be.baround.it/index.php/wp-json/wp/v2/locali?page=1&per_page=100').then((res) => {
     return res.data.map((locale) => {
       return '/locali/' + locale.slug
     })
@@ -19,7 +19,7 @@ let myRoutes = function(){
 
 
 export default {
-  
+
   mode: 'universal',
   target: 'server',
   head: {
