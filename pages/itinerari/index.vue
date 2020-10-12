@@ -103,7 +103,6 @@ computed: {
             }
             img{
                 width: 100%;
-                max-height: 100%;
                 opacity: 0;
             }
         }
@@ -233,6 +232,7 @@ computed: {
                     img{
                         width: 100%;
                         opacity: 0;
+                        max-height: 100%;
                     }
                 }
                 h2{
