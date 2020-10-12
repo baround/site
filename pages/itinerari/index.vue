@@ -8,7 +8,7 @@
                 <img v-bind:src="bgTop" />
             </figure>
             <div class="itinerari__header__details">
-                <h1>Scopri gli itinerari del gusto</h1>
+                <h1>Storie da scoprire, prima che da bere</h1>
             </div>
         </section>
         <section class="itinerari__fascia">

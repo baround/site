@@ -154,11 +154,11 @@ transition: "slide-right",
     },
     head() {
         return {
-        title: this.title,
+            title: this.title  + ' - Baround',
             meta: [
                 {
                 hid: 'baround',
-                name: 'Itinerari - Baround',
+                name:  this.title + ' - Baround',
                 content: 'Baround con noi. Scopri i luoghi inaspettati di Milano.'
                 },
                 //FB
@@ -528,13 +528,13 @@ transition: "slide-right",
         };
         return (
             `<div class="singleItinerario">
-                // <figure style="background-image: url(${marker.foto});">
-                //     <img src="${marker.foto}">
-                // </figure>
-                // <div class="singleItinerario__content">
-                //     <h2>${marker.full_name}</h2>
-                //     <div class="address">${marker.indirizzo}</div>
-                // </div>
+                <figure style="background-image: url(${marker.foto});">
+                    <img src="${marker.foto}">
+                </figure>
+                <div class="singleItinerario__content">
+                    <h2>${marker.full_name}</h2>
+                    <div class="address">${marker.indirizzo}</div>
+                </div>
                 </div>`);
         },
         listaLong: function(itiner){
@@ -563,15 +563,6 @@ transition: "slide-right",
         this.$store.dispatch("itinerari");
     },  
     mounted(){
-        if(this.$cookies.get("completed")){
-        this.hasCookie = true; 
-        }
-        if(this.$cookies.get("quiz")){
-        this.quiz = this.$cookies.get("quiz"); 
-        }
-        if(!this.$cookies.get("firstTime")){
-        this.$cookies.set('firstTime',true,'10d');  
-        }
     },
     beforeUpdate(){
         if(this.itinerario.acf.locali_vicini){
@@ -584,8 +575,8 @@ transition: "slide-right",
             this.correlatiLocali = filtered;
 
         }
-        this.title = this.itinerario.title.rendered
-            this.coords = this.listaLong();
+        this.coords = this.listaLong();
+        this.title = this.itinerario.title.rendered;
     }
 };
 </script>
