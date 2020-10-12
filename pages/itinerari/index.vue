@@ -240,7 +240,7 @@ computed: {
                     line-height: 1.24;
                     letter-spacing: 1px;
                     color: #222831;
-                    margin-bottom: 30px;
+                    margin-bottom: 10px;
                     display: -webkit-box;
                     -webkit-line-clamp: 1;
                     -webkit-box-orient: vertical;
@@ -262,7 +262,7 @@ computed: {
                     line-height: 1.51;
                     letter-spacing: 1.29px;
                     color: #222831;
-                    margin-bottom: 10px;
+                    margin-bottom: 30px;
                     display: -webkit-box;
                     -webkit-line-clamp: 3;
                     -webkit-box-orient: vertical;
