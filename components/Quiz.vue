@@ -75,7 +75,7 @@
                       <input type="radio" class="city__radio" id="citta" value="Milano" v-model="quiz.city" >
                     </div>
                 </swiper-slide>
-                <swiper-slide class="city__single">
+                <!-- <swiper-slide class="city__single">
                     <div class="city__single__card">
                       <figure>
                         <img src="../assets/images/city-milano.jpg" />
@@ -107,7 +107,7 @@
                       </span>
                       <input type="radio" class="city__radio" id="citta" value="Napoli" v-model="quiz.city">
                     </div>
-                </swiper-slide>
+                </swiper-slide> -->
             </swiper>
             <div>
               <button v-on:click.stop.prevent="city(quiz.city)">Conferma</button>
