@@ -870,6 +870,7 @@ transition: "slide-right",
                             background-size: cover;
                             background-position: center;
                             margin: 0 0 8px 0;
+                            height: 270px;
                             @media all and (max-width: 768px) {  
                                 height: 150px;
                                 min-height: 150px;
