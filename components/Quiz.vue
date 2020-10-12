@@ -1111,7 +1111,7 @@ button,.button{
           &__name{
             text-align: center;
             font-family: 'Playfair Display', serif;
-            font-size: 56px;
+            font-size: 48px;
             font-weight: bold;
             font-stretch: normal;
             font-style: italic;
