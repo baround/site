@@ -173,7 +173,7 @@ transition: "slide-right",
     },
     data() {
         return {
-            title: this.itinerario.title.rendered,
+            title: 'Itinerari',
             loader: loader,
             isVisible: false,
             slug: this.$route.params.slug,
