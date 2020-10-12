@@ -25,7 +25,6 @@
 </template>
 
 <script>
-
 import MailchimpSubscribe from '~/node_modules/vue-mailchimp-subscribe';
 export default {  
   components: {
@@ -55,7 +54,12 @@ export default {
 }
 </script>
 <style scoped defer lang="scss">
-
+.newsletter{
+  position: fixed; 
+  bottom: 0; 
+  width: 100vw;
+  background: white;
+}
 @keyframes appear {
   0% {
     opacity: 0;
