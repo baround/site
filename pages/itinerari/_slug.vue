@@ -18,6 +18,24 @@
 
                 </div>
             </div>
+        </section>
+        
+        <section class="itinerario__fascia" v-if="coords">
+            <div class="itinerario__fascia__contenuto itinerario__fascia__contenuto--mappa">
+                <gmap-map :options="{styles: styles}" ref="mymap" :center="startLocation" :zoom="14">
+                    <gmap-info-window :options="infoOptions" :position="infoPosition" :opened="infoOpened" @closeclick="infoOpened=false"><div v-html="infoContent"></div></gmap-info-window>
+                    <gmap-marker 
+                        v-for="(item, key) in coords" 
+                        :key="key" 
+                        :position="getPosition(item)" 
+                        :clickable="true" 
+                        @click="toggleInfo(item, key)"
+                        :icon="markerOptions" 
+                    /> 
+                </gmap-map>
+            </div>
+        </section>    
+        <section class="itinerario__fascia" v-for="(field, index) in itinerario.acf.contenuto" :key="'i_'+index">
             <div class="itinerario__fascia__contenuto itinerario__fascia__contenuto--testo" v-if="field.acf_fc_layout === 'testo'">
                 <div class="txt" v-html="field.contenuto">
 
@@ -59,25 +77,7 @@
                 </div>
             </div>
         </section>
-
-
-        <section class="itinerario__fascia" v-if="coords">
-            <div class="itinerario__fascia__contenuto itinerario__fascia__contenuto--mappa">
-                <gmap-map :options="{styles: styles}" ref="mymap" :center="startLocation" :zoom="14">
-                    <gmap-info-window :options="infoOptions" :position="infoPosition" :opened="infoOpened" @closeclick="infoOpened=false"><div v-html="infoContent"></div></gmap-info-window>
-                    <gmap-marker 
-                        v-for="(item, key) in coords" 
-                        :key="key" 
-                        :position="getPosition(item)" 
-                        :clickable="true" 
-                        @click="toggleInfo(item, key)"
-                        :icon="markerOptions" 
-                    /> 
-                </gmap-map>
-            </div>
-        </section>
-        
-        <section class="itinerario__fascia" v-if='listalocali.length'>
+        <section class="itinerario__fascia" v-if='itinerario.acf.locali_vicini && listalocali.length'>
             <div class="itinerario__fascia__contenuto itinerario__fascia__contenuto--bgBlue itinerario__fascia__contenuto--correlati" >
                 <h3>Locali nelle vicinanze</h3>
                 <swiper class="correlati" ref="localiCorrelati" :options="swiperLocaliOptions">
