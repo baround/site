@@ -37,11 +37,12 @@ export const actions = {
         ).then(res => res.json())
         itinerari = itinerari
           .filter(el => el.status === "publish")
-          .map(({ id, slug, title, acf }) => ({
+          .map(({ id, slug, title, acf, yoast_head }) => ({
             id,
             slug,
             title,
-            acf
+            acf,
+            yoast_head
           }))
         commit("updatePosts", itinerari)
       } catch (err) {
@@ -75,11 +76,12 @@ export const actions = {
         ).then(res => res.json())
         locali = locali
           .filter(el => el.status === "publish")
-          .map(({ id, slug, title, acf }) => ({
+          .map(({ id, slug, title, acf, yoast_head }) => ({
             id,
             slug,
             title,
-            acf
+            acf,
+            yoast_head
           }))
         commit("updateLocali", locali)
       } catch (err) {

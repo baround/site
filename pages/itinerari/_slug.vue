@@ -563,8 +563,10 @@ transition: "slide-right",
         this.$store.dispatch("itinerari");
     },  
     mounted(){
+
     },
     beforeUpdate(){
+        console.log(this.itinerario)
         if(this.itinerario.acf.locali_vicini){
             var idPosts = [];
             var i;
