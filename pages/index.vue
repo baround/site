@@ -84,6 +84,7 @@ export default {
   },
   data() {
     return {
+      title: 'Baround',
       now: Math.trunc(new Date().getTime() / 1000),
       modifiedDate: Math.trunc(Date.parse("Oct 12, 2020 17:00") / 1000),
       // modifiedDate: Math.trunc(Date.parse("Oct 07, 2020 18:10") / 1000),
@@ -92,6 +93,26 @@ export default {
       video: videoSrc,
       skip: false,
     };
+  },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: 'baround',
+          name: 'Baround',
+          content: 'La guida definitiva ai cocktail bar.'
+        },
+        //FB
+        { hid: 'og:title', name: 'og:title', content: this.title },
+        { hid: 'og:description', name: 'og:description', content: 'La guida definitiva ai cocktail bar.' },
+        { hid: 'og:url', name: 'og:url', content: 'https://www.baround.it' },
+        { hid: 'og:image', name: 'og:image', content: 'https://be.baround.it/wp-content/uploads/2020/10/chi-siamo.jpg' },
+        //TWITTER
+        { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+      ]
+      
+    }
   },
   mounted: function() {
     setInterval(() => {
