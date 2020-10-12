@@ -152,8 +152,28 @@ transition: "slide-right",
             this.$refs.gallery.$swiper;
         }
     },
+    head() {
+        return {
+        title: this.title,
+            meta: [
+                {
+                hid: 'baround',
+                name: 'Itinerari - Baround',
+                content: 'Baround con noi. Scopri i luoghi inaspettati di Milano.'
+                },
+                //FB
+                { hid: 'og:title', name: 'og:title', content: this.title },
+                { hid: 'og:description', name: 'og:description', content: 'Baround con noi. Scopri i luoghi inaspettati di Milano.' },
+                { hid: 'og:url', name: 'og:url', content: 'https://www.baround.it' },
+                { hid: 'og:image', name: 'og:image', content: 'https://be.baround.it/wp-content/uploads/2020/10/chi-siamo.jpg' },
+                //TWITTER
+                { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+            ]
+        }
+    },
     data() {
         return {
+            title: this.itinerario.title.rendered,
             loader: loader,
             isVisible: false,
             slug: this.$route.params.slug,
@@ -552,6 +572,7 @@ transition: "slide-right",
 
             this.coords = this.listaLong();
         }
+        this.title = this.itinerario.title.rendered
     }
 };
 </script>
