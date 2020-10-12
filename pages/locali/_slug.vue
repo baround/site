@@ -171,8 +171,28 @@ transition: "slide-right",
             this.$refs.gallery.$swiper;
         }
     },
+    head() {
+        return {
+            title: this.title  + ' - Baround',
+            meta: [
+                {
+                hid: 'baround',
+                name:  this.title + ' - Baround',
+                content: 'Baround con noi. Scopri i luoghi inaspettati di Milano.'
+                },
+                //FB
+                { hid: 'og:title', name: 'og:title', content: this.title },
+                { hid: 'og:description', name: 'og:description', content: 'Baround con noi. Scopri i migliori locali di Milano.' },
+                { hid: 'og:url', name: 'og:url', content: 'https://www.baround.it' },
+                { hid: 'og:image', name: 'og:image', content: 'https://be.baround.it/wp-content/uploads/2020/10/chi-siamo.jpg' },
+                //TWITTER
+                { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+            ]
+        }
+    },
     data() {
         return {
+            title: 'Locale',
             loader: loader,
             slug: this.$route.params.slug,
             markerOptions: {
@@ -605,6 +625,7 @@ transition: "slide-right",
             var filtroitinerari = this.itinerari.filter((item) => relPosts.includes(item.id));
             this.correlatiItinerari = filtroitinerari;
         }
+        this.title = this.locale.title.rendered;
     }
 };
 </script>
