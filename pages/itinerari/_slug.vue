@@ -528,13 +528,13 @@ transition: "slide-right",
         };
         return (
             `<div class="singleItinerario">
-                <figure style="background-image: url(${marker.foto});">
-                    <img src="${marker.foto}">
-                </figure>
-                <div class="singleItinerario__content">
-                    <h2>${marker.full_name}</h2>
-                    <div class="address">${marker.indirizzo}</div>
-                </div>
+                // <figure style="background-image: url(${marker.foto});">
+                //     <img src="${marker.foto}">
+                // </figure>
+                // <div class="singleItinerario__content">
+                //     <h2>${marker.full_name}</h2>
+                //     <div class="address">${marker.indirizzo}</div>
+                // </div>
                 </div>`);
         },
         listaLong: function(itiner){
@@ -542,7 +542,9 @@ transition: "slide-right",
             var coords = [];
             var i;
             for (i = 0; i < itiner.acf.contenuto.length; i++) {
+                console.log('cisono');
                 if(itiner.acf.contenuto[i].acf_fc_layout === 'attivita'){
+                console.log(itiner.acf.contenuto[i].indirizzo.address);
                     var obj = {
                         foto: itiner.acf.contenuto[i].immagine,
                         indirizzo: itiner.acf.contenuto[i].indirizzo.address,
@@ -559,6 +561,17 @@ transition: "slide-right",
     created() {
         this.$store.dispatch("locali");
         this.$store.dispatch("itinerari");
+    },  
+    mounted(){
+        if(this.$cookies.get("completed")){
+        this.hasCookie = true; 
+        }
+        if(this.$cookies.get("quiz")){
+        this.quiz = this.$cookies.get("quiz"); 
+        }
+        if(!this.$cookies.get("firstTime")){
+        this.$cookies.set('firstTime',true,'10d');  
+        }
     },
     beforeUpdate(){
         if(this.itinerario.acf.locali_vicini){
@@ -570,9 +583,9 @@ transition: "slide-right",
             var filtered = this.listalocali.filter((item) => idPosts.includes(item.id));
             this.correlatiLocali = filtered;
 
-            this.coords = this.listaLong();
         }
         this.title = this.itinerario.title.rendered
+            this.coords = this.listaLong();
     }
 };
 </script>
