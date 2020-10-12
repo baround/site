@@ -709,7 +709,7 @@ transition: "slide-right",
                 }
             }
             &--mappa{
-                margin: 50px 0 0 0;
+                margin: 50px 0 50px 0;
             }
             &--intro{
                 max-width: 654px;

@@ -1,7 +1,7 @@
 <template>
   <header>
       <div class="logo">
-        <a href="/home"><img src="../assets/images/logo-baround-white.png" /></a>
+        <a href="/"><img src="../assets/images/logo-baround-white.png" /></a>
       </div>
       <Navigation />
   </header>
