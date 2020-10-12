@@ -103,6 +103,7 @@ computed: {
             }
             img{
                 width: 100%;
+                max-height: 100%;
                 opacity: 0;
             }
         }
