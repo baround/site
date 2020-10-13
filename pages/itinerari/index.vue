@@ -205,7 +205,7 @@ computed: {
                 width: 100%;
                 position: relative;
                 margin-bottom: 0px;
-                z-index: 10;
+                z-index: 6;
                 flex-wrap: wrap;
                 @media all and (max-width: 768px) {  
                     flex-flow: column;

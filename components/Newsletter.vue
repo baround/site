@@ -95,7 +95,7 @@ export default {
   width: 100vw;
   background: white;
   padding: 25px 30px;
-  z-index: 100;
+  z-index: 7;
   box-shadow: 0 -5px 30px 0 rgba(0, 0, 0, 0.31);
   animation: showBox .5s;
   @media all and (max-width: 768px) {  
