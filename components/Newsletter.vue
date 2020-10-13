@@ -80,7 +80,7 @@ export default {
     }
     setTimeout(function(scope) {
       scope.isActive = true;
-    }, 10000, this);
+    }, 5000, this);
     console.log(this.isActive);
   },
   created(){
