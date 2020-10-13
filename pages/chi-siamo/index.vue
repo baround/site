@@ -67,7 +67,7 @@ export default {
         },
     },
     created() {
-        this.$store.dispatch("chisiamo");
+        // this.$store.dispatch("chisiamo");
     },
     data() {
         return {

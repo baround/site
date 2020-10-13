@@ -828,6 +828,8 @@ transition: "slide-right",
                         figure{
                             width: 100%;
                             min-height: 270px;
+                            height: 300px;
+                            max-height: 300px;
                             background-image: url('../../assets/images/placeholder.jpg');
                             background-size: cover;
                             background-position: center;

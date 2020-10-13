@@ -20,6 +20,10 @@ import nuxt_plugin_mailchimp_35b1e47d from 'nuxt_plugin_mailchimp_35b1e47d' // S
 import nuxt_plugin_cookie_7d4b4e5d from 'nuxt_plugin_cookie_7d4b4e5d' // Source: ../plugins/cookie.js (mode: 'all')
 import nuxt_plugin_countdown_733cf6c8 from 'nuxt_plugin_countdown_733cf6c8' // Source: ../plugins/countdown.js (mode: 'all')
 import nuxt_plugin_VueAwesomeSwiper_72dcfbac from 'nuxt_plugin_VueAwesomeSwiper_72dcfbac' // Source: ../plugins/VueAwesomeSwiper.js (mode: 'all')
+import nuxt_plugin_getchisiamo_b8171cbe from 'nuxt_plugin_getchisiamo_b8171cbe' // Source: ../plugins/get-chisiamo.js (mode: 'all')
+import nuxt_plugin_getcontatti_18c80570 from 'nuxt_plugin_getcontatti_18c80570' // Source: ../plugins/get-contatti.js (mode: 'all')
+import nuxt_plugin_getitinerari_2495b8ae from 'nuxt_plugin_getitinerari_2495b8ae' // Source: ../plugins/get-itinerari.js (mode: 'all')
+import nuxt_plugin_getlocali_0b92196c from 'nuxt_plugin_getlocali_0b92196c' // Source: ../plugins/get-locali.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -227,6 +231,22 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_VueAwesomeSwiper_72dcfbac === 'function') {
     await nuxt_plugin_VueAwesomeSwiper_72dcfbac(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_getchisiamo_b8171cbe === 'function') {
+    await nuxt_plugin_getchisiamo_b8171cbe(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_getcontatti_18c80570 === 'function') {
+    await nuxt_plugin_getcontatti_18c80570(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_getitinerari_2495b8ae === 'function') {
+    await nuxt_plugin_getitinerari_2495b8ae(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_getlocali_0b92196c === 'function') {
+    await nuxt_plugin_getlocali_0b92196c(app.context, inject)
   }
 
   // Lock enablePreview in context

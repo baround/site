@@ -69,7 +69,7 @@ computed: {
   },
  },
   created() {
-    this.$store.dispatch("itinerari");
+    // this.$store.dispatch("itinerari");
   },
 };
 </script>

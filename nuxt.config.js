@@ -95,6 +95,10 @@ export default {
     { src: '~/plugins/cookie.js' }, 
     { src: '~/plugins/countdown.js' }, 
     { src: '~/plugins/VueAwesomeSwiper.js' }, 
+    { src: '~/plugins/get-chisiamo.js' }, 
+    { src: '~/plugins/get-contatti.js' }, 
+    { src: '~/plugins/get-itinerari.js' }, 
+    { src: '~/plugins/get-locali.js' }, 
   ],
 
   components: true,

@@ -9,11 +9,11 @@
 </template>
 
 <script>
-const videoSrc = require('../assets/images/video.mp4');
+// const videoSrc = require('../assets/images/video.mp4');
 export default {
   created() {
-    this.$store.dispatch("itinerari");
-    this.$store.dispatch("locali");
+    // this.$store.dispatch("itinerari");
+    // this.$store.dispatch("locali");
   },
   filters: {
     two_digits(value) {
@@ -33,7 +33,6 @@ export default {
       // modifiedDate: Math.trunc(Date.parse("Oct 07, 2020 18:10") / 1000),
       expired: false,
       countdown: false,
-      video: videoSrc,
       skip: false,
     };
   },

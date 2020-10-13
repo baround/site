@@ -75,7 +75,7 @@ export default {
         },
     },
     created() {
-        this.$store.dispatch("contatti");
+        // this.$store.dispatch("contatti");
     },
     data() {
         return {

@@ -171,7 +171,6 @@ transition: "slide-right",
             this.$refs.gallery.$swiper;
         }
     },
-
     head () {
         let post = this.locale;
         if(post){
@@ -634,8 +633,8 @@ transition: "slide-right",
         }
     },
     created() {
-        this.$store.dispatch("locali");
-        this.$store.dispatch("itinerari");
+        // this.$store.dispatch("locali");
+        // this.$store.dispatch("itinerari");
     },
     beforeUpdate(){
         if(this.locale.acf.locali_simili){
@@ -899,6 +898,8 @@ transition: "slide-right",
                         figure{
                             width: 100%;
                             min-height: 270px;
+                            height: 300px;
+                            max-height: 300px;
                             background-image: url('../../assets/images/placeholder.jpg');
                             background-size: cover;
                             background-position: center;
