@@ -38,19 +38,77 @@ export default {
     return {
         title: `${title}`,
         meta: [
-            {
-            hid: 'Site',
-            name:  `${title} - Baround`,
+          {
+            hid: 'description',
+            name:  'description',
             content: `${description}`
-            },
-            //FB
-            { hid: 'og:title', name: 'og:title', content: `${title}` },
-            { hid: 'og:description', name: 'og:description', content: `${description}` },
-            { hid: 'og:url', name: 'og:url', content: `${url}` },
-            { hid: 'og:image', name: 'og:image', content: `${image}` },
-            //TWITTER
-            { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-        ]
+          },
+          {
+            hid: 'title',
+            name:  `title`,
+            content: `${title}`
+          },
+          {
+            hid: 'og:type',
+            property: 'og:type',
+            name:  'og:type',
+            content: 'website'
+          },
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            name:  'og:url',
+            content: `${url}`
+          },
+          {
+            hid: 'og:title',
+            property: 'og:title',
+            name:  'og:title',
+            content: `${title}`
+          },
+          {
+            hid: 'og:description',
+            property: 'og:description',
+            name:  'og:description',
+            content: `${description}`
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            name:  'og:image',
+            content: `${image}`
+          },
+          {
+            hid: 'twitter:card',
+            property: 'twitter:card',
+            name:  'twitter:card',
+            content: `summary_large_image`
+          },
+          {
+            hid: 'twitter:url',
+            property: 'twitter:url',
+            name:  'twitter:url',
+            content: `${url}`
+          },
+          {
+            hid: 'twitter:title',
+            property: 'twitter:title',
+            name:  'twitter:title',
+            content: `${title}`
+          },
+          {
+            hid: 'twitter:description',
+            property: 'twitter:description',
+            name:  'twitter:description',
+            content: `${description}`
+          },
+          {
+            hid: 'twitter:image',
+            property: 'twitter:image',
+            name:  'twitter:image',
+            content: `${image}`
+          },
+      ]
     }
 },
   mounted(){
