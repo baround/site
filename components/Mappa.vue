@@ -305,7 +305,7 @@ export default {
       }
   },
   created() {
-    this.$store.dispatch("locali");
+    // this.$store.dispatch("locali");
   },
   methods: {
     generateList(event){

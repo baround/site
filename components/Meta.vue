@@ -18,8 +18,6 @@ export default {
                 meta.description = post.yoast_meta[i].content;
             } else if(post.yoast_meta[i].property === 'og:title'){
                 meta.title = post.yoast_meta[i].content;
-            } else if(post.yoast_meta[i].property === 'og:url'){
-                meta.url = post.yoast_meta[i].content;
             } else if(post.yoast_meta[i].property === 'og:image'){
                 meta.image = post.yoast_meta[i].content;
             }
@@ -49,12 +47,6 @@ export default {
             content: 'website'
           },
           {
-            hid: 'og:url',
-            property: 'og:url',
-            name:  'og:url',
-            content: `${url}`
-          },
-          {
             hid: 'og:title',
             property: 'og:title',
             name:  'og:title',
@@ -77,12 +69,6 @@ export default {
             property: 'twitter:card',
             name:  'twitter:card',
             content: `summary_large_image`
-          },
-          {
-            hid: 'twitter:url',
-            property: 'twitter:url',
-            name:  'twitter:url',
-            content: `${url}`
           },
           {
             hid: 'twitter:title',
