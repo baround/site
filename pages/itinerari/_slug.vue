@@ -545,8 +545,7 @@ transition: "slide-right",
     },  
     mounted(){
 
-    },
-    beforeUpdate(){
+        console.log('mounted')
         if(this.itinerario.acf.locali_vicini){
             var idPosts = [];
             var i;
@@ -559,7 +558,21 @@ transition: "slide-right",
         }
         this.coords = this.listaLong();
         this.title = this.itinerario.title.rendered;
-    }
+    },
+    // beforeUpdate(){
+    //     if(this.itinerario.acf.locali_vicini){
+    //         var idPosts = [];
+    //         var i;
+    //         for (i = 0; i < this.itinerario.acf.locali_vicini.length; i++) {
+    //             idPosts.push(this.itinerario.acf.locali_vicini[i].ID);
+    //         }
+    //         var filtered = this.listalocali.filter((item) => idPosts.includes(item.id));
+    //         this.correlatiLocali = filtered;
+
+    //     }
+    //     this.coords = this.listaLong();
+    //     this.title = this.itinerario.title.rendered;
+    // }
 };
 </script>
 

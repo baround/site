@@ -196,6 +196,14 @@ main {
   }
 }
 
+.itinerari__fascia__contenuto__card .txt p {
+  display: none;
+}
+
+.itinerari__fascia__contenuto__card .txt p:first-child {
+  display: block;
+}
+
 .gm-style .gm-style-iw-c {
   position: absolute;
   box-sizing: border-box;

@@ -163,8 +163,16 @@ main{
       height: 35vh;
     }
   }
-}
 
+}
+.itinerari__fascia__contenuto__card .txt{
+  p{
+    display: none;
+    &:first-child{
+      display: block;
+    }
+  }
+}
 
 .gm-style .gm-style-iw-c {
   position: absolute;
