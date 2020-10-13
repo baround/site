@@ -520,8 +520,6 @@ export default {
           title,
           acf
       }))
-      console.log('city completed');
-      console.log(this.locali);
       return locals
     },
     location: function(){
@@ -536,8 +534,6 @@ export default {
           title,
           acf
       }))
-      console.log('location completed');
-      console.log(this.locali);
       return locals
     },
     tipologia: function(){
@@ -559,8 +555,6 @@ export default {
           title,
           acf
       }))
-      console.log('type completed');
-      console.log(this.locali);
       return locals
     },
     occasione: function(){
@@ -582,8 +576,6 @@ export default {
           title,
           acf
       }))
-      console.log('occasioni completed');
-      console.log(this.locali);
       return locals
     },
     setCookie: function(){
@@ -602,7 +594,6 @@ export default {
       this.tipologia();
       this.occasione();
       this.showMap = true;
-      console.log('updated locals')
     }
   },
   beforeUpdate(){

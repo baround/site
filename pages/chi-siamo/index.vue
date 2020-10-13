@@ -121,6 +121,7 @@ export default {
             ]
         }
     },
+    
     methods: {
         funGalleryOption: function(){
             return {

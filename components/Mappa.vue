@@ -310,7 +310,6 @@ export default {
   methods: {
     generateList(event){
       event.preventDefault();
-      console.log(event);
     },
     handleResize() {
       this.window.width = window.innerWidth;

@@ -152,20 +152,51 @@ transition: "slide-right",
             this.$refs.gallery.$swiper;
         }
     },
-    head() {
+    head () {
+        let post = this.itinerario;
+        if(post){
+            var meta = {
+                title: '',
+                description: '',
+                image: '',
+                url: ''
+            };
+            var i;
+            for (i = 0; i < post.yoast_meta.length; i++) {
+                if(post.yoast_meta[i].property === 'og:description'){
+                    meta.description = post.yoast_meta[i].content;
+                } else if(post.yoast_meta[i].property === 'og:title'){
+                    meta.title = post.yoast_meta[i].content;
+                } else if(post.yoast_meta[i].property === 'og:url'){
+                    meta.url = post.yoast_meta[i].content;
+                } else if(post.yoast_meta[i].property === 'og:image'){
+                    meta.image = post.yoast_meta[i].content;
+                    
+                }
+            }
+            var title = meta.title ? meta.title : '';
+            var description = meta.description ? meta.description : '';
+            var image = meta.image ? meta.image : '';
+            var url = meta.url ? meta.url : '';
+
+            console.log(title);
+            console.log(description);
+            console.log(image);
+            console.log(url);
+        }
         return {
-            title: this.title  + ' - Baround',
+            title: `${title}`,
             meta: [
                 {
-                hid: 'baround',
-                name:  this.title + ' - Baround',
-                content: 'Baround con noi. Scopri i luoghi inaspettati di Milano.'
+                hid: 'Site',
+                name:  `${title} - Baround`,
+                content: `${description}`
                 },
                 //FB
-                { hid: 'og:title', name: 'og:title', content: this.title },
-                { hid: 'og:description', name: 'og:description', content: 'Baround con noi. Scopri i luoghi inaspettati di Milano.' },
-                { hid: 'og:url', name: 'og:url', content: 'https://www.baround.it' },
-                { hid: 'og:image', name: 'og:image', content: 'https://be.baround.it/wp-content/uploads/2020/10/chi-siamo.jpg' },
+                { hid: 'og:title', name: 'og:title', content: `${title}` },
+                { hid: 'og:description', name: 'og:description', content: `${description}` },
+                { hid: 'og:url', name: 'og:url', content: `${url}` },
+                { hid: 'og:image', name: 'og:image', content: `${image}` },
                 //TWITTER
                 { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
             ]
@@ -542,9 +573,7 @@ transition: "slide-right",
             var coords = [];
             var i;
             for (i = 0; i < itiner.acf.contenuto.length; i++) {
-                console.log('cisono');
                 if(itiner.acf.contenuto[i].acf_fc_layout === 'attivita'){
-                console.log(itiner.acf.contenuto[i].indirizzo.address);
                     var obj = {
                         foto: itiner.acf.contenuto[i].immagine,
                         indirizzo: itiner.acf.contenuto[i].indirizzo.address,
@@ -566,7 +595,6 @@ transition: "slide-right",
 
     },
     beforeUpdate(){
-        console.log(this.itinerario)
         if(this.itinerario.acf.locali_vicini){
             var idPosts = [];
             var i;
@@ -791,8 +819,8 @@ transition: "slide-right",
                             display: none;
                             width: 80%;
                             position: absolute;
-                            top: 50%;
-                            left: 30%;
+                            top: 30px;
+                            left: 20%;
                             z-index: 10;
                             box-shadow: 0 3px 34px 0 rgba(0, 0, 0, 0.31);
                             img{

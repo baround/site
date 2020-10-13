@@ -353,7 +353,6 @@ export default {
   methods: {
     generateList(event){
       event.preventDefault();
-      console.log(event);
     },
     handleResize() {
       this.window.width = window.innerWidth;
@@ -422,8 +421,6 @@ export default {
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
     this.coords = this.listaLong();
-    console.log("this.listaLong()")
-    console.log(this.listaLong())
   }
 }
 </script>
