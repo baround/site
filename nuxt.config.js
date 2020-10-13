@@ -112,12 +112,6 @@ export default {
   build: {
   },
   modules: [
-		'nuxt-seo'
 	],
-	seo: {
-		baseUrl: 'https://www.baround.it',
-		name: 'Baround',
-		description: 'La guida definitiva ai cocktail bar.'
-	}
 
 }
