@@ -22,7 +22,6 @@ export default {
                 meta.url = post.yoast_meta[i].content;
             } else if(post.yoast_meta[i].property === 'og:image'){
                 meta.image = post.yoast_meta[i].content;
-                
             }
         }
         var title = meta.title ? meta.title : 'Baround';
