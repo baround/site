@@ -190,7 +190,7 @@
             </div>
           </div>
         </div>
-        <div class="quiz__step__bg" v-bind:style="{ 'background-image': 'url(' + bg3 + ')' }"></div>
+        <div class="quiz__step__bg" v-bind:style="{ 'background-image': 'url(' + bg7 + ')' }"></div>
       </div>
       <!--step 3-->
       <!--step 4-->

@@ -28,13 +28,6 @@
     "_name": "_31fadf12"
   },
   {
-    "name": "quiz",
-    "path": "/quiz",
-    "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/quiz/index.vue",
-    "chunkName": "pages/quiz/index",
-    "_name": "_5de0c6ee"
-  },
-  {
     "name": "itinerari-slug",
     "path": "/itinerari/:slug",
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/itinerari/_slug.vue",
