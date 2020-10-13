@@ -296,6 +296,7 @@
             <template v-slot="{ subscribe, setEmail, error, success, loading }">
               <div>
                 <div v-if="success" class="quiz__step__full">
+                  {{setCookieNewsletter()}}
                   <div class="quiz__step__content">
                     <img class="logo--small" src="../assets/images/logo-baround-small.png" />
                     <h3>Ben fatto!</h3>
@@ -341,35 +342,27 @@
         </div>
       </div>
       <!--step 6-->
-
-      <!--footer-->
-      <!-- <div class="quiz__footer">
-        <div class="social">
-          <a href="https://www.facebook.com/baroundit" target="_blank"><span class="icon icon__fb"></span></a>
-          <a href="https://www.instagram.com/baround_/" target="_blank"><span class="icon icon__ig"></span></a>
-        </div>
-        <div class="credits">
-          <p><a href="/credits">Credits</a> | <a href="Privacy">Privacy</a> | &copy;Baround</p>
-        </div>
-      </div> -->
-      <!--end footer-->
     </form>
-    <div class="mappa" v-else>
-      <div class="hasCookie" v-if="hasCookie && !removedCookie" >
-        <div class="hasCookie__content">
-          <img class="logo" src="../assets/images/logo-baround-white.png" />
-          <h2>Ciao! Bentornato.</h2>
-          <p>L'ultima volta che sei stato qui hai risposo al nostro quiz.</p>
-          <h3>Vuoi vedere i locali della scorsa ricerca?</h3>
-          <div class="hasCookie__content__row">
-            <span v-on:click="localiUpdate(); removedCookie = true" class="button">Si</span>
-            <span v-on:click="removeCookie()" class="button">No</span>
+    <div v-else>
+      <Header />
+      <div class="mappa">
+        <div class="hasCookie" v-if="hasCookie && !removedCookie" >
+          <div class="hasCookie__content">
+            <img class="logo" src="../assets/images/logo-baround-white.png" />
+            <h2>Ciao! Bentornato.</h2>
+            <p>L'ultima volta che sei stato qui hai risposo al nostro quiz.</p>
+            <h3>Vuoi vedere i locali della scorsa ricerca?</h3>
+            <div class="hasCookie__content__row">
+              <span v-on:click="localiUpdate(); removedCookie = true" class="button">Si</span>
+              <span v-on:click="removeCookie()" class="button">No</span>
+            </div>
           </div>
         </div>
-        
+        <Map />
       </div>
-      <Map />
+      <Footer />
     </div>
+
   </div>
 </template>
 
@@ -500,7 +493,7 @@ export default {
       }
   },
   created() {
-    this.$store.dispatch("locali");
+    // this.$store.dispatch("locali");
   },
   methods: {
     onError() {
@@ -581,6 +574,9 @@ export default {
     setCookie: function(){
       this.$cookies.set('completed',true,'10d');  
       this.$cookies.set('quiz',this.quiz,'10d');  
+    },
+    setCookieNewsletter: function(){
+      this.$cookies.set('newsletter',true,'90d');  
     },
     removeCookie: function(){
       this.$cookies.remove('quiz');  
@@ -1143,6 +1139,7 @@ button,.button{
                 width: 100%;
                 height: 100%;
                 -webkit-appearance: none;
+                cursor: pointer;
               }    
               &:hover,&:active{
                 background-image: url('../assets/images/icon-love-sel.svg');
@@ -1319,5 +1316,8 @@ button,.button{
     }
   }
 }
-
+footer{
+  position: fixed;
+  bottom: 0;
+}
 </style>

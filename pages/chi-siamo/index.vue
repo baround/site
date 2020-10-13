@@ -50,7 +50,7 @@
             <img v-bind:src="loader">
         </span>
     </div>
-    <!-- <Newsletter /> -->
+    <Newsletter />
     <Footer />
 </main>
 </template>

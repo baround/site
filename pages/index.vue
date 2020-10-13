@@ -1,10 +1,6 @@
 <template>
   <main>
-    <div>
-      <Header />
-      <Quiz />
-      <Footer />
-    </div>
+    <Quiz />
   </main>
 </template>
 
@@ -332,10 +328,7 @@ export default {
     }
   }
 }
-footer{
-  position: fixed;
-  bottom: 0;
-}
+
 
 /*svg */
 @-webkit-keyframes animate-svg-fill-1 {
