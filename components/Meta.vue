@@ -25,15 +25,10 @@ export default {
                 
             }
         }
-        var title = meta.title ? meta.title : '';
-        var description = meta.description ? meta.description : '';
-        var image = meta.image ? meta.image : '';
-        var url = meta.url ? meta.url : '';
-
-        console.log(title);
-        console.log(description);
-        console.log(image);
-        console.log(url);
+        var title = meta.title ? meta.title : 'Baround';
+        var description = meta.description ? meta.description : 'La guida definitiva ai cocktail bar.';
+        var image = meta.image ? meta.image : 'https://be.baround.it/wp-content/uploads/2020/10/chi-siamo.jpg';
+        var url = meta.url ? meta.url : 'https://www.baround.it';
     }
     return {
         title: `${title}`,

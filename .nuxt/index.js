@@ -14,6 +14,7 @@ import { createStore } from './store.js'
 /* Plugins */
 
 import nuxt_plugin_plugin_ece61312 from 'nuxt_plugin_plugin_ece61312' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_NuxtSeo_af523690 from 'nuxt_plugin_NuxtSeo_af523690' // Source: ./Nuxt-Seo.js (mode: 'all')
 import nuxt_plugin_gmaps_34c7cc70 from 'nuxt_plugin_gmaps_34c7cc70' // Source: ../plugins/gmaps (mode: 'all')
 import nuxt_plugin_ga_34d435b2 from 'nuxt_plugin_ga_34d435b2' // Source: ../plugins/ga.js (mode: 'client')
 import nuxt_plugin_mailchimp_35b1e47d from 'nuxt_plugin_mailchimp_35b1e47d' // Source: ../plugins/mailchimp.js (mode: 'all')
@@ -72,7 +73,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"baround","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"## Build Setup"},{"name":"apple-mobile-web-app-capable","content":"yes"},{"name":"apple-mobile-web-app-status-bar-style","content":"white"},{"name":"apple-mobile-web-app-title","content":"Baround"}],"script":[],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Nunito:wght@200;300;400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"}],"style":[]},
+    head: {"title":"baround","meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"apple-mobile-web-app-capable","content":"yes"},{"name":"apple-mobile-web-app-status-bar-style","content":"white"},{"name":"apple-mobile-web-app-title","content":"Baround"},{"charset":"utf-8"},{"lang":"en"},{"language":"English"},{"hid":"name","key":"name","property":"name","name":"name","content":"Baround"},{"hid":"description","key":"description","property":"description","name":"description","content":"La guida definitiva ai cocktail bar."}],"script":[],"link":[{"rel":"canonical","href":"https:\u002F\u002Fwww.baround.it\u002F"},{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Nunito:wght@200;300;400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"}],"style":[]},
 
     store,
     router,
@@ -203,6 +204,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_plugin_ece61312 === 'function') {
     await nuxt_plugin_plugin_ece61312(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_NuxtSeo_af523690 === 'function') {
+    await nuxt_plugin_NuxtSeo_af523690(app.context, inject)
   }
 
   if (typeof nuxt_plugin_gmaps_34c7cc70 === 'function') {

@@ -106,14 +106,18 @@ export default {
   buildModules: [
   ],
   /*
-  ** Nuxt.js modules
-  */
-  modules: [],
-  /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
   },
+  modules: [
+		'nuxt-seo'
+	],
+	seo: {
+		baseUrl: 'https://www.baround.it',
+		name: 'Baround',
+		description: 'La guida definitiva ai cocktail bar.'
+	}
 
 }
