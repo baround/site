@@ -18,10 +18,9 @@ export default {
                 meta.description = post.yoast_meta[i].content;
             } else if(post.yoast_meta[i].property === 'og:title'){
                 meta.title = post.yoast_meta[i].content;
-            } else if(post.yoast_meta[i].property === 'og:image'){
-                meta.image = post.yoast_meta[i].content;
-            }
+            } 
         }
+        meta.image = post.acf.immagine_di_copertina;
         var title = meta.title ? meta.title : 'Baround';
         var description = meta.description ? meta.description : 'La guida definitiva ai cocktail bar.';
         var image = meta.image ? meta.image : 'https://be.baround.it/wp-content/uploads/2020/10/chi-siamo.jpg';
