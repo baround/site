@@ -32,7 +32,7 @@
 export default {  
   props: ['locali'],
   mounted(){
-    console.log(this.locali)
+    // console.log(this.locali)
   }
   
 }

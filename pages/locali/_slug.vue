@@ -599,7 +599,7 @@ transition: "slide-right",
             this.correlatiLocali = filtered;
         }
         if(this.locale.acf.itinerari_vicini){
-            console.log('ok')
+            // console.log('ok')
             var relPosts = [];
             var i;
             for (i = 0; i < this.locale.acf.itinerari_vicini.length; i++) {
@@ -609,7 +609,7 @@ transition: "slide-right",
             this.correlatiItinerari = filtroitinerari;
         }
         // this.title = this.locale.title.rendered;
-        console.log(this.locale)
+        // console.log(this.locale)
     }
 };
 </script>

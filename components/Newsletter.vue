@@ -81,7 +81,7 @@ export default {
     setTimeout(function(scope) {
       scope.isActive = true;
     }, 5000, this);
-    console.log(this.isActive);
+    // console.log(this.isActive);
   },
   created(){
       
