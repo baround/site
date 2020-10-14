@@ -3,56 +3,48 @@
     "name": "chi-siamo",
     "path": "/chi-siamo",
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/chi-siamo/index.vue",
-    "chunkName": "pages/chi-siamo/index",
-    "_name": "_2981a5a6"
+    "chunkName": "pages/chi-siamo/index"
   },
   {
     "name": "contatti",
     "path": "/contatti",
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/contatti/index.vue",
-    "chunkName": "pages/contatti/index",
-    "_name": "_5a2f138e"
+    "chunkName": "pages/contatti/index"
   },
   {
     "name": "filter",
     "path": "/filter",
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/filter/index.vue",
-    "chunkName": "pages/filter/index",
-    "_name": "_781f83ac"
+    "chunkName": "pages/filter/index"
   },
   {
     "name": "itinerari",
     "path": "/itinerari",
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/itinerari/index.vue",
-    "chunkName": "pages/itinerari/index",
-    "_name": "_2848309d"
+    "chunkName": "pages/itinerari/index"
   },
   {
     "name": "locali",
     "path": "/locali",
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/locali/index.vue",
-    "chunkName": "pages/locali/index",
-    "_name": "_31fadf12"
+    "chunkName": "pages/locali/index"
   },
   {
     "name": "itinerari-slug",
     "path": "/itinerari/:slug",
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/itinerari/_slug.vue",
-    "chunkName": "pages/itinerari/_slug",
-    "_name": "_26918f55"
+    "chunkName": "pages/itinerari/_slug"
   },
   {
     "name": "locali-slug",
     "path": "/locali/:slug",
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/locali/_slug.vue",
-    "chunkName": "pages/locali/_slug",
-    "_name": "_30443dca"
+    "chunkName": "pages/locali/_slug"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_5a4e3571"
+    "chunkName": "pages/index"
   }
 ]

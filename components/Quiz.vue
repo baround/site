@@ -1317,7 +1317,7 @@ button,.button{
   }
 }
 footer{
-  position: fixed;
+  position: fixed!important;
   bottom: 0;
 }
 </style>

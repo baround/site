@@ -1,4 +1,5 @@
 export { default as BoxIntro } from '../../components/BoxIntro.vue'
+export { default as ExitPopup } from '../../components/ExitPopup.vue'
 export { default as Filtri } from '../../components/Filtri.vue'
 export { default as Footer } from '../../components/Footer.vue'
 export { default as Header } from '../../components/Header.vue'
@@ -11,6 +12,7 @@ export { default as Newsletter } from '../../components/Newsletter.vue'
 export { default as Quiz } from '../../components/Quiz.vue'
 
 export const LazyBoxIntro = import('../../components/BoxIntro.vue' /* webpackChunkName: "components/BoxIntro" */).then(c => c.default || c)
+export const LazyExitPopup = import('../../components/ExitPopup.vue' /* webpackChunkName: "components/ExitPopup" */).then(c => c.default || c)
 export const LazyFiltri = import('../../components/Filtri.vue' /* webpackChunkName: "components/Filtri" */).then(c => c.default || c)
 export const LazyFooter = import('../../components/Footer.vue' /* webpackChunkName: "components/Footer" */).then(c => c.default || c)
 export const LazyHeader = import('../../components/Header.vue' /* webpackChunkName: "components/Header" */).then(c => c.default || c)

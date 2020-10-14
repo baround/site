@@ -6,6 +6,7 @@
     </div>
     <div class="credits">
       <p><a href="/credits">Credits</a> | <a href="Privacy">Privacy</a> | &copy;Baround</p>
+      <ExitPopup />
     </div>
   </footer>
 </template>
@@ -19,6 +20,7 @@ footer{
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
+  position: relative;
   @media all and (max-width: 768px) {  
       padding: 7px 20px;
   }
@@ -48,6 +50,7 @@ footer{
     font-weight: 300;
     letter-spacing: 1.08px;
     color: white;
+    position: relative;
     @media all and (max-width: 768px) {  
         font-size: 11px;
     }

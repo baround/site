@@ -5,6 +5,12 @@
   "LazyBoxIntro": {
     "description": "Auto imported from components/BoxIntro.vue"
   },
+  "ExitPopup": {
+    "description": "Auto imported from components/ExitPopup.vue"
+  },
+  "LazyExitPopup": {
+    "description": "Auto imported from components/ExitPopup.vue"
+  },
   "Filtri": {
     "description": "Auto imported from components/Filtri.vue"
   },
