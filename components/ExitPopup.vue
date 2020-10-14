@@ -97,6 +97,10 @@ export default {
       padding: 70px 25px;
       background-color: white;
       position: relative;
+      @media all and (max-width: 768px) {  
+        max-width: 80%;
+        padding: 20px;
+      }
       .close{
         position: absolute;
         background: #222831;
@@ -110,6 +114,10 @@ export default {
         background-position: center;
         background-repeat: no-repeat;
         cursor: pointer;
+        @media all and (max-width: 768px) {  
+          right: auto;
+          left: -20px;
+        }
       }
       .icon{
         width: 30px;
@@ -124,6 +132,9 @@ export default {
         letter-spacing: 1.66px;
         text-align: center;
         color: #222831;
+        @media all and (max-width: 768px) {  
+          font-size: 22px;
+        }
       }
       p{
         font-size: 18px;
@@ -132,6 +143,9 @@ export default {
         color: black;
         margin-top: 20px;
         font-weight: 300;
+        @media all and (max-width: 768px) {  
+          font-size: 16px;
+        }
       }
       .button{
         min-width: 238px;
@@ -153,6 +167,9 @@ export default {
         padding: 0 20px 0 49px;
         margin-top: 30px;
         text-decoration: none;
+        @media all and (max-width: 768px) {  
+          font-size: 11px;
+        }
       }
     }
   }
