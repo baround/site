@@ -1,20 +1,27 @@
 <template>
   <div class="popup">
-    {{exitPopup()}}
     <div class="popup__box">
-      <span class="close">X</span>
+      <span class="close"></span>
       <span class="icon">
         <img src="../assets/images/icon-baround-popup.png" />
       </span>
       <h3>Ehi!<br/>Te ne stai andando?<br/>Aspetta</h3>
       <p>Prima di scappare seguici su <strong>instagram</strong><br/>per non perderti nessuna novità.</p>
-      <a class="button button--ig" href="https://www.instagram.com/baround_/">SEGUICI SUBITO!</a>
+      <a class="button button--ig" href="https://www.instagram.com/baround_/" target="_blank">SEGUICI SUBITO!</a>
+      <div v-if="popup">
+        {{exitPopup()}}
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {  
-created() {
+  data() {
+    return {
+      popup: false,
+    }
+  },    
+  created() {
     // this.$store.dispatch("locali");
   },
   methods: {
@@ -25,7 +32,7 @@ created() {
             setTimeout(() => {
                 document.addEventListener('mouseout', mouseEvent);
                 document.addEventListener('keydown', exit);
-            }, 10000);
+            }, 6000);
         }
 
         const mouseEvent = e => {
@@ -53,9 +60,10 @@ created() {
       }
 
     },
-  },  
+  },
   mounted(){
-    console.log(this.post)
+    this.popup = true;
+    this.exitPopup();
   }
   
 }
@@ -68,7 +76,7 @@ created() {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     flex-flow: row;
     justify-content: center;
@@ -88,6 +96,21 @@ created() {
       align-items: center;
       padding: 70px 25px;
       background-color: white;
+      position: relative;
+      .close{
+        position: absolute;
+        background: #222831;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        top: -20px;
+        right: -20px;
+        background-image: url('../assets/images/icon-close-menu.svg');
+        background-size: 10px auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
       .icon{
         width: 30px;
         margin-bottom: 20px;
