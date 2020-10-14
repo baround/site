@@ -1,4 +1,16 @@
 {
+  "BoxIntro": {
+    "description": "Auto imported from components/BoxIntro.vue"
+  },
+  "LazyBoxIntro": {
+    "description": "Auto imported from components/BoxIntro.vue"
+  },
+  "Filtri": {
+    "description": "Auto imported from components/Filtri.vue"
+  },
+  "LazyFiltri": {
+    "description": "Auto imported from components/Filtri.vue"
+  },
   "Footer": {
     "description": "Auto imported from components/Footer.vue"
   },
@@ -11,17 +23,23 @@
   "LazyHeader": {
     "description": "Auto imported from components/Header.vue"
   },
+  "Listing": {
+    "description": "Auto imported from components/Listing.vue"
+  },
+  "LazyListing": {
+    "description": "Auto imported from components/Listing.vue"
+  },
   "Map": {
     "description": "Auto imported from components/Map.vue"
   },
   "LazyMap": {
     "description": "Auto imported from components/Map.vue"
   },
-  "Mappa": {
-    "description": "Auto imported from components/Mappa.vue"
+  "MapFilter": {
+    "description": "Auto imported from components/MapFilter.vue"
   },
-  "LazyMappa": {
-    "description": "Auto imported from components/Mappa.vue"
+  "LazyMapFilter": {
+    "description": "Auto imported from components/MapFilter.vue"
   },
   "Meta": {
     "description": "Auto imported from components/Meta.vue"
