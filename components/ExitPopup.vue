@@ -156,7 +156,7 @@ export default {
         letter-spacing: 5px;
         color: #ffffff;
         text-transform: uppercase;
-        background-image: url(/_nuxt/assets/images/icon-instagram.svg);
+        background-image: url('../assets/images/icon-instagram.svg');
         background-size: 22px auto;
         background-position: 15px center;
         background-repeat: no-repeat;
