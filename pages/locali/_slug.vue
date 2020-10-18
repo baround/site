@@ -607,7 +607,7 @@ transition: "slide-right",
             var filtroitinerari = this.itinerari.filter((item) => relPosts.includes(item.id));
             this.correlatiItinerari = filtroitinerari;
         }
-        this.title = this.itinerario.title.rendered;
+        this.title = this.locale.title.rendered;
     },
     mounted(){
         if(this.locale.acf.locali_simili){
@@ -628,7 +628,7 @@ transition: "slide-right",
             var filtroitinerari = this.itinerari.filter((item) => relPosts.includes(item.id));
             this.correlatiItinerari = filtroitinerari;
         }
-        this.title = this.itinerario.title.rendered;
+        this.title = this.locale.title.rendered;
     },
 };
 </script>
