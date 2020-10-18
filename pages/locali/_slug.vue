@@ -175,7 +175,7 @@ transition: "slide-right",
     },
     data() {
         return {
-            // title: 'Locale',
+            title: 'Locale',
             loader: loader,
             slug: this.$route.params.slug,
             markerOptions: {
