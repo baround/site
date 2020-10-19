@@ -22,6 +22,8 @@ import nuxt_plugin_countdown_733cf6c8 from 'nuxt_plugin_countdown_733cf6c8' // S
 import nuxt_plugin_VueAwesomeSwiper_72dcfbac from 'nuxt_plugin_VueAwesomeSwiper_72dcfbac' // Source: ../plugins/VueAwesomeSwiper.js (mode: 'all')
 import nuxt_plugin_getchisiamo_b8171cbe from 'nuxt_plugin_getchisiamo_b8171cbe' // Source: ../plugins/get-chisiamo.js (mode: 'all')
 import nuxt_plugin_getcontatti_18c80570 from 'nuxt_plugin_getcontatti_18c80570' // Source: ../plugins/get-contatti.js (mode: 'all')
+import nuxt_plugin_getcredits_120d322c from 'nuxt_plugin_getcredits_120d322c' // Source: ../plugins/get-credits.js (mode: 'all')
+import nuxt_plugin_getprivacy_b0552d88 from 'nuxt_plugin_getprivacy_b0552d88' // Source: ../plugins/get-privacy.js (mode: 'all')
 import nuxt_plugin_getitinerari_2495b8ae from 'nuxt_plugin_getitinerari_2495b8ae' // Source: ../plugins/get-itinerari.js (mode: 'all')
 import nuxt_plugin_getlocali_0b92196c from 'nuxt_plugin_getlocali_0b92196c' // Source: ../plugins/get-locali.js (mode: 'all')
 
@@ -239,6 +241,14 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_getcontatti_18c80570 === 'function') {
     await nuxt_plugin_getcontatti_18c80570(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_getcredits_120d322c === 'function') {
+    await nuxt_plugin_getcredits_120d322c(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_getprivacy_b0552d88 === 'function') {
+    await nuxt_plugin_getprivacy_b0552d88(app.context, inject)
   }
 
   if (typeof nuxt_plugin_getitinerari_2495b8ae === 'function') {

@@ -5,7 +5,7 @@
       <a href="https://www.instagram.com/baround_/" target="_blank"><span class="icon icon__ig"></span></a>
     </div>
     <div class="credits">
-      <p><a href="/credits">Credits</a> | <a href="Privacy">Privacy</a> | &copy;Baround</p>
+      <p><a href="/credits">Credits</a> | <a href="/privacy">Privacy</a> | &copy;Baround</p>
       <ExitPopup />
     </div>
   </footer>

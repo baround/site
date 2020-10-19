@@ -6,8 +6,11 @@ let myRoutes = function(){
       return '/itinerari/' + itinerario.slug
     })
   })
+
+
   let locali = axios.get('https://be.baround.it/index.php/wp-json/wp/v2/locali?page=1&per_page=100').then((res) => {
     return res.data.map((locale) => {
+      console.log(locale)
       return '/locali/' + locale.slug
     })
   })
@@ -97,6 +100,8 @@ export default {
     { src: '~/plugins/VueAwesomeSwiper.js' }, 
     { src: '~/plugins/get-chisiamo.js' }, 
     { src: '~/plugins/get-contatti.js' }, 
+    { src: '~/plugins/get-credits.js' }, 
+    { src: '~/plugins/get-privacy.js' }, 
     { src: '~/plugins/get-itinerari.js' }, 
     { src: '~/plugins/get-locali.js' }, 
   ],
@@ -105,6 +110,7 @@ export default {
 
   generate: {
     routes: myRoutes,
+    fallback: '404.html'
   },
 
   buildModules: [

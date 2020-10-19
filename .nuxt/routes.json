@@ -14,6 +14,13 @@
     "_name": "_5a2f138e"
   },
   {
+    "name": "credits",
+    "path": "/credits",
+    "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/credits/index.vue",
+    "chunkName": "pages/credits/index",
+    "_name": "_6a8f8188"
+  },
+  {
     "name": "filter",
     "path": "/filter",
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/filter/index.vue",
@@ -33,6 +40,13 @@
     "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/locali/index.vue",
     "chunkName": "pages/locali/index",
     "_name": "_31fadf12"
+  },
+  {
+    "name": "privacy",
+    "path": "/privacy",
+    "component": "/Users/lucia.cenetiempo/Documents/Personal/Baround/site/pages/privacy/index.vue",
+    "chunkName": "pages/privacy/index",
+    "_name": "_9a5346ac"
   },
   {
     "name": "itinerari-slug",

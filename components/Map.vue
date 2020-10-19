@@ -411,7 +411,7 @@ export default {
         }
         coords.push(obj);
       }
-      console.log(coords)
+      // console.log(coords)
       return coords;
     }
   },
