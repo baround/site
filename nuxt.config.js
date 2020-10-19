@@ -17,7 +17,7 @@ let myRoutes = function(){
   return (Promise.all([itinerari, locali]).then(values => {
       return values.join().split(',');
     })
-  ) 
+  )
 }
 
 
