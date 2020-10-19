@@ -326,7 +326,6 @@ export default {
         }
         coords.push(obj);
       }
-      // console.log(coords)
       return coords;
     }
   },

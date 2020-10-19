@@ -26,11 +26,11 @@ export default {
   mode: 'universal',
   target: 'static',
   head: {
-    // title: process.env.npm_package_name || '',
+    title: '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      // { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
+      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-status-bar-style', content:'white'},
       { name: 'apple-mobile-web-app-title', content:"Baround"},
