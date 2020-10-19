@@ -128,9 +128,6 @@
 </main>
 </template>
 
-
-
-
 <script>
 const mapMarker = require('../../assets/images/icon-pinner-locali.png');
 const loader = require('../../assets/images/loader.gif');
@@ -541,8 +538,8 @@ transition: "slide-right",
         }
     },
     created() {
-        this.$store.dispatch("locali");
-        this.$store.dispatch("itinerari");
+        // this.$store.dispatch("locali");
+        // this.$store.dispatch("itinerari");
     },  
     mounted(){
         if(this.itinerario.acf.locali_vicini){
