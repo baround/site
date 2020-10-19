@@ -66,11 +66,6 @@
 
         <section class="locale__fascia">
             <div class="locale__fascia__contenuto locale__fascia__contenuto--mappa">
-                <!-- <gmap-map :options="{styles: styles}" ref="mymap" :center="getPosition()" :zoom="14">
-                    <gmap-marker v-for="(item, key) in coordinates" :key="key" :position="getPosition()" :clickable="true" @click="toggleInfo(item, key)" :icon="markerOptions" />
-                </gmap-map> -->
-
-
                 <gmap-map :options="{styles: styles }" ref="mymap" :center="getPosition()" :zoom="16">
                     <gmap-marker  :position="getPosition()" :clickable="true"  :icon="markerOptions" />
                 </gmap-map>
@@ -589,25 +584,26 @@ transition: "slide-right",
         // this.$store.dispatch("itinerari");
     },
     beforeUpdate(){
-        if(this.locale.acf.locali_simili){
-            var idPosts = [];
-            var i;
-            for (i = 0; i < this.locale.acf.locali_simili.length; i++) {
-                idPosts.push(this.locale.acf.locali_simili[i].ID);
-            }
-            var filtered = this.locali.filter((item) => idPosts.includes(item.id));
-            this.correlatiLocali = filtered;
-        }
-        if(this.locale.acf.itinerari_vicini){
-            var relPosts = [];
-            var i;
-            for (i = 0; i < this.locale.acf.itinerari_vicini.length; i++) {
-                relPosts.push(this.locale.acf.itinerari_vicini[i].ID);
-            }
-            var filtroitinerari = this.itinerari.filter((item) => relPosts.includes(item.id));
-            this.correlatiItinerari = filtroitinerari;
-        }
-        this.title = this.locale.title.rendered;
+        // if(this.locale.acf.locali_simili){
+        //     var idPosts = [];
+        //     var i;
+        //     for (i = 0; i < this.locale.acf.locali_simili.length; i++) {
+        //         idPosts.push(this.locale.acf.locali_simili[i].ID);
+        //     }
+        //     var filtered = this.locali.filter((item) => idPosts.includes(item.id));
+        //     this.correlatiLocali = filtered;
+        // }
+        // if(this.locale.acf.itinerari_vicini){
+        //     var relPosts = [];
+        //     var i;
+        //     for (i = 0; i < this.locale.acf.itinerari_vicini.length; i++) {
+        //         relPosts.push(this.locale.acf.itinerari_vicini[i].ID);
+        //     }
+        //     var filtroitinerari = this.itinerari.filter((item) => relPosts.includes(item.id));
+        //     this.correlatiItinerari = filtroitinerari;
+        // }
+        // this.title = this.locale.title.rendered;
+        console.log('update')
     },
     mounted(){
         if(this.locale.acf.locali_simili){
