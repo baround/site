@@ -65,17 +65,17 @@ export default {
         }, 1000) 
     },
     setCookieNewsletter: function(){
-      this.$cookies.set('newsletter',true,60 * 30);  
+      this.$cookies.set('newsletterNov',true,60 * 30);  
     },
     setCookieClose: function(){
-      this.$cookies.set('closepopup',true,60 * 30);  
+      this.$cookies.set('closenewsletter',true,60 * 30);  
     },
   },
   mounted(){
-    if(this.$cookies.get("newsletter")){
+    if(this.$cookies.get("newsletterNov")){
       this.showNewsletter = false
     }
-    if(this.$cookies.get("closepopup")){
+    if(this.$cookies.get("closenewsletter")){
       this.showNewsletter = false
     }
     setTimeout(function(scope) {
