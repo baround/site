@@ -46,7 +46,7 @@ export default {
                 document.querySelector('.popup').classList.add('visible');
                 
                 // Set the cookie when the popup is shown to the user
-                this.$cookies.set('exitIntentShown',true,"120s");
+                this.$cookies.set('exitIntentShown',true,60*60);
             }
         };
         const exit = e => {
