@@ -3,16 +3,16 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _37a5cb55 = () => interopDefault(import('../pages/chi-siamo/index.vue' /* webpackChunkName: "pages/chi-siamo/index" */))
-const _6b27fbff = () => interopDefault(import('../pages/contatti/index.vue' /* webpackChunkName: "pages/contatti/index" */))
-const _cc8ff6aa = () => interopDefault(import('../pages/credits/index.vue' /* webpackChunkName: "pages/credits/index" */))
-const _1b2c5746 = () => interopDefault(import('../pages/filter/index.vue' /* webpackChunkName: "pages/filter/index" */))
-const _366c564c = () => interopDefault(import('../pages/itinerari/index.vue' /* webpackChunkName: "pages/itinerari/index" */))
-const _a775a07a = () => interopDefault(import('../pages/locali/index.vue' /* webpackChunkName: "pages/locali/index" */))
-const _fc53bbce = () => interopDefault(import('../pages/privacy/index.vue' /* webpackChunkName: "pages/privacy/index" */))
-const _34b5b504 = () => interopDefault(import('../pages/itinerari/_slug.vue' /* webpackChunkName: "pages/itinerari/_slug" */))
-const _aae2e30a = () => interopDefault(import('../pages/locali/_slug.vue' /* webpackChunkName: "pages/locali/_slug" */))
-const _2f85d9e0 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _162ee8ca = () => interopDefault(import('../pages/chi-siamo/index.vue' /* webpackChunkName: "pages/chi-siamo/index" */))
+const _ebedca0e = () => interopDefault(import('../pages/contatti/index.vue' /* webpackChunkName: "pages/contatti/index" */))
+const _271a1e71 = () => interopDefault(import('../pages/credits/index.vue' /* webpackChunkName: "pages/credits/index" */))
+const _7b1a69d7 = () => interopDefault(import('../pages/filter/index.vue' /* webpackChunkName: "pages/filter/index" */))
+const _18a1d2dc = () => interopDefault(import('../pages/itinerari/index.vue' /* webpackChunkName: "pages/itinerari/index" */))
+const _34f5c53d = () => interopDefault(import('../pages/locali/index.vue' /* webpackChunkName: "pages/locali/index" */))
+const _0f383bdf = () => interopDefault(import('../pages/privacy/index.vue' /* webpackChunkName: "pages/privacy/index" */))
+const _1c0f156c = () => interopDefault(import('../pages/itinerari/_slug.vue' /* webpackChunkName: "pages/itinerari/_slug" */))
+const _333f23f5 = () => interopDefault(import('../pages/locali/_slug.vue' /* webpackChunkName: "pages/locali/_slug" */))
+const _0ba919a6 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -32,43 +32,43 @@ export const routerOptions = {
 
   routes: [{
     path: "/chi-siamo",
-    component: _37a5cb55,
+    component: _162ee8ca,
     name: "chi-siamo"
   }, {
     path: "/contatti",
-    component: _6b27fbff,
+    component: _ebedca0e,
     name: "contatti"
   }, {
     path: "/credits",
-    component: _cc8ff6aa,
+    component: _271a1e71,
     name: "credits"
   }, {
     path: "/filter",
-    component: _1b2c5746,
+    component: _7b1a69d7,
     name: "filter"
   }, {
     path: "/itinerari",
-    component: _366c564c,
+    component: _18a1d2dc,
     name: "itinerari"
   }, {
     path: "/locali",
-    component: _a775a07a,
+    component: _34f5c53d,
     name: "locali"
   }, {
     path: "/privacy",
-    component: _fc53bbce,
+    component: _0f383bdf,
     name: "privacy"
   }, {
     path: "/itinerari/:slug",
-    component: _34b5b504,
+    component: _1c0f156c,
     name: "itinerari-slug"
   }, {
     path: "/locali/:slug",
-    component: _aae2e30a,
+    component: _333f23f5,
     name: "locali-slug"
   }, {
     path: "/",
-    component: _2f85d9e0,
+    component: _0ba919a6,
     name: "index"
   }],
 

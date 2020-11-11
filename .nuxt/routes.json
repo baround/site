@@ -2,71 +2,71 @@
   {
     "name": "chi-siamo",
     "path": "/chi-siamo",
-    "component": "/Users/cristinadicillo/Desktop/Site/site/pages/chi-siamo/index.vue",
+    "component": "/Users/cenetiempol/Documents/Baround/site/pages/chi-siamo/index.vue",
     "chunkName": "pages/chi-siamo/index",
-    "_name": "_37a5cb55"
+    "_name": "_162ee8ca"
   },
   {
     "name": "contatti",
     "path": "/contatti",
-    "component": "/Users/cristinadicillo/Desktop/Site/site/pages/contatti/index.vue",
+    "component": "/Users/cenetiempol/Documents/Baround/site/pages/contatti/index.vue",
     "chunkName": "pages/contatti/index",
-    "_name": "_6b27fbff"
+    "_name": "_ebedca0e"
   },
   {
     "name": "credits",
     "path": "/credits",
-    "component": "/Users/cristinadicillo/Desktop/Site/site/pages/credits/index.vue",
+    "component": "/Users/cenetiempol/Documents/Baround/site/pages/credits/index.vue",
     "chunkName": "pages/credits/index",
-    "_name": "_cc8ff6aa"
+    "_name": "_271a1e71"
   },
   {
     "name": "filter",
     "path": "/filter",
-    "component": "/Users/cristinadicillo/Desktop/Site/site/pages/filter/index.vue",
+    "component": "/Users/cenetiempol/Documents/Baround/site/pages/filter/index.vue",
     "chunkName": "pages/filter/index",
-    "_name": "_1b2c5746"
+    "_name": "_7b1a69d7"
   },
   {
     "name": "itinerari",
     "path": "/itinerari",
-    "component": "/Users/cristinadicillo/Desktop/Site/site/pages/itinerari/index.vue",
+    "component": "/Users/cenetiempol/Documents/Baround/site/pages/itinerari/index.vue",
     "chunkName": "pages/itinerari/index",
-    "_name": "_366c564c"
+    "_name": "_18a1d2dc"
   },
   {
     "name": "locali",
     "path": "/locali",
-    "component": "/Users/cristinadicillo/Desktop/Site/site/pages/locali/index.vue",
+    "component": "/Users/cenetiempol/Documents/Baround/site/pages/locali/index.vue",
     "chunkName": "pages/locali/index",
-    "_name": "_a775a07a"
+    "_name": "_34f5c53d"
   },
   {
     "name": "privacy",
     "path": "/privacy",
-    "component": "/Users/cristinadicillo/Desktop/Site/site/pages/privacy/index.vue",
+    "component": "/Users/cenetiempol/Documents/Baround/site/pages/privacy/index.vue",
     "chunkName": "pages/privacy/index",
-    "_name": "_fc53bbce"
+    "_name": "_0f383bdf"
   },
   {
     "name": "itinerari-slug",
     "path": "/itinerari/:slug",
-    "component": "/Users/cristinadicillo/Desktop/Site/site/pages/itinerari/_slug.vue",
+    "component": "/Users/cenetiempol/Documents/Baround/site/pages/itinerari/_slug.vue",
     "chunkName": "pages/itinerari/_slug",
-    "_name": "_34b5b504"
+    "_name": "_1c0f156c"
   },
   {
     "name": "locali-slug",
     "path": "/locali/:slug",
-    "component": "/Users/cristinadicillo/Desktop/Site/site/pages/locali/_slug.vue",
+    "component": "/Users/cenetiempol/Documents/Baround/site/pages/locali/_slug.vue",
     "chunkName": "pages/locali/_slug",
-    "_name": "_aae2e30a"
+    "_name": "_333f23f5"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/cristinadicillo/Desktop/Site/site/pages/index.vue",
+    "component": "/Users/cenetiempol/Documents/Baround/site/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_2f85d9e0"
+    "_name": "_0ba919a6"
   }
 ]
