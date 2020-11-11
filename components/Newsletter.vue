@@ -65,10 +65,10 @@ export default {
         }, 1000) 
     },
     setCookieNewsletter: function(){
-      this.$cookies.set('newsletter',true,'0');  
+      this.$cookies.set('newsletter',true,60 * 30);  
     },
     setCookieClose: function(){
-      this.$cookies.set('closepopup',true,'0');  
+      this.$cookies.set('closepopup',true,60 * 30);  
     },
   },
   mounted(){
