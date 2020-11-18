@@ -91,7 +91,7 @@ export default {
     }
 },
 mounted(){
-  console.log('this is meta')
+  // console.log('this is meta')
 }
   
 }
