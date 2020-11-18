@@ -108,57 +108,59 @@ export const actions = {
     }
   },
 
-  // async contatti({ state, commit }) {
-  //   if (state.content.contatti.length) return
-  //   try {
-  //     let contatti = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/255`,
-  //     {
-  //       headers: {
-  //         Accept: 'application/json, text/plain, */*',
-  //         'User-Agent': '*',
-  //       },
-  //     }
-  //     ).then(res => res.json())
-  //     commit("updateContatti", contatti)
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // },
+  //DIABLE FOR TESTING
 
-  // async privacy({ state, commit }) {
-  //   if (state.content.privacy.length) return
-  //   try {
-  //     let privacyV = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/3`,
-  //     {
-  //       headers: {
-  //         Accept: 'application/json, text/plain, */*',
-  //         'User-Agent': '*',
-  //       },
-  //     }
-  //     ).then(res => res.json())
-  //     commit("updatePrivacy", privacyV)
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // },
+  async contatti({ state, commit }) {
+    if (state.content.contatti.length) return
+    try {
+      let contatti = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/255`,
+      {
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'User-Agent': '*',
+        },
+      }
+      ).then(res => res.json())
+      commit("updateContatti", contatti)
+    } catch (err) {
+      console.log(err)
+    }
+  },
+
+  async privacy({ state, commit }) {
+    if (state.content.privacy.length) return
+    try {
+      let privacyV = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/3`,
+      {
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'User-Agent': '*',
+        },
+      }
+      ).then(res => res.json())
+      commit("updatePrivacy", privacyV)
+    } catch (err) {
+      console.log(err)
+    }
+  },
 
 
-  // async credits({ state, commit }) {
-  //   if (state.content.credits.length) return
-  //   try {
-  //     let creditsV = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/3`,
-  //     {
-  //       headers: {
-  //         Accept: 'application/json, text/plain, */*',
-  //         'User-Agent': '*',
-  //       },
-  //     }
-  //     ).then(res => res.json())
-  //     commit("updatePrivacy", creditsV)
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // },
+  async credits({ state, commit }) {
+    if (state.content.credits.length) return
+    try {
+      let creditsV = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/3`,
+      {
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'User-Agent': '*',
+        },
+      }
+      ).then(res => res.json())
+      commit("updatePrivacy", creditsV)
+    } catch (err) {
+      console.log(err)
+    }
+  },
 
 
 }
