@@ -99,7 +99,7 @@ export default {
                     }
                 }
             },
-            title: 'Credits - Baround',
+            title: 'Privacy - Baround',
         }
     },
     head() {

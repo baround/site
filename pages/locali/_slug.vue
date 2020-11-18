@@ -582,7 +582,6 @@ transition: "slide-right",
     created() {
     },
     beforeUpdate(){
-        console.log('update')
     },
     mounted(){
         if(this.locale.acf.locali_simili){

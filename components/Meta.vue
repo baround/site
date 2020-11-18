@@ -25,8 +25,6 @@ export default {
         var description = meta.description ? meta.description : 'La guida definitiva ai cocktail bar.';
         var image = meta.image ? meta.image : 'https://be.baround.it/wp-content/uploads/2020/10/chi-siamo.jpg';
         var url = meta.url ? meta.url : 'https://www.baround.it';
-        console.log('here we aaaareee') 
-        console.log(meta)
     }
     return {
         title: `${title}`,

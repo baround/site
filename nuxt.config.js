@@ -10,7 +10,6 @@ let myRoutes = function(){
 
   let locali = axios.get('https://be.baround.it/index.php/wp-json/wp/v2/locali?page=1&per_page=100').then((res) => {
     return res.data.map((locale) => {
-      console.log(locale)
       return '/locali/' + locale.slug
     })
   })
