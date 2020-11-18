@@ -28,11 +28,11 @@ export const mutations = {
   updateContatti: (state, contatti) => {
       state.content.contatti = contatti
   },
-  updateCredits: (state, credits) => {
-      state.content.credits = credits
+  updateCredits: (state, creditsV) => {
+      state.content.credits = creditsV
   },
-  updatePrivacy: (state, privacy) => {
-      state.content.privacy = privacy
+  updatePrivacy: (state, privacyV) => {
+      state.content.privacy = privacyV
   },
 }
 
@@ -40,7 +40,13 @@ export const actions = {
   async itinerari({ state, commit }) {
     if (state.content.itinerari.length) return
     try {
-      let itinerari = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/itinerari?page=1&per_page=100`
+      let itinerari = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/itinerari?page=1&per_page=100`,
+        {
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            'User-Agent': '*',
+          },
+        }
       ).then(res => res.json())
       itinerari = itinerari
         .filter(el => el.status === "publish")
@@ -50,7 +56,7 @@ export const actions = {
           title,
           acf,
           yoast_meta
-        }))
+        })) 
       commit("updatePosts", itinerari)
     } catch (err) {
       console.log(err)
@@ -60,7 +66,13 @@ export const actions = {
   async locali({ state, commit }) {
     if (state.content.locali.length) return
     try {
-      let locali = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/locali?page=1&per_page=100`
+      let locali = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/locali?page=1&per_page=100`,
+      {
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'User-Agent': '*',
+        },
+      }
       ).then(res => res.json())
       locali = locali
         .filter(el => el.status === "publish")
@@ -77,10 +89,18 @@ export const actions = {
     }
   },
 
+
+
   async chisiamo({ state, commit }) {
     if (state.content.chisiamo.length) return
     try {
-      let chisiamo = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/253`
+      let chisiamo = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/253`,
+      {
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'User-Agent': '*',
+        },
+      }
       ).then(res => res.json())
       commit("updateChisiamo", chisiamo)
     } catch (err) {
@@ -91,7 +111,13 @@ export const actions = {
   async contatti({ state, commit }) {
     if (state.content.contatti.length) return
     try {
-      let contatti = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/255`
+      let contatti = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/255`,
+      {
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'User-Agent': '*',
+        },
+      }
       ).then(res => res.json())
       commit("updateContatti", contatti)
     } catch (err) {
@@ -102,22 +128,38 @@ export const actions = {
   async privacy({ state, commit }) {
     if (state.content.privacy.length) return
     try {
-      let contatti = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/3`
+      let privacyV = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/3`,
+      {
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'User-Agent': '*',
+        },
+      }
       ).then(res => res.json())
-      commit("updatePrivacy", privacy)
+      commit("updatePrivacy", privacyV)
     } catch (err) {
       console.log(err)
     }
   },
+
+
   async credits({ state, commit }) {
     if (state.content.credits.length) return
     try {
-      let contatti = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/485`
+      let creditsV = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/3`,
+      {
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'User-Agent': '*',
+        },
+      }
       ).then(res => res.json())
-      commit("updateCredits", credits)
+      commit("updatePrivacy", creditsV)
     } catch (err) {
       console.log(err)
     }
   },
+
+
 }
  
