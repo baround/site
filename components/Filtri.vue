@@ -15,7 +15,7 @@
           <option value="4chiacchiere">4 chiacchiere</option>
           <option value="aperitivo">Aperitivo</option>
           <option value="appuntamento">Appuntamento</option>
-          <option value="meeting">Meeting</option>
+          <option value="meeting">Meeting</option> 
         </select>
       </div>
       <!--row occasione-->
