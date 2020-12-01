@@ -65,6 +65,18 @@
   "LazyNewsletter": {
     "description": "Auto imported from components/Newsletter.vue"
   },
+  "NewsletterCassetto": {
+    "description": "Auto imported from components/NewsletterCassetto.vue"
+  },
+  "LazyNewsletterCassetto": {
+    "description": "Auto imported from components/NewsletterCassetto.vue"
+  },
+  "NewsletterPage": {
+    "description": "Auto imported from components/NewsletterPage.vue"
+  },
+  "LazyNewsletterPage": {
+    "description": "Auto imported from components/NewsletterPage.vue"
+  },
   "Quiz": {
     "description": "Auto imported from components/Quiz.vue"
   },

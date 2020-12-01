@@ -4,6 +4,7 @@
         <a href="/"><img src="../assets/images/logo-baround-white.png" /></a>
       </div>
       <Navigation />
+      <!-- <NewsletterCassetto/> -->
   </header>
 </template>
 

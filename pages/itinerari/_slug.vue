@@ -117,6 +117,7 @@
                 </swiper>
             </div>
         </section>
+        <NewsletterPage />
     </div>
     <div class="loader" v-else>
         <span class="loading">
