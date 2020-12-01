@@ -81,10 +81,10 @@ export default {
   position: relative; 
   width: 100vw;
   background: white;
-  padding: 25px 30px;
+  padding: 70px 30px;
   z-index: 7;
   @media all and (max-width: 768px) {  
-    padding: 18px 20px;
+    padding: 50px 20px;
   }
   .close{
     width: 40px;
