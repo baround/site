@@ -10,7 +10,7 @@
     <template v-slot="{ subscribe, setEmail, error, success }">
 
       <div class="cassetto__cta">
-        OPEN
+        OPEN 
       </div>
       <div class="cassetto__container">
         
