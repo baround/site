@@ -13,10 +13,10 @@
         OPEN
       </div>
       <div class="cassetto__container">
-        n 
+        
       </div>
 
-
+ 
       <div class="cassetto__row">
         <div class="cassetto__row__col">
           <form class="form" @submit.prevent="subscribe" >
