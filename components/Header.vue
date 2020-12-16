@@ -20,9 +20,6 @@ header{
   align-items: center;
   padding: 30px;
   z-index: 30;
-  // overflow-x: hidden;
-  // animation: scroll .5s;
-  // animation-delay: .3s;
   @media all and (max-width: 768px) {  
     height: 54px;
     padding: 10px 20px;
