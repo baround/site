@@ -77,7 +77,7 @@ export const actions = {
   },
 
 
-
+ 
   async chisiamo({ state, commit }) {
     if (state.content.chisiamo.length) return
     try {

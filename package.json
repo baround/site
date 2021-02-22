@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@chenfengyuan/vue-countdown": "^1.1.5",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "mobile-device-detect": "^0.4.3",
     "nuxt": "^2.14.0",
     "nuxtjs-device": "^0.1.0",
