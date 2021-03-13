@@ -44,13 +44,16 @@ export const actions = {
       let itinerari = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/itinerari?page=1&per_page=100`,
         {
           headers: {
-            // update with your user-agent
-            "User-Agent":
-              "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36", 
-            Accept: "application/json; charset=UTF-8",
+            Accept: 'application/json, text/plain, */*',
           },
         },
-      ).then(res => res.json())
+      )
+      .then(
+        function(res){
+          return res.json();
+        }
+      )
+
       itinerari = itinerari
         .filter(el => el.status === "publish")
         .map(({ id, slug, title, acf, yoast_meta }) => ({
@@ -72,13 +75,16 @@ export const actions = {
       let locali = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/locali?page=1&per_page=100`,
         {
           headers: {
-            // update with your user-agent
-            "User-Agent":
-              "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36", 
-            Accept: "application/json; charset=UTF-8",
+            Accept: 'application/json, text/plain, */*',
           },
         },
-      ).then(res => res.json())
+      )
+      .then(
+        function(res){
+          return res.json();
+        }
+      )
+      // .then(res => res.json())
       locali = locali
         .filter(el => el.status === "publish")
         .map(({ id, slug, title, acf, yoast_meta }) => ({
@@ -102,13 +108,16 @@ export const actions = {
       let chisiamo = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/253`,
         {
           headers: {
-            // update with your user-agent
-            "User-Agent":
-              "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36", 
-            Accept: "application/json; charset=UTF-8",
+            Accept: 'application/json, text/plain, */*',
           },
         },
-      ).then(res => res.json())
+      )
+      .then(
+        function(res){
+          return res.json();
+        }
+      )
+      // .then(res => res.json())
       commit("updateChisiamo", chisiamo)
     } catch (err) {
       console.log(err)
@@ -123,13 +132,16 @@ export const actions = {
       let contatti = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/255`,
         {
           headers: {
-            // update with your user-agent
-            "User-Agent":
-              "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36", 
-            Accept: "application/json; charset=UTF-8",
+            Accept: 'application/json, text/plain, */*',
           },
         },
-      ).then(res => res.json())
+      )
+      .then(
+        function(res){
+          return res.json();
+        }
+      )
+      // .then(res => res.json())
       commit("updateContatti", contatti)
     } catch (err) {
       console.log(err)
@@ -143,13 +155,16 @@ export const actions = {
       let privacyV = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/3`,
         {
           headers: {
-            // update with your user-agent
-            "User-Agent":
-              "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36", 
-            Accept: "application/json; charset=UTF-8",
+            Accept: 'application/json, text/plain, */*',
           },
         },
-      ).then(res => res.json())
+      )
+      .then(
+        function(res){
+          return res.json();
+        }
+      )
+      // .then(res => res.json())
       commit("updatePrivacy", privacyV)
     } catch (err) {
       console.log(err)
@@ -163,19 +178,20 @@ export const actions = {
       let creditsV = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/3`,
         {
           headers: {
-            // update with your user-agent
-            "User-Agent":
-              "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36", 
-            Accept: "application/json; charset=UTF-8",
+            Accept: 'application/json, text/plain, */*',
           },
         },
-      ).then(res => res.json())
-      commit("updatePrivacy", creditsV)
+      )
+      // .then(res => res.json())
+      .then(
+        function(res){
+          return res.json();
+        }
+      )
+      commit("updateCredits", creditsV)
     } catch (err) {
       console.log(err)
     }
   },
-
-
 }
  

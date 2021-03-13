@@ -1,24 +1,49 @@
 
 import axios from "axios";
 let myRoutes = function(){
-  let itinerari = axios.get('https://be.baround.it/index.php/wp-json/wp/v2/itinerari?page=1&per_page=100').then((res) => {
-    return res.data.map((itinerario) => {
-      return '/itinerari/' + itinerario.slug
-    })
-  })
 
 
-  let locali = axios.get('https://be.baround.it/index.php/wp-json/wp/v2/locali?page=1&per_page=100').then((res) => {
-    return res.data.map((locale) => {
-      return '/locali/' + locale.slug
-    })
+  let itinerari = axios.get('https://be.baround.it/index.php/wp-json/wp/v2/itinerari?page=1&per_page=100',
+  {
+    headers: {
+      // update with your user-agent
+      
+      "User-Agent":
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36, *" , 
+      Accept: 'application/json, text/plain, */*',
+    },
   })
+  .then(
+    (res) => {
+      return res.data.map((itinerario) => {
+        return '/itinerari/' + itinerario.slug
+      })
+    }
+  )
+
+  let locali = axios.get('https://be.baround.it/index.php/wp-json/wp/v2/locali?page=1&per_page=100',
+  {
+    headers: {
+      // update with your user-agent
+      
+      "User-Agent":
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36, *" , 
+      Accept: 'application/json, text/plain, */*',
+    }
+  })
+  .then(
+    (res) => {
+      return res.data.map((locale) => {
+        return '/locali/' + locale.slug
+      })
+    }
+  )
+  
   return (Promise.all([itinerari, locali]).then(values => {
       return values.join().split(',');
     })
   )
 }
-
 
 export default {
 
@@ -109,7 +134,10 @@ export default {
 
   generate: {
     routes: myRoutes,
-    fallback: '404.html'
+    fallback: '404.html',
+    exclude: [
+      /^\/dynamic-route\//,
+    ]
   },
 
   buildModules: [
@@ -122,5 +150,4 @@ export default {
   },
   modules: [
 	],
-
 }
