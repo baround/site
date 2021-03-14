@@ -1,3 +1,4 @@
+import axios from "axios";
 export const state = () => ({
   content: {
     itinerari: [],
@@ -40,158 +41,176 @@ export const actions = {
   
   async itinerari({ state, commit }) {
     if (state.content.itinerari.length) return
-    try {
-      let itinerari = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/itinerari?page=1&per_page=100`,
-        {
-          headers: {
-            Accept: 'application/json, text/plain, */*',
-          },
-        },
-      )
-      .then(
-        function(res){
-          return res.json();
-        }
-      )
+    let axios = require('axios');
 
-      itinerari = itinerari
-        .filter(el => el.status === "publish")
-        .map(({ id, slug, title, acf, yoast_meta }) => ({
-          id,
-          slug,
-          title,
-          acf,
-          yoast_meta
-        })) 
-      commit("updatePosts", itinerari)
-    } catch (err) {
-      console.log(err)
-    }
+    var config = {
+      method: 'get',
+      url: 'https://be.baround.it/index.php/wp-json/wp/v2/itinerari?page=1&per_page=100'
+    };
+    
+    let itinerari = axios(config)
+    .then(
+      function(response){
+        let resultItinerari=[];
+        let itinerariData = response.data;
+        itinerariData.forEach((req) => {
+          resultItinerari.push(req)
+        })
+        return resultItinerari
+      }
+    )
+    .then(
+      function(resultItinerari){
+        console.log(resultItinerari);
+        commit("updatePosts", resultItinerari);
+      }
+    )
+    .catch(function (error) {
+      console.log(error);
+    })
   },
-
   async locali({ state, commit }) {
     if (state.content.locali.length) return
-    try {
-      let locali = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/locali?page=1&per_page=100`,
-        {
-          headers: {
-            Accept: 'application/json, text/plain, */*',
-          },
-        },
-      )
-      .then(
-        function(res){
-          return res.json();
-        }
-      )
-      // .then(res => res.json())
-      locali = locali
-        .filter(el => el.status === "publish")
-        .map(({ id, slug, title, acf, yoast_meta }) => ({
-          id,
-          slug,
-          title,
-          acf,
-          yoast_meta
-        }))
-      commit("updateLocali", locali)
-    } catch (err) {
-      console.log(err)
-    }
+    let axios = require('axios');
+
+    var config = {
+      method: 'get',
+      url: 'https://be.baround.it/index.php/wp-json/wp/v2/locali?page=1&per_page=100'
+    };
+    
+    let locali = axios(config)
+    .then(
+      function(response){
+        let resultLocali=[];
+        let localiData = response.data;
+        localiData.forEach((req) => {
+          resultLocali.push(req)
+        })
+        return resultLocali
+      }
+    )
+    .then(
+      function(resultLocali){
+        console.log(resultLocali);
+        commit("updateLocali", resultLocali);
+      }
+    )
+    .catch(function (error) {
+      console.log(error);
+    })
   },
-
-
- 
   async chisiamo({ state, commit }) {
     if (state.content.chisiamo.length) return
-    try {
-      let chisiamo = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/253`,
-        {
-          headers: {
-            Accept: 'application/json, text/plain, */*',
-          },
-        },
-      )
-      .then(
-        function(res){
-          return res.json();
-        }
-      )
-      // .then(res => res.json())
-      commit("updateChisiamo", chisiamo)
-    } catch (err) {
-      console.log(err)
-    }
+    let axios = require('axios');
+
+    var config = {
+      method: 'get',
+      url: 'https://be.baround.it/index.php/wp-json/wp/v2/pages/253'
+    };
+    
+    let chisiamo = axios(config)
+    .then(
+      function(response){
+        let resultChisiamo=[];
+        let chisiamoData = response.data;
+        resultChisiamo.push(chisiamoData)
+        return resultChisiamo
+      }
+    )
+    .then(
+      function(resultChisiamo){
+        console.log(resultChisiamo);
+        commit("updateChisiamo", resultChisiamo);
+      }
+    )
+    .catch(function (error) {
+      console.log(error);
+    })
   },
-
-  //DIABLE FOR TESTING
-
   async contatti({ state, commit }) {
     if (state.content.contatti.length) return
-    try {
-      let contatti = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/255`,
-        {
-          headers: {
-            Accept: 'application/json, text/plain, */*',
-          },
-        },
-      )
-      .then(
-        function(res){
-          return res.json();
-        }
-      )
-      // .then(res => res.json())
-      commit("updateContatti", contatti)
-    } catch (err) {
-      console.log(err)
-    }
-  },
+    let axios = require('axios');
 
+    var config = {
+      method: 'get',
+      url: 'https://be.baround.it/index.php/wp-json/wp/v2/pages/255'
+    };
+    
+    let contatti = axios(config)
+    .then(
+      function(response){
+        let resultContatti=[];
+        let contattiData = response.data;
+        resultContatti.push(contattiData)
+        return resultContatti
+      }
+    )
+    .then(
+      function(resultContatti){
+        console.log(resultContatti);
+        commit("updateContatti", resultContatti);
+        
+      }
+    )
+    .catch(function (error) {
+      console.log(error);
+    })
+  },
   async privacy({ state, commit }) {
     if (state.content.privacy.length) return
-    try {
-      
-      let privacyV = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/3`,
-        {
-          headers: {
-            Accept: 'application/json, text/plain, */*',
-          },
-        },
-      )
-      .then(
-        function(res){
-          return res.json();
-        }
-      )
-      // .then(res => res.json())
-      commit("updatePrivacy", privacyV)
-    } catch (err) {
-      console.log(err)
-    }
+    let axios = require('axios');
+
+    var config = {
+      method: 'get',
+      url: 'https://be.baround.it/index.php/wp-json/wp/v2/pages/3'
+    };
+    
+    let privacyV = axios(config)
+    .then(
+      function(response){
+        let resultPrivacy=[];
+        let privacyData = response.data;
+        resultPrivacy.push(privacyData)
+        return resultPrivacy
+      }
+    )
+    .then(
+      function(resultPrivacy){
+        console.log(resultPrivacy);
+        commit("updatePrivacy", resultPrivacy);
+      }
+    )
+    .catch(function (error) {
+      console.log(error);
+    })
   },
-
-
   async credits({ state, commit }) {
     if (state.content.credits.length) return
-    try {
-      let creditsV = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/3`,
-        {
-          headers: {
-            Accept: 'application/json, text/plain, */*',
-          },
-        },
-      )
-      // .then(res => res.json())
-      .then(
-        function(res){
-          return res.json();
-        }
-      )
-      commit("updateCredits", creditsV)
-    } catch (err) {
-      console.log(err)
-    }
+    let axios = require('axios');
+
+    var config = {
+      method: 'get',
+      url: 'https://be.baround.it/index.php/wp-json/wp/v2/pages/3'
+    };
+    
+    let creditsV = axios(config)
+    .then(
+      function(response){
+        let resultCredits=[];
+        let creditsData = response.data;
+        resultCredits.push(creditsData)
+        return resultCredits
+      }
+    )
+    .then(
+      function(resultCredits){
+        console.log(resultCredits);
+        commit("updateCredits", resultCredits);
+      }
+    )
+    .catch(function (error) {
+      console.log(error);
+    })
   },
 }
  

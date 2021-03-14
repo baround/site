@@ -48,7 +48,7 @@ let myRoutes = function(){
 export default {
 
   mode: 'universal',
-  target: 'static',
+  target: 'server',
   head: {
     title: '',
     meta: [

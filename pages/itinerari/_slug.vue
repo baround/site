@@ -542,7 +542,7 @@ transition: "slide-right",
         // this.$store.dispatch("locali");
         // this.$store.dispatch("itinerari");
     },  
-    mounted(){
+    beforeUpdate(){
         if(this.itinerario.acf.locali_vicini){
             var idPosts = [];
             var i;
@@ -555,6 +555,9 @@ transition: "slide-right",
         }
         this.coords = this.listaLong();
         this.title = this.itinerario.title.rendered;
+    },
+    mounted(){
+        
     },
 };
 </script>
