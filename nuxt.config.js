@@ -47,8 +47,8 @@ let myRoutes = function(){
 
 export default {
 
-  mode: 'spa',
-  target: 'static',
+  mode: 'universal',
+  target: 'server',
   head: {
     title: '',
     meta: [
