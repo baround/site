@@ -61,7 +61,6 @@ export const actions = {
     )
     .then(
       function(resultItinerari){
-        console.log(resultItinerari);
         commit("updatePosts", resultItinerari);
       }
     )
@@ -91,7 +90,6 @@ export const actions = {
     )
     .then(
       function(resultLocali){
-        console.log(resultLocali);
         commit("updateLocali", resultLocali);
       }
     )
@@ -119,7 +117,6 @@ export const actions = {
     )
     .then(
       function(resultChisiamo){
-        console.log(resultChisiamo);
         commit("updateChisiamo", resultChisiamo);
       }
     )
@@ -147,7 +144,6 @@ export const actions = {
     )
     .then(
       function(resultContatti){
-        console.log(resultContatti);
         commit("updateContatti", resultContatti);
         
       }
@@ -176,7 +172,6 @@ export const actions = {
     )
     .then(
       function(resultPrivacy){
-        console.log(resultPrivacy);
         commit("updatePrivacy", resultPrivacy);
       }
     )
@@ -204,7 +199,6 @@ export const actions = {
     )
     .then(
       function(resultCredits){
-        console.log(resultCredits);
         commit("updateCredits", resultCredits);
       }
     )
