@@ -3,6 +3,8 @@
     "name": "chi-siamo",
     "path": "/chi-siamo",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/chi-siamo/index.vue",
+    "chunkName": "pages/chi-siamo/index",
+    "_name": "_fe0ab21c"
   },
   {
     "name": "contatti",
