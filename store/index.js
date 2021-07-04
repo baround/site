@@ -159,28 +159,17 @@ export const actions = {
     }
   },
 
+
   async chisiamo({ state, commit }) {
     if (state.content.chisiamo.length) return
     try {
-      let chisiamo = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/253`,
-        {
-          headers: {
-            Accept: 'application/json, text/plain, */*',
-          },
-        },
-      )
-      .then(
-        function(res){
-          return res.json();
-        }
-      )
-      // .then(res => res.json())
+      let chisiamo = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/253`).then(res => res.json())
+      console.log(chisiamo)
       commit("updateChisiamo", chisiamo)
     } catch (err) {
       console.log(err)
     }
   },
-
 
   async contatti({ state, commit }) {
     if (state.content.contatti.length) return

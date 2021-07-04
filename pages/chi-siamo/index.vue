@@ -63,7 +63,7 @@ const loader = require('../../assets/images/loader.gif');
 export default {
     computed: {
         page() {
-            return this.$store.state.content.chisiamo[0]
+            return this.$store.state.content.chisiamo
         },
         swiper() {
             this.$refs.gallery.$swiper;
