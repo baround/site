@@ -688,7 +688,7 @@ transition: "slide-right",
                 margin: 50px 0 50px 0;
             }
             &--intro{
-                max-width: 654px;
+                max-width: 1010px;
                 background: white;
                 padding: 75px 75px 0px 75px;
                 margin-top: -150px;
@@ -701,7 +701,7 @@ transition: "slide-right",
                 }
             }
             &--testo{
-                max-width: 654px;
+                max-width: 1010px;
                 background: white;
                 padding: 0 75px 0 75px;
                 position: relative;

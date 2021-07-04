@@ -38,8 +38,25 @@ let myRoutes = function(){
       })
     }
   )
+  let posts = axios.get('https://be.baround.it/index.php/wp-json/wp/v2/posts?page=1&per_page=100',
+  {
+    headers: {
+      // update with your user-agent
+      
+      "User-Agent":
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36, *" , 
+      Accept: 'application/json, text/plain, */*',
+    }
+  })
+  .then(
+    (res) => {
+      return res.data.map((post) => {
+        return '/whatsup/' + post.slug
+      })
+    }
+  )
   
-  return (Promise.all([itinerari, locali]).then(values => {
+  return (Promise.all([itinerari, locali, posts]).then(values => {
       return values.join().split(',');
     })
   )

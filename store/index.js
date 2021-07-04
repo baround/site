@@ -1,7 +1,9 @@
 export const state = () => ({
   content: {
     itinerari: [],
+    posts: [],
     locali: [],
+    homepage: [],
     chisiamo: [],
     contatti: [],
     credits: [],
@@ -16,11 +18,17 @@ export const getters = {
 }
 
 export const mutations = {
-  updatePosts: (state, itinerari) => {
+  updatePosts: (state, posts) => {
+      state.content.posts = posts
+  },
+  updateItinerari: (state, itinerari) => {
       state.content.itinerari = itinerari
   },
   updateLocali: (state, locali) => {
       state.content.locali = locali
+  },
+  updateHomepage: (state, homepage) => {
+      state.content.homepage = homepage
   },
   updateChisiamo: (state, chisiamo) => {
       state.content.chisiamo = chisiamo
@@ -38,6 +46,36 @@ export const mutations = {
 
 export const actions = {
   
+  async posts({ state, commit }) {
+    if (state.content.posts.length) return
+    try {
+      let posts = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/posts?page=1&per_page=100`,
+        {
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+          },
+        },
+      )
+      .then(
+        function(res){
+          return res.json();
+        }
+      )
+      posts = posts
+        .filter(el => el.status === "publish")
+        .map(({ id, slug, title, acf, yoast_meta }) => ({
+          id,
+          slug,
+          title,
+          acf,
+          yoast_meta
+        })) 
+      commit("updatePosts", posts)
+    } catch (err) {
+      console.log(err)
+    }
+  },
+  
   async itinerari({ state, commit }) {
     if (state.content.itinerari.length) return
     try {
@@ -53,7 +91,6 @@ export const actions = {
           return res.json();
         }
       )
-
       itinerari = itinerari
         .filter(el => el.status === "publish")
         .map(({ id, slug, title, acf, yoast_meta }) => ({
@@ -63,7 +100,7 @@ export const actions = {
           acf,
           yoast_meta
         })) 
-      commit("updatePosts", itinerari)
+      commit("updateItinerari", itinerari)
     } catch (err) {
       console.log(err)
     }
@@ -99,9 +136,29 @@ export const actions = {
       console.log(err)
     }
   },
-
-
  
+  async homepage({ state, commit }) {
+    if (state.content.homepage.length) return
+    try {
+      let homepage = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/658`,
+        {
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+          },
+        },
+      )
+      .then(
+        function(res){
+          return res.json();
+        }
+      )
+      // .then(res => res.json())
+      commit("updateHomepage", homepage)
+    } catch (err) {
+      console.log(err)
+    }
+  },
+
   async chisiamo({ state, commit }) {
     if (state.content.chisiamo.length) return
     try {
@@ -123,7 +180,6 @@ export const actions = {
       console.log(err)
     }
   },
-
   //DIABLE FOR TESTING
 
   async contatti({ state, commit }) {
@@ -170,7 +226,6 @@ export const actions = {
       console.log(err)
     }
   },
-
 
   async credits({ state, commit }) {
     if (state.content.credits.length) return

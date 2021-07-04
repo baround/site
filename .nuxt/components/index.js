@@ -6,6 +6,7 @@ export { default as Header } from '../../components/Header.vue'
 export { default as Listing } from '../../components/Listing.vue'
 export { default as Map } from '../../components/Map.vue'
 export { default as MapFilter } from '../../components/MapFilter.vue'
+export { default as MapLight } from '../../components/MapLight.vue'
 export { default as Meta } from '../../components/Meta.vue'
 export { default as Navigation } from '../../components/Navigation.vue'
 export { default as Newsletter } from '../../components/Newsletter.vue'
@@ -21,6 +22,7 @@ export const LazyHeader = import('../../components/Header.vue' /* webpackChunkNa
 export const LazyListing = import('../../components/Listing.vue' /* webpackChunkName: "components/Listing" */).then(c => c.default || c)
 export const LazyMap = import('../../components/Map.vue' /* webpackChunkName: "components/Map" */).then(c => c.default || c)
 export const LazyMapFilter = import('../../components/MapFilter.vue' /* webpackChunkName: "components/MapFilter" */).then(c => c.default || c)
+export const LazyMapLight = import('../../components/MapLight.vue' /* webpackChunkName: "components/MapLight" */).then(c => c.default || c)
 export const LazyMeta = import('../../components/Meta.vue' /* webpackChunkName: "components/Meta" */).then(c => c.default || c)
 export const LazyNavigation = import('../../components/Navigation.vue' /* webpackChunkName: "components/Navigation" */).then(c => c.default || c)
 export const LazyNewsletter = import('../../components/Newsletter.vue' /* webpackChunkName: "components/Newsletter" */).then(c => c.default || c)

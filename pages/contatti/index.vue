@@ -301,7 +301,7 @@ export default {
                 }
             }
             &--intro{
-                max-width: 654px;
+                max-width: 1010px;
                 background: white;
                 padding: 75px 75px 0px 75px;
                 margin-top: -150px;
@@ -346,7 +346,7 @@ export default {
                 }
             }
             &--testo{
-                max-width: 674px;
+                max-width: 1010px;
                 background: white;
                 padding: 0 75px 0 75px;
                 position: relative;

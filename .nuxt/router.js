@@ -7,11 +7,14 @@ const _fe0ab21c = () => interopDefault(import('../pages/chi-siamo/index.vue' /* 
 const _022ab8c2 = () => interopDefault(import('../pages/contatti/index.vue' /* webpackChunkName: "pages/contatti/index" */))
 const _b24db8f0 = () => interopDefault(import('../pages/credits/index.vue' /* webpackChunkName: "pages/credits/index" */))
 const _456ae5e0 = () => interopDefault(import('../pages/filter/index.vue' /* webpackChunkName: "pages/filter/index" */))
+const _f777a0d4 = () => interopDefault(import('../pages/homepage/index.vue' /* webpackChunkName: "pages/homepage/index" */))
 const _7fc131e9 = () => interopDefault(import('../pages/itinerari/index.vue' /* webpackChunkName: "pages/itinerari/index" */))
 const _01737d74 = () => interopDefault(import('../pages/locali/index.vue' /* webpackChunkName: "pages/locali/index" */))
 const _e2117e14 = () => interopDefault(import('../pages/privacy/index.vue' /* webpackChunkName: "pages/privacy/index" */))
+const _74fc8ff8 = () => interopDefault(import('../pages/whatsup/index.vue' /* webpackChunkName: "pages/whatsup/index" */))
 const _7e0a90a1 = () => interopDefault(import('../pages/itinerari/_slug.vue' /* webpackChunkName: "pages/itinerari/_slug" */))
 const _04e0c004 = () => interopDefault(import('../pages/locali/_slug.vue' /* webpackChunkName: "pages/locali/_slug" */))
+const _7345eeb0 = () => interopDefault(import('../pages/whatsup/_slug.vue' /* webpackChunkName: "pages/whatsup/_slug" */))
 const _390e25bd = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
@@ -47,6 +50,10 @@ export const routerOptions = {
     component: _456ae5e0,
     name: "filter"
   }, {
+    path: "/homepage",
+    component: _f777a0d4,
+    name: "homepage"
+  }, {
     path: "/itinerari",
     component: _7fc131e9,
     name: "itinerari"
@@ -59,6 +66,10 @@ export const routerOptions = {
     component: _e2117e14,
     name: "privacy"
   }, {
+    path: "/whatsup",
+    component: _74fc8ff8,
+    name: "whatsup"
+  }, {
     path: "/itinerari/:slug",
     component: _7e0a90a1,
     name: "itinerari-slug"
@@ -66,6 +77,10 @@ export const routerOptions = {
     path: "/locali/:slug",
     component: _04e0c004,
     name: "locali-slug"
+  }, {
+    path: "/whatsup/:slug",
+    component: _7345eeb0,
+    name: "whatsup-slug"
   }, {
     path: "/",
     component: _390e25bd,

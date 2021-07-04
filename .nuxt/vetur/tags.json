@@ -47,6 +47,12 @@
   "LazyMapFilter": {
     "description": "Auto imported from components/MapFilter.vue"
   },
+  "MapLight": {
+    "description": "Auto imported from components/MapLight.vue"
+  },
+  "LazyMapLight": {
+    "description": "Auto imported from components/MapLight.vue"
+  },
   "Meta": {
     "description": "Auto imported from components/Meta.vue"
   },
