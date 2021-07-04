@@ -583,8 +583,8 @@ transition: "slide-right",
     created() {
     },
     beforeUpdate(){
-    },
-    mounted(){
+        console.log('this.locale beforeUpdate');
+        console.log(this.locale);
         if(this.locale.acf.locali_simili){
             var idPosts = [];
             var i;
@@ -604,6 +604,14 @@ transition: "slide-right",
             this.correlatiItinerari = filtroitinerari;
         }
         this.title = this.locale.title.rendered;
+    },
+    mounted(){
+        var j = 0;
+        j++;
+        console.log('this.locale on mounted ' + j);
+        console.log(this.locale);
+
+
     },
 };
 </script>

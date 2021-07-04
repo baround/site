@@ -52,6 +52,8 @@
         </span>
     </div>
     <Newsletter />
+    </div>
+
     <Footer />
 </main>
 </template>
@@ -61,14 +63,14 @@ const loader = require('../../assets/images/loader.gif');
 export default {
     computed: {
         page() {
-            return this.$store.state.content.chisiamo;
+            return this.$store.state.content.chisiamo[0]
         },
         swiper() {
             this.$refs.gallery.$swiper;
         },
     },
     created() {
-        // this.$store.dispatch("chisiamo");
+        this.$store.dispatch("chisiamo");
     },
     data() {
         return {
@@ -121,6 +123,14 @@ export default {
                 { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
             ]
         }
+    },
+    beforeUpdate(){
+        console.log('this.page beforeUpdate');
+        console.log(this.page);
+    },
+    mounted(){
+        console.log('this.page mounted');
+        console.log(this.page);
     },
     
     methods: {

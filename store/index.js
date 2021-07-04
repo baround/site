@@ -1,3 +1,4 @@
+import axios from "axios";
 export const state = () => ({
   content: {
     itinerari: [],
@@ -105,7 +106,6 @@ export const actions = {
       console.log(err)
     }
   },
-
   async locali({ state, commit }) {
     if (state.content.locali.length) return
     try {
@@ -180,30 +180,36 @@ export const actions = {
       console.log(err)
     }
   },
-  //DIABLE FOR TESTING
+
 
   async contatti({ state, commit }) {
     if (state.content.contatti.length) return
-    try {
-      let contatti = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/255`,
-        {
-          headers: {
-            Accept: 'application/json, text/plain, */*',
-          },
-        },
-      )
-      .then(
-        function(res){
-          return res.json();
-        }
-      )
-      // .then(res => res.json())
-      commit("updateContatti", contatti)
-    } catch (err) {
-      console.log(err)
-    }
-  },
+    let axios = require('axios');
 
+    var config = {
+      method: 'get',
+      url: 'https://be.baround.it/index.php/wp-json/wp/v2/pages/255'
+    };
+    
+    let contatti = axios(config)
+    .then(
+      function(response){
+        let resultContatti=[];
+        let contattiData = response.data;
+        resultContatti.push(contattiData)
+        return resultContatti
+      }
+    )
+    .then(
+      function(resultContatti){
+        commit("updateContatti", resultContatti);
+        
+      }
+    )
+    .catch(function (error) {
+      console.log(error);
+    })
+  },
   async privacy({ state, commit }) {
     if (state.content.privacy.length) return
     try {
@@ -229,24 +235,30 @@ export const actions = {
 
   async credits({ state, commit }) {
     if (state.content.credits.length) return
-    try {
-      let creditsV = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/3`,
-        {
-          headers: {
-            Accept: 'application/json, text/plain, */*',
-          },
-        },
-      )
-      // .then(res => res.json())
-      .then(
-        function(res){
-          return res.json();
-        }
-      )
-      commit("updateCredits", creditsV)
-    } catch (err) {
-      console.log(err)
-    }
+    let axios = require('axios');
+
+    var config = {
+      method: 'get',
+      url: 'https://be.baround.it/index.php/wp-json/wp/v2/pages/3'
+    };
+    
+    let creditsV = axios(config)
+    .then(
+      function(response){
+        let resultCredits=[];
+        let creditsData = response.data;
+        resultCredits.push(creditsData)
+        return resultCredits
+      }
+    )
+    .then(
+      function(resultCredits){
+        commit("updateCredits", resultCredits);
+      }
+    )
+    .catch(function (error) {
+      console.log(error);
+    })
   },
 }
  

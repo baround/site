@@ -1,7 +1,9 @@
 <template>
 <main class="post individual">
     <Header />
-    <div class="page contenitore" v-if='page.acf'>
+
+    <div v-if='page'>
+        <div class="page contenitore" v-if='page.acf'>
         <section class="page__header">
             <figure v-bind:style="{ 'background-image': 'url(' + page.acf.immagine_di_copertina + ')' }">
                 <img v-bind:src="page.acf.immagine_di_copertina" />
@@ -51,6 +53,8 @@
             <img v-bind:src="loader">
         </span>
     </div>
+    </div>
+
     <Newsletter />
     <Footer />
 </main>
@@ -61,14 +65,14 @@ const loader = require('../../assets/images/loader.gif');
 export default {
     computed: {
         page() {
-            return this.$store.state.content.privacy;
+            return this.$store.state.content.privacy[0];
         },
         swiper() {
             this.$refs.gallery.$swiper;
         },
     },
     created() {
-        // this.$store.dispatch("chisiamo");
+        this.$store.dispatch("privacy");
     },
     data() {
         return {
