@@ -125,12 +125,8 @@ export default {
         }
     },
     beforeUpdate(){
-        console.log('this.page beforeUpdate');
-        console.log(this.page);
     },
     mounted(){
-        console.log('this.page mounted');
-        console.log(this.page);
     },
     
     methods: {

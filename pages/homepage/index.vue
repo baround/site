@@ -825,7 +825,7 @@ export default {
             }
         }
         h2{
-            font-size: 25px;
+            font-size: 20px;
             font-weight: bold;
             line-height: 1.24;
             letter-spacing: 1px;

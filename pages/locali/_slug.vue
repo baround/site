@@ -583,8 +583,6 @@ transition: "slide-right",
     created() {
     },
     beforeUpdate(){
-        console.log('this.locale beforeUpdate');
-        console.log(this.locale);
         if(this.locale.acf.locali_simili){
             var idPosts = [];
             var i;
@@ -608,9 +606,15 @@ transition: "slide-right",
     mounted(){
         var j = 0;
         j++;
-        console.log('this.locale on mounted ' + j);
-        console.log(this.locale);
-
+        if(this.locale.acf.itinerari_vicini){
+            var relPosts = [];
+            var i;
+            for (i = 0; i < this.locale.acf.itinerari_vicini.length; i++) {
+                relPosts.push(this.locale.acf.itinerari_vicini[i].ID);
+            }
+            var filtroitinerari = this.itinerari.filter((item) => relPosts.includes(item.id));
+            this.correlatiItinerari = filtroitinerari;
+        }
 
     },
 };

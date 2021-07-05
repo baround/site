@@ -73,7 +73,6 @@ export default {
     },
     computed: {
         page() {
-            console.log(this.$store.state.content.contatti[0]);
             return this.$store.state.content.contatti[0];
         },
         swiper() {
@@ -117,12 +116,8 @@ export default {
         }
     },
     beforeUpdate(){
-        console.log('this.page beforeUpdate');
-        console.log(this.page);
     },
     mounted(){
-        console.log('this.page mounted');
-        console.log(this.page);
     },
     head() {
         return {

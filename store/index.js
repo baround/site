@@ -164,7 +164,6 @@ export const actions = {
     if (state.content.chisiamo.length) return
     try {
       let chisiamo = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/253`).then(res => res.json())
-      console.log(chisiamo)
       commit("updateChisiamo", chisiamo)
     } catch (err) {
       console.log(err)

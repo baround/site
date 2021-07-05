@@ -165,7 +165,6 @@ export default {
   //   }
   // },
   // beforeUpdate(){
-  //   console.log(this.quiz)
   // },
   // mounted(){
   //   if(this.$cookies.get("completed")){
