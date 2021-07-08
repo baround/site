@@ -1,5 +1,6 @@
 <template>
   <main>
+    <Quiz />
     <Header />
     <Map />
     <Footer />
