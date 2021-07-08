@@ -698,11 +698,16 @@ export default {
                         padding-right: 100px;
                         @media all and (max-width: 768px) {  
                             padding-right: 0px;
+                            display: none;
                         }
                     }
                     a.cta{
                         text-decoration: underline;
                         font-weight: bold;
+
+                        @media all and (max-width: 768px) {  
+                            font-size: 11px;
+                        }
                     }
                 }
 
