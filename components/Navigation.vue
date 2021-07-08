@@ -25,7 +25,7 @@
                 <li><a href="/chi-siamo">Chi siamo</a></li>
                 <li><a href="/locali">Locali</a></li>
                 <li><a href="/itinerari">Itinerari</a></li>
-                <!-- <li><a href="/brands">Brands</a></li> -->
+                <li><a href="/diario">Diario</a></li> 
                 <li><a href="/contatti">Contatti</a></li>
             </ul>
           </div>
@@ -44,10 +44,8 @@
   </nav>
 </template>
 
-
-
-
 <script> 
+
 const mapMarker = require('../assets/images/icon-pinner-locali.png');
 export default {
   data() {

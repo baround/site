@@ -8,16 +8,16 @@
                 <img v-bind:src="bgTop" />
             </figure>
             <div class="itinerari__header__details">
-                <h1>What's up?</h1>
+                <h1>Diario</h1>
             </div>
         </section>
         <section class="itinerari__fascia">
             <div class="itinerari__fascia__contenuto itinerari__fascia__contenuto--listing">
                 <div class="itinerari__fascia__contenuto__card" v-for="(post, key) in posts" :key="key">
                     <figure v-bind:style="{ 'background-image': 'url(' + post.acf.immagine_di_copertina + ')' }">
-                        <a :href="`/whatsup/${post.slug}`"><img v-bind:src="post.acf.immagine_di_copertina" /></a>
+                        <a :href="`/diario/${post.slug}`"><img v-bind:src="post.acf.immagine_di_copertina" /></a>
                     </figure>
-                    <h2><a :href="`/whatsup/${post.slug}`" v-html="post.title.rendered"></a></h2>
+                    <h2><a :href="`/diario/${post.slug}`" v-html="post.title.rendered"></a></h2>
                     <div class="txt" v-html="post.acf.descrizione_breve"></div>
                 </div>
             </div>
@@ -41,7 +41,7 @@ data(){
     return{
         loader: loader,
         bgTop: bgTop,
-        title: 'Whatsup - Baround',
+        title: 'Diario - Baround',
     }
 },
 head() {
@@ -50,7 +50,7 @@ head() {
         meta: [
             {
             hid: 'baround',
-            name: 'Whatsup - Baround',
+            name: 'Diario - Baround',
             content: 'Baround con noi. Scopri i luoghi inaspettati di Milano.'
             },
             //FB

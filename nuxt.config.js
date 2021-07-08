@@ -51,7 +51,7 @@ let myRoutes = function(){
   .then(
     (res) => {
       return res.data.map((post) => {
-        return '/whatsup/' + post.slug
+        return '/diario/' + post.slug
       })
     }
   )

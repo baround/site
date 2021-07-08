@@ -12,11 +12,11 @@
                     <ul>
                         <!--What’sup?-->
                         <li>
-                            <a href="/whatsup">
+                            <a href="/diario">
                                 <figure>
                                     <img class="logo" src="../../assets/images/icons-whatsup.svg" />
                                 </figure>
-                                <h2>What’sup?</h2>
+                                <h2>Diario</h2>
                             </a>
                         </li>
                         <!--Bar-->
@@ -71,9 +71,9 @@
                                 <a :href="`/whatsup/${post.slug}`"><img v-bind:src="post.acf.immagine_di_copertina" /></a>
                             </figure>
                             <div class="page__whatsup__content__post__title">
-                                <h2><a :href="`/whatsup/${post.slug}`" v-html="post.title.rendered"></a></h2>
+                                <h2><a :href="`/diario/${post.slug}`" v-html="post.title.rendered"></a></h2>
                                 <div class="txt" v-for="(field, index) in post.acf.contenuto" :key="index" v-if="field.acf_fc_layout === 'introduzione'"   v-html="field.contenuto"></div>
-                                <a class="cta" :href="`/whatsup/${post.slug}`">...continua a leggere</a>
+                                <a class="cta" :href="`/diario/${post.slug}`">...continua a leggere</a>
                             </div>
                         </div>
                     </div>
@@ -888,6 +888,7 @@ export default {
                 font-size: 14px;
                 -webkit-line-clamp: 3;
                 margin-bottom: 0px;
+                display: block;
             }
         }
     }

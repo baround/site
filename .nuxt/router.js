@@ -6,15 +6,15 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _fe0ab21c = () => interopDefault(import('../pages/chi-siamo/index.vue' /* webpackChunkName: "pages/chi-siamo/index" */))
 const _022ab8c2 = () => interopDefault(import('../pages/contatti/index.vue' /* webpackChunkName: "pages/contatti/index" */))
 const _b24db8f0 = () => interopDefault(import('../pages/credits/index.vue' /* webpackChunkName: "pages/credits/index" */))
+const _50d1f084 = () => interopDefault(import('../pages/diario/index.vue' /* webpackChunkName: "pages/diario/index" */))
 const _456ae5e0 = () => interopDefault(import('../pages/filter/index.vue' /* webpackChunkName: "pages/filter/index" */))
 const _f777a0d4 = () => interopDefault(import('../pages/homepage/index.vue' /* webpackChunkName: "pages/homepage/index" */))
 const _7fc131e9 = () => interopDefault(import('../pages/itinerari/index.vue' /* webpackChunkName: "pages/itinerari/index" */))
 const _01737d74 = () => interopDefault(import('../pages/locali/index.vue' /* webpackChunkName: "pages/locali/index" */))
 const _e2117e14 = () => interopDefault(import('../pages/privacy/index.vue' /* webpackChunkName: "pages/privacy/index" */))
-const _74fc8ff8 = () => interopDefault(import('../pages/whatsup/index.vue' /* webpackChunkName: "pages/whatsup/index" */))
+const _4f1b4f3c = () => interopDefault(import('../pages/diario/_slug.vue' /* webpackChunkName: "pages/diario/_slug" */))
 const _7e0a90a1 = () => interopDefault(import('../pages/itinerari/_slug.vue' /* webpackChunkName: "pages/itinerari/_slug" */))
 const _04e0c004 = () => interopDefault(import('../pages/locali/_slug.vue' /* webpackChunkName: "pages/locali/_slug" */))
-const _7345eeb0 = () => interopDefault(import('../pages/whatsup/_slug.vue' /* webpackChunkName: "pages/whatsup/_slug" */))
 const _390e25bd = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
@@ -46,6 +46,10 @@ export const routerOptions = {
     component: _b24db8f0,
     name: "credits"
   }, {
+    path: "/diario",
+    component: _50d1f084,
+    name: "diario"
+  }, {
     path: "/filter",
     component: _456ae5e0,
     name: "filter"
@@ -66,9 +70,9 @@ export const routerOptions = {
     component: _e2117e14,
     name: "privacy"
   }, {
-    path: "/whatsup",
-    component: _74fc8ff8,
-    name: "whatsup"
+    path: "/diario/:slug",
+    component: _4f1b4f3c,
+    name: "diario-slug"
   }, {
     path: "/itinerari/:slug",
     component: _7e0a90a1,
@@ -77,10 +81,6 @@ export const routerOptions = {
     path: "/locali/:slug",
     component: _04e0c004,
     name: "locali-slug"
-  }, {
-    path: "/whatsup/:slug",
-    component: _7345eeb0,
-    name: "whatsup-slug"
   }, {
     path: "/",
     component: _390e25bd,
