@@ -137,22 +137,13 @@ export const actions = {
     }
   },
  
+
+
+
   async homepage({ state, commit }) {
-    if (state.content.homepage.length) return
+    if (state.content.chisiamo.length) return
     try {
-      let homepage = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/658`,
-        {
-          headers: {
-            Accept: 'application/json, text/plain, */*',
-          },
-        },
-      )
-      .then(
-        function(res){
-          return res.json();
-        }
-      )
-      // .then(res => res.json())
+      let homepage = await fetch( `https://be.baround.it/index.php/wp-json/wp/v2/pages/658`).then(res => res.json())
       commit("updateHomepage", homepage)
     } catch (err) {
       console.log(err)

@@ -37,7 +37,7 @@
                                 <h2>Itinerari</h2>
                             </a>
                         </li>
-                        <!--Enciclopedia-->
+                        <!--Enciclopedia
                         <li>
                             <a href="/enciclopedia">
                                 <figure>
@@ -45,7 +45,7 @@
                                 </figure>
                                 <h2>Enciclopedia</h2>
                             </a>
-                        </li>
+                        </li>-->
                     </ul>
                 </nav>
             </div> 
@@ -54,30 +54,34 @@
             </figure>
         </section>
         <section class="page__whatsup" v-if='posts'>
+        
+        <div v-for="(post, key) in posts" :key="key" v-if='post.id=="668"'>
             <div class="page__whatsup__content page__content">
                 <div class="page__whatsup__content__header">
                     <h2>
                         <span class="icon icon--whatsup"></span>
-                        Le ultime news 
+                        Diario
                     </h2>
                     <a class="cta cta--full" href="/whatsup">Scopri tutte</a>
                 </div>
                 <div class="page__whatsup__content__row">
-                    <div class="page__whatsup__content__row__col page__whatsup__content__row__col--full">
-                        <div class="page__whatsup__content__post" v-for="(post, key) in posts.slice(0, 3)" :key="key">
+                    <div class="page__whatsup__content__row__col page__whatsup__content__row__col--full articoloFull">
+                        <div class="page__whatsup__content__post">
                             <figure v-bind:style="{ 'background-image': 'url(' + post.acf.immagine_di_copertina + ')' }">
                                 <a :href="`/whatsup/${post.slug}`"><img v-bind:src="post.acf.immagine_di_copertina" /></a>
                             </figure>
                             <div class="page__whatsup__content__post__title">
                                 <h2><a :href="`/whatsup/${post.slug}`" v-html="post.title.rendered"></a></h2>
-                                <div class="txt" v-html="post.acf.descrizione_breve"></div>
+                                <div class="txt" v-for="(field, index) in post.acf.contenuto" :key="index" v-if="field.acf_fc_layout === 'introduzione'"   v-html="field.contenuto"></div>
+                                <a class="cta" :href="`/whatsup/${post.slug}`">...continua a leggere</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </section>
-        <section class="page__banners">
+        <!-- <section class="page__banners">
             <div class="page__content page__banners__content">
                 <div class="banner">
                     <a href="">
@@ -85,7 +89,7 @@
                     </a>
                 </div>
             </div>
-        </section>
+        </section> -->
         <section class="page__locali">
             <div class="page__locali__content page__content">
                 <div class="page__locali__content__header">
@@ -149,6 +153,7 @@ export default {
         },
     },
     created() {
+        this.$store.dispatch("homepage");
         this.$store.dispatch("posts");
     },
     data() {
@@ -636,8 +641,8 @@ export default {
                 margin: 20px 0;
             }
             &__post{
-                width: 32%;
-                flex-flow: column;
+                width: 100%;
+                flex-flow: row;
                 justify-content: space-between;
                 align-items: flex-start;
                 display: flex;
@@ -646,10 +651,15 @@ export default {
                     width: 100%;
                 }
                 figure{
-                    width: 100%;
+                    width: 450px;
                     height: 300px;
                     overflow: hidden;
                     margin-bottom: 15px;
+                    margin-right: 40px;
+                    max-width: 100%;
+                    flex-grow: 2;
+                    /* display: flex; */
+                    flex-shrink: 0;
                     @media all and (max-width: 768px) {  
                         width: 105px;
                         height: 60px;
@@ -676,14 +686,26 @@ export default {
                         line-height: 1.33;
                         letter-spacing: 0.75px;
                         color: #222831;
-
+                        margin: 20px 0;
                         @media all and (max-width: 768px) {  
                             font-size: 14px;
                             font-weight: normal;
                             line-height: 17px;
+                            margin: 0;
+                        }
+                    }                    
+                    .txt{
+                        padding-right: 100px;
+                        @media all and (max-width: 768px) {  
+                            padding-right: 0px;
                         }
                     }
+                    a.cta{
+                        text-decoration: underline;
+                        font-weight: bold;
+                    }
                 }
+
             }
             &__row{
                 margin: 20px 0;
@@ -832,7 +854,7 @@ export default {
             color: #222831;
             margin-bottom: 10px;
             display: -webkit-box;
-            -webkit-line-clamp: 1;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
             @media all and (max-width: 768px) {  
