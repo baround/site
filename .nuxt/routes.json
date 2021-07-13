@@ -3,78 +3,91 @@
     "name": "chi-siamo",
     "path": "/chi-siamo",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/chi-siamo/index.vue",
-    "chunkName": "pages/chi-siamo/index"
+    "chunkName": "pages/chi-siamo/index",
+    "_name": "_fe0ab21c"
   },
   {
     "name": "contatti",
     "path": "/contatti",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/contatti/index.vue",
-    "chunkName": "pages/contatti/index"
+    "chunkName": "pages/contatti/index",
+    "_name": "_022ab8c2"
   },
   {
     "name": "credits",
     "path": "/credits",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/credits/index.vue",
-    "chunkName": "pages/credits/index"
+    "chunkName": "pages/credits/index",
+    "_name": "_b24db8f0"
   },
   {
     "name": "diario",
     "path": "/diario",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/diario/index.vue",
-    "chunkName": "pages/diario/index"
+    "chunkName": "pages/diario/index",
+    "_name": "_50d1f084"
   },
   {
     "name": "filter",
     "path": "/filter",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/filter/index.vue",
-    "chunkName": "pages/filter/index"
+    "chunkName": "pages/filter/index",
+    "_name": "_456ae5e0"
   },
   {
     "name": "homepage",
     "path": "/homepage",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/homepage/index.vue",
-    "chunkName": "pages/homepage/index"
+    "chunkName": "pages/homepage/index",
+    "_name": "_f777a0d4"
   },
   {
     "name": "itinerari",
     "path": "/itinerari",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/itinerari/index.vue",
-    "chunkName": "pages/itinerari/index"
+    "chunkName": "pages/itinerari/index",
+    "_name": "_7fc131e9"
   },
   {
     "name": "locali",
     "path": "/locali",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/locali/index.vue",
-    "chunkName": "pages/locali/index"
+    "chunkName": "pages/locali/index",
+    "_name": "_01737d74"
   },
   {
     "name": "privacy",
     "path": "/privacy",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/privacy/index.vue",
-    "chunkName": "pages/privacy/index"
+    "chunkName": "pages/privacy/index",
+    "_name": "_e2117e14"
   },
   {
     "name": "diario-slug",
     "path": "/diario/:slug",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/diario/_slug.vue",
-    "chunkName": "pages/diario/_slug"
+    "chunkName": "pages/diario/_slug",
+    "_name": "_4f1b4f3c"
   },
   {
     "name": "itinerari-slug",
     "path": "/itinerari/:slug",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/itinerari/_slug.vue",
-    "chunkName": "pages/itinerari/_slug"
+    "chunkName": "pages/itinerari/_slug",
+    "_name": "_7e0a90a1"
   },
   {
     "name": "locali-slug",
     "path": "/locali/:slug",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/locali/_slug.vue",
-    "chunkName": "pages/locali/_slug"
+    "chunkName": "pages/locali/_slug",
+    "_name": "_04e0c004"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/cenetiempol/Documents/Projects/Baround/site/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_390e25bd"
   }
 ]

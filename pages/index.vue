@@ -55,7 +55,7 @@
         </section>
         <section class="page__whatsup" v-if='posts'>
         
-        <div v-for="(post, key) in posts" :key="key" v-if='post.id=="668"'>
+        <div v-for="post in posts.slice(0, 1)">
             <div class="page__whatsup__content page__content">
                 <div class="page__whatsup__content__header">
                     <h2>
