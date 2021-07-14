@@ -114,7 +114,7 @@
                     </h2>
                     <select class="blue">
                         <option value="Milano">Milano</option>
-                        <option disabled="disabled" value="-">Presto disponibili</option>
+                        <option disabled="disabled" value="-">Presto disponibili</option> 
                     </select>
                     <a class="cta cta--full" href="/itinerari">Scopri tutti</a>
                 </div>
