@@ -108,7 +108,7 @@
         <section class="page__itinerari" v-if='itinerari'>
             <div class="page__itinerari__content page__content">
                 <div class="page__itinerari__content__header">
-                    <h2>
+                    <h2> 
                         <span class="icon icon--itinerari"></span>
                         Scopri i migliori itinerari di
                     </h2>
