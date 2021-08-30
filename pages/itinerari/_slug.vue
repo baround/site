@@ -543,17 +543,6 @@ transition: "slide-right",
         this.$store.dispatch("itinerari");
     },  
     beforeUpdate(){
-        if(this.itinerario.acf.locali_vicini){
-            var idPosts = [];
-            var i;
-            for (i = 0; i < this.itinerario.acf.locali_vicini.length; i++) {
-                idPosts.push(this.itinerario.acf.locali_vicini[i].ID);
-            }
-            var filtered = this.listalocali.filter((item) => idPosts.includes(item.id));
-            this.correlatiLocali = filtered;
-
-        }
-        this.coords = this.listaLong();
         this.title = this.itinerario.title.rendered;
     },
     mounted(){
@@ -568,7 +557,6 @@ transition: "slide-right",
 
         }
         this.coords = this.listaLong();
-        this.title = this.itinerario.title.rendered;
         
     },
 };
@@ -754,7 +742,7 @@ transition: "slide-right",
                 align-items: center;
                 margin: 15px 0;
                 .boxAttivita{
-                    max-width: 654px;
+                    max-width: 1024px;
                     width: 100%;
                     background: white;
                     padding: 0 75px 0 75px;
